@@ -1,0 +1,4071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página presidentes</title>
+
+  <style>
+    /* início style global */
+    ._common__container-blank___LSHR2 {
+      padding: 0;
+      margin: 0;
+    }
+
+    ._common__footer-blank___1HA70 {
+      width: 100%;
+      padding: 0 15%;
+    }
+
+    .Header__container___19YrK {
+      z-index: 10 !important;
+    }
+
+    progress {
+      z-index: 12 !important;
+    }
+
+    html {
+      font-size: 16px;
+      max-width: 100vw;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    main {
+      min-height: 100vh;
+    }
+
+    .perfil {
+      font-size: 20px;
+      color: #000000;
+      margin-bottom: 26px;
+    }
+
+    .container {
+      gap: 30px;
+      padding: 30px 0;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      margin-top: 75px;
+    }
+
+    /* final style global */
+
+    /*início reset css*/
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    /*final reset css*/
+
+    /*início cartão css*/
+
+    #cartao-bolsonaro {
+      display: block;
+    }
+
+    #cartao-ciro {
+      display: none;
+    }
+
+    #cartao-avila {
+      display: none;
+    }
+
+    #cartao-jefferson {
+      display: none;
+    }
+
+    #cartao-leite {
+      display: none;
+    }
+
+    #cartao-lula {
+      display: none;
+    }
+
+    #cartao-manzano {
+      display: none;
+    }
+
+    #cartao-marcal {
+      display: none;
+    }
+
+    #cartao-moro {
+      display: none;
+    }
+
+    #cartao-pericles {
+      display: none;
+    }
+
+    #cartao-tebet {
+      display: none;
+    }
+
+    #cartao-vera {
+      display: none;
+    }
+
+    #cartao-eymael {
+      display: none;
+    }
+
+    #cartao-thronicke {
+      display: none;
+    }
+
+    .cartao-completo {
+      border-radius: 10px;
+      width: 575px;
+      height: 625px;
+    }
+
+    .cartao-completo .cartao-topo {
+      padding: 0px 19px 0;
+    }
+
+    .cartao-completo .nome {
+      margin-bottom: 5px;
+    }
+
+    .cartao-completo .tipo {
+      font-size: 12px;
+      background-color: #ffffff;
+      opacity: 0.7;
+      border-radius: 10px;
+      padding: 2px 10px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .cartao-completo .detalhes {
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cartao-imagem {
+      /*MUDAR A LARGURA E ALTURA DA IMAGEM DO CARTÃO*/
+      position: relative;
+      bottom: 20px;
+      z-index: 1;
+    }
+
+    .imagem-candidato-desk {
+      transform: translate(38px, -141px);
+      max-height: 100%;
+      z-index: 1;
+    }
+
+    .cartao-informacoes {
+      justify-content: space-between;
+      background-color: #ffffff;
+      padding: 23px 30px 50px;
+      margin-top: -70px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-right: 1px solid #6b727a;
+      border-bottom: 1px solid #6b727a;
+      border-left: 1px solid #6b727a;
+      position: relative;
+      z-index: 1;
+      top: 70px;
+      height: 325px;
+    }
+
+    .cartao-topo {
+      height: 300px;
+    }
+
+    .detalhes .coluna-direita {
+      padding-right: 40px;
+    }
+
+    .cartao-topo .detalhes .nome {
+      color: #000000;
+      font-size: 36px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-weight: 800;
+    }
+
+    .cartao-topo .detalhes .profissão {
+      color: #000000;
+      font-size: 18px;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-weight: 350;
+      line-height: 21px;
+    }
+
+    .cartao-topo .detalhes .numero-partido {
+      color: #000000;
+      font-size: 55px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-weight: 800;
+    }
+
+    .cartao-topo .detalhes .nome-partido {
+      color: #000000;
+      font-size: 18px;
+      line-height: 21px;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      margin-top: -10px;
+      font-weight: 350;
+    }
+
+    .nome-div .nome-informacoes {
+      color: #646464;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .nome-div .vice {
+      color: #000000;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 15px;
+      font-weight: 350;
+      transform: translate(0px, -13px);
+    }
+
+    .nome-twitter {
+      display: inline-flex;
+      padding-right: 6px;
+    }
+
+    .nome-twitter a {
+      padding-top: 7px;
+      padding-left: 5px;
+    }
+
+    .formacao-titulo {
+      color: #646464;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      padding-bottom: 39px;
+    }
+
+    .profissao {
+      color: #000000;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 15px;
+      font-weight: 350;
+    }
+
+    .texto-informacoes {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      justify-content: space-between;
+      align-items: end;
+      justify-items: stretch;
+    }
+
+    /*ajustes finos thronicke*/
+    #desk-thronicke {
+      transform: translate(43px, -166px);
+    }
+
+    #nome-thronicke {
+      transform: translate(4px, 13px);
+    }
+
+    #profissao-thronicke {
+      transform: translate(7px, -9px);
+    }
+
+    #numero-thronicke {
+      transform: translate(-14px, 2px);
+    }
+
+    #partido-thronicke {
+      transform: translate(-7px, -18px);
+    }
+
+    #formacao-thronicke-info {
+      transform: translate(4px, -2px);
+    }
+
+    #profissao-thronicke-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos thronicke*/
+
+    /*ajustes finos bolsonaro*/
+    #desk-bolsonaro {
+      transform: translate(108px, -171px);
+    }
+
+    #nome-bolsonaro {
+      transform: translate(4px, 12px);
+    }
+
+    #profissao-bolsonaro {
+      transform: translate(7px, -12px);
+    }
+
+    #numero-bolsonaro {
+      transform: translate(-13px, 1px);
+    }
+
+    #partido-bolsonaro {
+      transform: translate(-10px, -18px);
+    }
+
+    #formacao-bolsonaro-info {
+      transform: translate(4px, -2px);
+    }
+
+    #profissao-bolsonaro-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos bolsonaro*/
+    /*ajustes finos ciro*/
+    #desk-ciro {
+      transform: translate(43px, -206px);
+    }
+
+    #nome-ciro {
+      transform: translate(4px, 11px);
+    }
+
+    #profissao-ciro {
+      transform: translate(6px, -11px);
+    }
+
+    #numero-ciro {
+      transform: translate(43px, 1px);
+    }
+
+    #partido-ciro {
+      transform: translate(41px, -18px);
+    }
+
+    #formacao-ciro-info {
+      transform: translate(4px, 0px);
+    }
+
+    #profissao-ciro-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos ciro*/
+    /*ajustes finos davila*/
+    #desk-davila {
+      transform: translate(43px, -160px);
+    }
+
+    #nome-davila {
+      transform: translate(4px, 22px);
+    }
+
+    #profissao-davila {
+      transform: translate(6px, 0px);
+    }
+
+    #numero-davila {
+      transform: translate(-8px, 0px);
+    }
+
+    #partido-davila {
+      transform: translate(-9px, -21px);
+    }
+
+    #formacao-davila-info {
+      transform: translate(4px, 8px);
+    }
+
+    #profissao-davila-info {
+      transform: translate(4px, -22px);
+    }
+
+    /*ajustes finos davila*/
+
+    /*ajustes finos eymael*/
+    #desk-eymael {
+      transform: translate(57px, -172px);
+    }
+
+    #nome-eymael {
+      transform: translate(4px, 12px);
+    }
+
+    #profissao-eymael {
+      transform: translate(7px, -10px);
+    }
+
+    #numero-eymael {
+      transform: translate(20px, 1px);
+    }
+
+    #partido-eymael {
+      transform: translate(24px, -18px);
+    }
+
+    #formacao-eymael-info {
+      transform: translate(-6px, -2px);
+    }
+
+    #profissao-eymael-info {
+      transform: translate(-6px, -33px);
+    }
+
+    /*ajustes finos eymael*/
+    /*ajustes finos jefferson*/
+    #desk-jefferson {
+      transform: translate(75px, -149px);
+    }
+
+    #nome-jefferson {
+      transform: translate(2px, 21px);
+    }
+
+    #profissao-jefferson {
+      transform: translate(7px, -1px);
+    }
+
+    #numero-jefferson {
+      transform: translate(-8px, 0px);
+    }
+
+    #partido-jefferson {
+      transform: translate(-8px, -20px);
+    }
+
+    #formacao-jefferson-info {
+      transform: translate(-1px, -2px);
+    }
+
+    #profissao-jefferson-info {
+      transform: translate(-1px, -33px);
+    }
+
+    /*ajustes finos jefferson*/
+    /*ajustes finos leite*/
+    #desk-leite {
+      transform: translate(50px, -225px);
+    }
+
+    #nome-leite {
+      transform: translate(4px, 12px);
+    }
+
+    #profissao-leite {
+      transform: translate(7px, -11px);
+    }
+
+    #numero-leite {
+      transform: translate(30px, 2px);
+    }
+
+    #partido-leite {
+      transform: translate(32px, -19px);
+    }
+
+    #formacao-leite-info {
+      transform: translate(-1px, -2px);
+    }
+
+    #profissao-leite-info {
+      transform: translate(-1px, -33px);
+    }
+
+    /*ajustes finos leite*/
+    /*ajustes finos lula*/
+    #desk-lula {
+      transform: translate(38px, -186px);
+    }
+
+    #nome-lula {
+      transform: translate(4px, 11px);
+    }
+
+    #profissao-lula {
+      transform: translate(7px, -11px);
+    }
+
+    #numero-lula {
+      transform: translate(56px, 1px);
+    }
+
+    #partido-lula {
+      transform: translate(54px, -19px);
+    }
+
+    #formacao-lula-info {
+      transform: translate(-1px, -2px);
+    }
+
+    #profissao-lula-info {
+      transform: translate(-1px, -33px);
+    }
+
+    /*ajustes finos lula*/
+    /*ajustes finos manzano*/
+    #desk-manzano {
+      transform: translate(101px, -189px);
+    }
+
+    #nome-manzano {
+      transform: translate(4px, -1px);
+    }
+
+    #profissao-manzano {
+      transform: translate(7px, -21px);
+    }
+
+    #numero-manzano {
+      transform: translate(17px, 1px);
+    }
+
+    #partido-manzano {
+      transform: translate(20px, -19px);
+    }
+
+    #formacao-manzano-info {
+      transform: translate(4px, -2px);
+    }
+
+    #profissao-manzano-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos manzano*/
+    /*ajustes finos marcal*/
+    #desk-marcal {
+      transform: translate(52px, -218px);
+    }
+
+    #nome-marcal {
+      transform: translate(4px, -12px);
+    }
+
+    #profissao-marcal {
+      transform: translate(7px, -32px);
+    }
+
+    #numero-marcal {
+      transform: translate(37px, 0px);
+    }
+
+    #partido-marcal {
+      transform: translate(38px, -19px);
+    }
+
+    #formacao-marcal-info {
+      transform: translate(4px, -2px);
+    }
+
+    #profissao-marcal-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos marcal*/
+    /*ajustes finos pericles*/
+    #desk-pericles {
+      transform: translate(92px, -176px);
+    }
+
+    #nome-pericles {
+      transform: translate(6px, 21px);
+    }
+
+    #profissao-pericles {
+      transform: translate(7px, 1px);
+    }
+
+    #numero-pericles {
+      transform: translate(-3px, 0px);
+    }
+
+    #partido-pericles {
+      transform: translate(-2px, -18px);
+    }
+
+    #formacao-pericles-info {
+      transform: translate(-5px, -2px);
+    }
+
+    #profissao-pericles-info {
+      transform: translate(-5px, -33px);
+    }
+
+    /*ajustes finos pericles*/
+    /*ajustes finos tebet*/
+    #desk-tebet {
+      transform: translate(79px, -184px);
+    }
+
+    #nome-tebet {
+      transform: translate(2px, 2px);
+    }
+
+    #profissao-tebet {
+      transform: translate(6px, -21px);
+    }
+
+    #numero-tebet {
+      transform: translate(45px, 2px);
+    }
+
+    #partido-tebet {
+      transform: translate(45px, -19px);
+    }
+
+    #formacao-tebet-info {
+      transform: translate(1px, -2px);
+    }
+
+    #profissao-tebet-info {
+      transform: translate(1px, -33px);
+    }
+
+    /*ajustes finos tebet*/
+    /*ajustes finos vera*/
+    #desk-vera {
+      transform: translate(19px, -221px);
+    }
+
+    #nome-vera {
+      transform: translate(2px, -13px);
+    }
+
+    #profissao-vera {
+      transform: translate(7px, -33px);
+    }
+
+    #numero-vera {
+      transform: translate(56px, -2px);
+    }
+
+    #partido-vera {
+      transform: translate(54px, -20px);
+    }
+
+    #formacao-vera-info {
+      transform: translate(4px, -2px);
+    }
+
+    #profissao-vera-info {
+      transform: translate(4px, -33px);
+    }
+
+    /*ajustes finos vera*/
+
+    .fundo-thronicke {
+      background-color: #52A092;
+    }
+
+    .fundo-bolsonaro {
+      background-color: #6973ad;
+    }
+
+    .fundo-ciro {
+      background-color: #c05b5e;
+    }
+
+    .fundo-avila {
+      background-color: #ef862b;
+    }
+
+    .fundo-jefferson {
+      background-color: #8cbfc6;
+    }
+
+    .fundo-lula {
+      background-color: #fd6166;
+    }
+
+    .fundo-leite {
+      background-color: #188FFC;
+    }
+
+    .fundo-manzano {
+      background-color: #cb8d91;
+    }
+
+    .fundo-marcal {
+      background-color: #B36520;
+    }
+
+    .fundo-moro {
+      background-color: #43ac65;
+    }
+
+    .fundo-pericles {
+      background-color: #e2a8ab;
+    }
+
+    .fundo-tebet {
+      background-color: #fece43;
+    }
+
+    .fundo-vera {
+      background-color: #8F373A;
+    }
+
+    .fundo-eymael {
+      background-color: #4E58BF;
+    }
+
+    /*final cartão css*/
+
+    /*início listagem css*/
+
+    .listagem {
+      max-width: 272px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      color: #333333;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-bottom: 20px;
+    }
+
+    .listagem .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #ffffff;
+      color: #707070;
+      padding: 0 3px;
+      cursor: pointer;
+      border-radius: 90px;
+      min-height: 45px;
+      border: 1px solid #707070;
+      transition: 0.15s ease-in-out;
+    }
+
+    .listagem .item:hover {
+      transform: scale(1.04);
+    }
+
+    .listagem .item span {
+      padding-right: 20px;
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-weight: bold;
+      padding-left: 20px;
+    }
+
+    .listagem .img-small {
+      border: 1px solid #707070;
+    }
+
+    /*final listagem css*/
+
+    /*início container-texto*/
+    /* .container-wrapper {
+display: none;
+} */
+
+    .container-texto {
+      width: 575px;
+      line-height: 20px;
+      margin-top: 78px;
+    }
+
+    .aberto {
+      display: block;
+    }
+
+    .saiba-mais {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 29px;
+      color: #000000;
+      padding-bottom: 5px;
+    }
+
+    .texto-candidato {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      padding-bottom: 16px;
+    }
+
+    .ultimas-materias {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      margin-top: 20px;
+      padding-bottom: 25px;
+      color: #000000;
+      font-size: 20px;
+    }
+
+    .links {
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 16px;
+      color: #000000;
+      margin-bottom: 19px;
+      text-decoration: underline 3px #3ec2cf;
+    }
+
+    .link-li {
+      margin-bottom: 19px;
+    }
+
+    .texto-observacao {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-weight: 200;
+      font-size: 12px;
+      line-height: 14px;
+      color: #000000;
+      width: 575px;
+    }
+
+    @media (min-width: 751px) {
+      .coluna-esquerda-mobile {
+        display: none;
+      }
+
+      .imagem-candidato-mobile {
+        display: none;
+      }
+
+      .informacoes-mobile {
+        display: none;
+      }
+
+      .nome-div-mobile-davila {
+        display: none;
+      }
+
+      /*final container-texto*/
+
+      /*ajustes finos thronicke*/
+      #nome-thronicke-mobile {
+        display: none;
+      }
+
+      #profissao-thronicke-mobile {
+        display: none;
+      }
+
+      #numero-thronicke-mobile {
+        display: none;
+      }
+
+      #partido-thronicke-mobile {
+        display: none;
+      }
+
+      /*ajustes finos thronicke*/
+
+      /*ajustes finos bolsonaro*/
+      #nome-bolsonaro-mobile {
+        display: none;
+      }
+
+      #profissao-bolsonaro-mobile {
+        display: none;
+      }
+
+      #numero-bolsonaro-mobile {
+        display: none;
+      }
+
+      #partido-bolsonaro-mobile {
+        display: none;
+      }
+
+      /*ajustes finos bolsonaro*/
+      /*ajustes finos ciro*/
+      #nome-ciro-mobile {
+        display: none;
+      }
+
+      #profissao-ciro-mobile {
+        display: none;
+      }
+
+      #numero-ciro-mobile {
+        display: none;
+      }
+
+      #partido-ciro-mobile {
+        display: none;
+      }
+
+      /*ajustes finos ciro*/
+      /*ajustes finos davila*/
+      #nome-davila-mobile {
+        display: none;
+      }
+
+      #profissao-davila-mobile {
+        display: none;
+      }
+
+      #numero-davila-mobile {
+        display: none;
+      }
+
+      #partido-davila-mobile {
+        display: none;
+      }
+
+      /*ajustes finos davila*/
+
+      /*ajustes finos eymael*/
+      #nome-eymael-mobile {
+        display: none;
+      }
+
+      #profissao-eymael-mobile {
+        display: none;
+      }
+
+      #numero-eymael-mobile {
+        display: none;
+      }
+
+      #partido-eymael-mobile {
+        display: none;
+      }
+
+      /*ajustes finos eymael*/
+      /*ajustes finos jefferson*/
+      #nome-jefferson-mobile {
+        display: none;
+      }
+
+      #profissao-jefferson-mobile {
+        display: none;
+      }
+
+      #numero-jefferson-mobile {
+        display: none;
+      }
+
+      #partido-jefferson-mobile {
+        display: none;
+      }
+
+      /*ajustes finos jefferson*/
+      /*ajustes finos leite*/
+      #nome-leite-mobile {
+        display: none;
+      }
+
+      #profissao-leite-mobile {
+        display: none;
+      }
+
+      #numero-leite-mobile {
+        display: none;
+      }
+
+      #partido-leite-mobile {
+        display: none;
+      }
+
+      /*ajustes finos leite*/
+      /*ajustes finos lula*/
+      #nome-lula-mobile {
+        display: none;
+      }
+
+      #profissao-lula-mobile {
+        display: none;
+      }
+
+      #numero-lula-mobile {
+        display: none;
+      }
+
+      #partido-lula-mobile {
+        display: none;
+      }
+
+      /*ajustes finos lula*/
+      /*ajustes finos manzano*/
+      #nome-manzano-mobile {
+        display: none;
+      }
+
+      #profissao-manzano-mobile {
+        display: none;
+      }
+
+      #numero-manzano-mobile {
+        display: none;
+      }
+
+      #partido-manzano-mobile {
+        display: none;
+      }
+
+      /*ajustes finos manzano*/
+      /*ajustes finos marcal*/
+      #nome-marcal-mobile {
+        display: none;
+      }
+
+      #profissao-marcal-mobile {
+        display: none;
+      }
+
+      #numero-marcal-mobile {
+        display: none;
+      }
+
+      #partido-marcal-mobile {
+        display: none;
+      }
+
+      /*ajustes finos marcal*/
+      /*ajustes finos pericles*/
+      #nome-pericles-mobile {
+        display: none;
+      }
+
+      #profissao-pericles-mobile {
+        display: none;
+      }
+
+      #numero-pericles-mobile {
+        display: none;
+      }
+
+      #partido-pericles-mobile {
+        display: none;
+      }
+
+      /*ajustes finos pericles*/
+      /*ajustes finos tebet*/
+      #nome-tebet-mobile {
+        display: none;
+      }
+
+      #profissao-tebet-mobile {
+        display: none;
+      }
+
+      #numero-tebet-mobile {
+        display: none;
+      }
+
+      #partido-tebet-mobile {
+        display: none;
+      }
+
+      /*ajustes finos tebet*/
+      /*ajustes finos vera*/
+      #nome-vera-mobile {
+        display: none;
+      }
+
+      #profissao-vera-mobile {
+        display: none;
+      }
+
+      #numero-vera-mobile {
+        display: none;
+      }
+
+      #partido-vera-mobile {
+        display: none;
+      }
+
+      /*ajustes finos vera*/
+
+
+      .twitter-container-desk {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 16px;
+        font-weight: 350;
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+        z-index: 999;
+        position: relative;
+      }
+
+      .twitter-desk {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 16px;
+        font-weight: 350;
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+        padding-left: 7px;
+        z-index: 999;
+        position: relative;
+      }
+
+      #twitter-bolsonaro-desk {
+        transform: translate(-2px, 25px);
+      }
+
+      #twitter-ciro-desk {
+        transform: translate(-2px, 4px);
+      }
+
+      #twitter-davila-desk {
+        transform: translate(-2px, 36px);
+      }
+
+      #twitter-eymael-desk {
+        transform: translate(-2px, 25px);
+      }
+
+      #twitter-jefferson-desk {
+        transform: translate(-2px, 36px);
+      }
+
+      #twitter-leite-desk {
+        transform: translate(-2px, -17px);
+      }
+
+      #twitter-lula-desk {
+        transform: translate(-2px, 25px);
+      }
+
+      #twitter-manzano-desk {
+        transform: translate(-2px, 15px);
+      }
+
+      #twitter-marcal-desk {
+        transform: translate(-2px, 4px);
+      }
+
+      #twitter-pericles-desk {
+        transform: translate(-2px, 15px);
+      }
+
+      #twitter-tebet-desk {
+        transform: translate(-2px, 15px);
+      }
+
+      #twitter-vera-desk {
+        transform: translate(-2px, 4px);
+      }
+
+      .twitter-mobile {
+        display: none;
+      }
+
+      .nome-informacoes-desk-davila {
+        transform: translate(0px, -8px);
+        color: #646464;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+          sans-serif;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .vice-desk-davila {
+        color: #000000;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+        font-size: 15px;
+        font-weight: 350;
+        transform: translate(0px, -21px);
+      }
+
+      .nome-div-mobile-davila {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 750px) and (min-width: 321px) {
+      .container {
+        flex-direction: column;
+        padding: 30px 0;
+        gap: 0;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .cartao-completo {
+        max-width: 346px;
+        height: 520px;
+      }
+
+      .cartao-topo {
+        height: 140px;
+      }
+
+      .cartao-completo .cartao-informacoes {
+        height: 380px;
+        padding: 18px 10px 15px 9px;
+      }
+
+      .cartao-completo .cartao-informacoes .informacoes {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+      }
+
+      .cartao-completo .cartao-informacoes h3 {
+        font-size: 15px;
+      }
+
+      .texto-informacoes {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .perfil {
+        font-size: 18px;
+        margin-bottom: 17px;
+      }
+
+      .listagem {
+        max-width: 346px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .listagem ul {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .listagem .item {
+        width: 110px;
+        height: 25px;
+        border-radius: 90px;
+        font-size: 11px;
+        flex: 0 32%;
+      }
+
+      .listagem .item span {
+        padding-right: 0px;
+        padding-left: 9px;
+        font-size: 11px;
+      }
+
+      .listagem img {
+        display: none;
+      }
+
+      .imagem-candidato-mobile {
+        display: block;
+        position: relative;
+        bottom: 20px;
+        z-index: 1;
+        transform: translate(48px, -66px);
+        max-height: 100%;
+      }
+
+      #mobile-thronicke {
+        transform: translate(64px, -78px);
+      }
+
+      #mobile-bolsonaro {
+        transform: translate(82px, -78px);
+      }
+
+      #mobile-ciro {
+        transform: translate(74px, -102px);
+      }
+
+      #mobile-davila {
+        transform: translate(50px, -82px);
+      }
+
+      #mobile-eymael {
+        transform: translate(62px, -81px);
+      }
+
+      #mobile-jefferson {
+        transform: translate(57px, -81px);
+      }
+
+      #mobile-leite {
+        transform: translate(72px, -110px);
+      }
+
+      #mobile-lula {
+        transform: translate(62px, -87px);
+      }
+
+      #mobile-manzano {
+        transform: translate(78px, -90px);
+      }
+
+      #mobile-marcal {
+        transform: translate(78px, -99px);
+      }
+
+      #mobile-pericles {
+        transform: translate(70px, -86px);
+      }
+
+      #mobile-tebet {
+        transform: translate(61px, -87px);
+      }
+
+      #mobile-vera {
+        transform: translate(61px, -105px);
+      }
+
+      .informacoes-mobile {
+        display: block;
+      }
+
+      .imagem-candidato-desk {
+        display: none;
+      }
+
+      .informacoes-desk {
+        display: none;
+      }
+
+      .twitter-mobile {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-flex;
+      }
+
+      #twitter-bolsonaro-mobile {
+        transform: translate(-59px, -26px);
+      }
+
+      #twitter-ciro-mobile {
+        transform: translate(-91px, -26px);
+      }
+
+      #twitter-davila-mobile {
+        transform: translate(-78px, -26px);
+      }
+
+      #twitter-eymael-mobile {
+        transform: translate(-77px, -26px);
+      }
+
+      #twitter-jefferson-mobile {
+        transform: translate(-51px, -26px);
+      }
+
+      #twitter-leite-mobile {
+        transform: translate(-70px, -26px);
+      }
+
+      #twitter-lula-mobile {
+        transform: translate(-51px, -26px);
+      }
+
+      #twitter-manzano-mobile {
+        transform: translate(-51px, -26px);
+      }
+
+      #twitter-marcal-mobile {
+        transform: translate(-81px, -26px);
+      }
+
+      #twitter-pericles-mobile {
+        transform: translate(-66px, -26px);
+      }
+
+      #twitter-tebet-mobile {
+        transform: translate(-63px, -26px);
+      }
+
+      #twitter-vera-mobile {
+        transform: translate(-102px, -26px);
+      }
+
+      .cartao-completo .cartao-topo {
+        padding-top: 15px;
+        padding-left: 15px;
+      }
+
+      .cartao-topo .detalhes .nome {
+        font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: #000000;
+        padding-bottom: 30px;
+      }
+
+      .cartao-topo .detalhes .numero-partido {
+        font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: #000000;
+      }
+
+      .cartao-topo .detalhes .profissão {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+      }
+
+      .cartao-topo .detalhes .nome-partido {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+      }
+
+      .nome-div .nome-informacoes {
+        font-size: 15px;
+      }
+
+      .nome-div .vice {
+        font-size: 10px;
+        transform: translate(2px, -6px);
+      }
+
+      .formacao-div {
+        display: none;
+      }
+
+      .nome-twitter {
+        display: inline-flex;
+        padding-right: 7px;
+      }
+
+      .nome-twitter a {
+        padding-top: 0;
+        padding-left: 5px;
+      }
+
+      .container-texto {
+        width: 346px;
+        line-height: 20px;
+        margin-top: 62px;
+      }
+
+      .texto-candidato {
+        margin-top: 16px;
+      }
+
+      .saiba-mais {
+        padding-bottom: 0;
+      }
+
+      .twitter-container-desk {
+        display: none;
+      }
+
+      /*ajustes finos thronicke*/
+      #desk-thronicke {
+        display: none;
+      }
+
+      #nome-thronicke {
+        display: none;
+      }
+
+      #profissao-thronicke {
+        display: none;
+      }
+
+      #numero-thronicke {
+        display: none;
+      }
+
+      #partido-thronicke {
+        display: none;
+      }
+
+      /*ajustes finos thronicke*/
+      /*ajustes finos bolsonaro*/
+      #desk-bolsonaro {
+        display: none;
+      }
+
+      #nome-bolsonaro {
+        display: none;
+      }
+
+      #profissao-bolsonaro {
+        display: none;
+      }
+
+      #numero-bolsonaro {
+        display: none;
+      }
+
+      #partido-bolsonaro {
+        display: none;
+      }
+
+      /*ajustes finos bolsonaro*/
+      /*ajustes finos ciro*/
+      #desk-ciro {
+        display: none;
+      }
+
+      #nome-ciro {
+        display: none;
+      }
+
+      #profissao-ciro {
+        display: none;
+      }
+
+      #numero-ciro {
+        display: none;
+      }
+
+      #partido-ciro {
+        display: none;
+      }
+
+      /*ajustes finos ciro*/
+      /*ajustes finos davila*/
+      #desk-davila {
+        display: none;
+      }
+
+      #nome-davila {
+        display: none;
+      }
+
+      #profissao-davila {
+        display: none;
+      }
+
+      #numero-davila {
+        display: none;
+      }
+
+      #partido-davila {
+        display: none;
+      }
+
+      /*ajustes finos davila*/
+      /*ajustes finos eymael*/
+      #desk-eymael {
+        display: none;
+      }
+
+      #nome-eymael {
+        display: none;
+      }
+
+      #profissao-eymael {
+        display: none;
+      }
+
+      #numero-eymael {
+        display: none;
+      }
+
+      #partido-eymael {
+        display: none;
+      }
+
+      /*ajustes finos eymael*/
+      /*ajustes finos jefferson*/
+      #desk-jefferson {
+        display: none;
+      }
+
+      #nome-jefferson {
+        display: none;
+      }
+
+      #profissao-jefferson {
+        display: none;
+      }
+
+      #numero-jefferson {
+        display: none;
+      }
+
+      #partido-jefferson {
+        display: none;
+      }
+
+      /*ajustes finos jefferson*/
+      /*ajustes finos leite*/
+      #desk-leite {
+        display: none;
+      }
+
+      #nome-leite {
+        display: none;
+      }
+
+      #profissao-leite {
+        display: none;
+      }
+
+      #numero-leite {
+        display: none;
+      }
+
+      #partido-leite {
+        display: none;
+      }
+
+      /*ajustes finos leite*/
+      /*ajustes finos lula*/
+      #desk-lula {
+        display: none;
+      }
+
+      #nome-lula {
+        display: none;
+      }
+
+      #profissao-lula {
+        display: none;
+      }
+
+      #numero-lula {
+        display: none;
+      }
+
+      #partido-lula {
+        display: none;
+      }
+
+      /*ajustes finos lula*/
+      /*ajustes finos manzano*/
+      #desk-manzano {
+        display: none;
+      }
+
+      #nome-manzano {
+        display: none;
+      }
+
+      #profissao-manzano {
+        display: none;
+      }
+
+      #numero-manzano {
+        display: none;
+      }
+
+      #partido-manzano {
+        display: none;
+      }
+
+      /*ajustes finos manzano*/
+      /*ajustes finos marcal*/
+      #desk-marcal {
+        display: none;
+      }
+
+      #nome-marcal {
+        display: none;
+      }
+
+      #profissao-marcal {
+        display: none;
+      }
+
+      #numero-marcal {
+        display: none;
+      }
+
+      #partido-marcal {
+        display: none;
+      }
+
+      /*ajustes finos marcal*/
+      /*ajustes finos pericles*/
+      #desk-pericles {
+        display: none;
+      }
+
+      #nome-pericles {
+        display: none;
+      }
+
+      #profissao-pericles {
+        display: none;
+      }
+
+      #numero-pericles {
+        display: none;
+      }
+
+      #partido-pericles {
+        display: none;
+      }
+
+      /*ajustes finos pericles*/
+      /*ajustes finos tebet*/
+      #desk-tebet {
+        display: none;
+      }
+
+      #nome-tebet {
+        display: none;
+      }
+
+      #profissao-tebet {
+        display: none;
+      }
+
+      #numero-tebet {
+        display: none;
+      }
+
+      #partido-tebet {
+        display: none;
+      }
+
+      /*ajustes finos tebet*/
+      /*ajustes finos vera*/
+      #desk-vera {
+        display: none;
+      }
+
+      #nome-vera {
+        display: none;
+      }
+
+      #profissao-vera {
+        display: none;
+      }
+
+      #numero-vera {
+        display: none;
+      }
+
+      #partido-vera {
+        display: none;
+      }
+
+      /*ajustes finos vera*/
+
+      /*MOBILE*/
+      /*ajustes finos thronicke*/
+      #nome-thronicke-mobile {
+        transform: translate(0px, 6px);
+      }
+
+      #profissao-thronicke-mobile {
+        transform: translate(2px, -27px);
+        line-height: 12px;
+      }
+
+      #numero-thronicke-mobile {
+        transform: translate(37px, -29px);
+      }
+
+      #partido-thronicke-mobile {
+        transform: translate(2px, 5px);
+      }
+
+      /*ajustes finos thronicke*/
+      /*ajustes finos bolsonaro*/
+      #nome-bolsonaro-mobile {
+        transform: translate(0px, 6px);
+      }
+
+      #profissao-bolsonaro-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-bolsonaro-mobile {
+        transform: translate(37px, -28px);
+      }
+
+      #partido-bolsonaro-mobile {
+        transform: translate(2px, 10px);
+      }
+
+      /*ajustes finos bolsonaro*/
+      /*ajustes finos ciro*/
+      .coluna-esquerda {
+        display: none;
+      }
+
+      .coluna-esquerda-mobile {
+        display: grid;
+      }
+
+      #nome-ciro-mobile {
+        transform: translate(2px, 6px);
+      }
+
+      #profissao-ciro-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-ciro-mobile {
+        transform: translate(36px, -37px);
+      }
+
+      #partido-ciro-mobile {
+        line-height: 12px;
+        transform: translate(4px, 3px);
+      }
+
+      /*ajustes finos ciro*/
+      /*ajustes finos davila*/
+      #nome-davila-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-davila-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-davila-mobile {
+        transform: translate(36px, -27px);
+      }
+
+      #partido-davila-mobile {
+        transform: translate(3px, 4px);
+      }
+
+      /*ajustes finos davila*/
+
+      /*ajustes finos eymael*/
+      #nome-eymael-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-eymael-mobile {
+        transform: translate(3px, -30px);
+      }
+
+      #numero-eymael-mobile {
+        transform: translate(36px, -29px);
+      }
+
+      #partido-eymael-mobile {
+        transform: translate(3px, 7px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos eymael*/
+      /*ajustes finos jefferson*/
+      #nome-jefferson-mobile {
+        transform: translate(-3px, 7px);
+      }
+
+      #profissao-jefferson-mobile {
+        transform: translate(-1px, -31px);
+      }
+
+      #numero-jefferson-mobile {
+        transform: translate(37px, -27px);
+      }
+
+      #partido-jefferson-mobile {
+        transform: translate(-1px, 4px);
+      }
+
+      /*ajustes finos jefferson*/
+      /*ajustes finos leite*/
+      #nome-leite-mobile {
+        transform: translate(1px, 6px);
+      }
+
+      #profissao-leite-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-leite-mobile {
+        transform: translate(37px, -43px);
+      }
+
+      #partido-leite-mobile {
+        transform: translate(2px, -5px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos leite*/
+      /*ajustes finos lula*/
+      #nome-lula-mobile {
+        transform: translate(1px, 6px);
+      }
+
+      #profissao-lula-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-lula-mobile {
+        transform: translate(37px, -30px);
+      }
+
+      #partido-lula-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos lula*/
+      /*ajustes finos manzano*/
+      #nome-manzano-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-manzano-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-manzano-mobile {
+        transform: translate(37px, -36px);
+      }
+
+      #partido-manzano-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos manzano*/
+      /*ajustes finos marcal*/
+      #nome-marcal-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-marcal-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-marcal-mobile {
+        transform: translate(37px, -36px);
+      }
+
+      #partido-marcal-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos marcal*/
+      /*ajustes finos pericles*/
+      #nome-pericles-mobile {
+        transform: translate(1px, 6px);
+      }
+
+      #profissao-pericles-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-pericles-mobile {
+        transform: translate(36px, -30px);
+      }
+
+      #partido-pericles-mobile {
+        transform: translate(2px, 8px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos pericles*/
+      /*ajustes finos tebet*/
+      #nome-tebet-mobile {
+        transform: translate(2px, 6px);
+      }
+
+      #profissao-tebet-mobile {
+        transform: translate(3px, -33px);
+      }
+
+      #numero-tebet-mobile {
+        transform: translate(37px, -37px);
+      }
+
+      #partido-tebet-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos tebet*/
+      /*ajustes finos vera*/
+      #nome-vera-mobile {
+        transform: translate(-1px, 6px);
+      }
+
+      #profissao-vera-mobile {
+        transform: translate(2px, -33px);
+      }
+
+      #numero-vera-mobile {
+        transform: translate(38px, -43px);
+      }
+
+      #partido-vera-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      .texto-observacao {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+          sans-serif;
+        font-weight: 200;
+        font-size: 10px;
+        line-height: 12px;
+        color: #000000;
+        width: 346px;
+      }
+
+      .ultimas-materias {
+        font-size: 18px;
+      }
+
+      .nome-div-desk-davila {
+        display: none;
+      }
+
+      .nome-informacoes-mobile-davila {
+        color: #646464;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+      }
+
+      .vice-mobile-davila {
+        font-size: 10px;
+        color: #000000;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+        font-weight: 350;
+      }
+
+    }
+
+    @media (max-width: 320px) and (min-width: 200px) {
+      .container {
+        flex-direction: column;
+        padding: 30px 0;
+        gap: 0;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .cartao-completo {
+        max-width: 318px;
+        height: 520px;
+      }
+
+      .cartao-topo {
+        height: 140px;
+      }
+
+      .cartao-completo .cartao-informacoes {
+        height: 380px;
+        padding: 18px 10px 15px 9px;
+      }
+
+      .cartao-completo .cartao-informacoes .informacoes {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+      }
+
+      .cartao-completo .cartao-informacoes h3 {
+        font-size: 15px;
+      }
+
+      .texto-informacoes {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .perfil {
+        font-size: 18px;
+        margin-bottom: 17px;
+      }
+
+      .listagem {
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .listagem ul {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .listagem .item {
+        width: 110px;
+        height: 25px;
+        border-radius: 90px;
+        font-size: 10px;
+        flex: 0 32%;
+      }
+
+      .listagem .item span {
+        padding-right: 0px;
+      }
+
+      .listagem img {
+        display: none;
+      }
+
+      .imagem-candidato-mobile {
+        display: block;
+        position: relative;
+        bottom: 20px;
+        z-index: 1;
+        transform: translate(48px, -66px);
+        max-height: 100%;
+      }
+
+      .twitter-container-desk {
+        display: none;
+      }
+
+      #mobile-thronicke {
+        transform: translate(64px, -78px);
+      }
+
+      #mobile-bolsonaro {
+        transform: translate(82px, -78px);
+      }
+
+      #mobile-ciro {
+        transform: translate(74px, -102px);
+      }
+
+      #mobile-davila {
+        transform: translate(50px, -82px);
+      }
+
+      #mobile-eymael {
+        transform: translate(62px, -81px);
+      }
+
+      #mobile-jefferson {
+        transform: translate(57px, -81px);
+      }
+
+      #mobile-leite {
+        transform: translate(72px, -110px);
+      }
+
+      #mobile-lula {
+        transform: translate(62px, -87px);
+      }
+
+      #mobile-manzano {
+        transform: translate(78px, -90px);
+      }
+
+      #mobile-marcal {
+        transform: translate(78px, -99px);
+      }
+
+      #mobile-pericles {
+        transform: translate(70px, -86px);
+      }
+
+      #mobile-tebet {
+        transform: translate(61px, -87px);
+      }
+
+      #mobile-vera {
+        transform: translate(61px, -105px);
+      }
+
+      .informacoes-mobile {
+        display: block;
+      }
+
+      .imagem-candidato-desk {
+        display: none;
+      }
+
+      .informacoes-desk {
+        display: none;
+      }
+
+      .cartao-completo .cartao-topo {
+        padding-top: 15px;
+        padding-left: 15px;
+      }
+
+      .cartao-topo .detalhes .nome {
+        font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: #000000;
+        padding-bottom: 30px;
+      }
+
+      .cartao-topo .detalhes .numero-partido {
+        font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+        font-size: 24px;
+        font-weight: 800;
+        color: #000000;
+      }
+
+      .cartao-topo .detalhes .profissão {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+      }
+
+      .cartao-topo .detalhes .nome-partido {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+      }
+
+      .nome-div .nome-informacoes {
+        font-size: 15px;
+      }
+
+      .nome-div .vice {
+        font-size: 10px;
+        transform: translate(2px, -6px);
+      }
+
+      .formacao-div {
+        display: none;
+      }
+
+      .nome-twitter {
+        display: inline-flex;
+        padding-right: 7px;
+      }
+
+      .nome-twitter a {
+        padding-top: 0;
+        padding-left: 5px;
+      }
+
+      .container-texto {
+        width: 300px;
+        line-height: 20px;
+        margin-top: 62px;
+      }
+
+      .texto-candidato {
+        margin-top: 16px;
+      }
+
+      .saiba-mais {
+        padding-bottom: 0;
+      }
+
+      .coluna-esquerda {
+        display: none;
+      }
+
+      .coluna-esquerda-mobile {
+        display: grid;
+      }
+
+      .twitter-mobile {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A',
+          'Gotham Rounded SSm B', sans-serif;
+        font-size: 10px;
+        font-weight: 350;
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-flex;
+      }
+
+      #twitter-bolsonaro-mobile {
+        transform: translate(-31px, -26px);
+      }
+
+      #twitter-ciro-mobile {
+        transform: translate(-64px, -26px);
+      }
+
+      #twitter-davila-mobile {
+        transform: translate(-50px, -26px);
+      }
+
+      #twitter-eymael-mobile {
+        transform: translate(-51px, -26px);
+      }
+
+      #twitter-jefferson-mobile {
+        transform: translate(-23px, -26px);
+      }
+
+      #twitter-leite-mobile {
+        transform: translate(-43px, -26px);
+      }
+
+      #twitter-lula-mobile {
+        transform: translate(-26px, -26px);
+      }
+
+      #twitter-manzano-mobile {
+        transform: translate(-24px, -26px);
+      }
+
+      #twitter-marcal-mobile {
+        transform: translate(-54px, -26px);
+      }
+
+      #twitter-pericles-mobile {
+        transform: translate(-39px, -26px);
+      }
+
+      #twitter-tebet-mobile {
+        transform: translate(-43px, -26px);
+      }
+
+      #twitter-vera-mobile {
+        transform: translate(-75px, -26px);
+      }
+
+      /*ajustes finos thronicke*/
+      #desk-thronicke {
+        display: none;
+      }
+
+      #nome-thronicke {
+        display: none;
+      }
+
+      #profissao-thronicke {
+        display: none;
+      }
+
+      #numero-thronicke {
+        display: none;
+      }
+
+      #partido-thronicke {
+        display: none;
+      }
+
+      /*ajustes finos thronicke*/
+
+      /*ajustes finos bolsonaro*/
+      #desk-bolsonaro {
+        display: none;
+      }
+
+      #nome-bolsonaro {
+        display: none;
+      }
+
+      #profissao-bolsonaro {
+        display: none;
+      }
+
+      #numero-bolsonaro {
+        display: none;
+      }
+
+      #partido-bolsonaro {
+        display: none;
+      }
+
+      /*ajustes finos bolsonaro*/
+      /*ajustes finos ciro*/
+      #desk-ciro {
+        display: none;
+      }
+
+      #nome-ciro {
+        display: none;
+      }
+
+      #profissao-ciro {
+        display: none;
+      }
+
+      #numero-ciro {
+        display: none;
+      }
+
+      #partido-ciro {
+        display: none;
+      }
+
+      /*ajustes finos ciro*/
+      /*ajustes finos davila*/
+      #desk-davila {
+        display: none;
+      }
+
+      #nome-davila {
+        display: none;
+      }
+
+      #profissao-davila {
+        display: none;
+      }
+
+      #numero-davila {
+        display: none;
+      }
+
+      #partido-davila {
+        display: none;
+      }
+
+      /*ajustes finos davila*/
+
+      /*ajustes finos eymael*/
+      #desk-eymael {
+        display: none;
+      }
+
+      #nome-eymael {
+        display: none;
+      }
+
+      #profissao-eymael {
+        display: none;
+      }
+
+      #numero-eymael {
+        display: none;
+      }
+
+      #partido-eymael {
+        display: none;
+      }
+
+      /*ajustes finos eymael*/
+      /*ajustes finos jefferson*/
+      #desk-jefferson {
+        display: none;
+      }
+
+      #nome-jefferson {
+        display: none;
+      }
+
+      #profissao-jefferson {
+        display: none;
+      }
+
+      #numero-jefferson {
+        display: none;
+      }
+
+      #partido-jefferson {
+        display: none;
+      }
+
+      /*ajustes finos jefferson*/
+      /*ajustes finos leite*/
+      #desk-leite {
+        display: none;
+      }
+
+      #nome-leite {
+        display: none;
+      }
+
+      #profissao-leite {
+        display: none;
+      }
+
+      #numero-leite {
+        display: none;
+      }
+
+      #partido-leite {
+        display: none;
+      }
+
+      /*ajustes finos leite*/
+      /*ajustes finos lula*/
+      #desk-lula {
+        display: none;
+      }
+
+      #nome-lula {
+        display: none;
+      }
+
+      #profissao-lula {
+        display: none;
+      }
+
+      #numero-lula {
+        display: none;
+      }
+
+      #partido-lula {
+        display: none;
+      }
+
+      /*ajustes finos lula*/
+      /*ajustes finos manzano*/
+      #desk-manzano {
+        display: none;
+      }
+
+      #nome-manzano {
+        display: none;
+      }
+
+      #profissao-manzano {
+        display: none;
+      }
+
+      #numero-manzano {
+        display: none;
+      }
+
+      #partido-manzano {
+        display: none;
+      }
+
+      /*ajustes finos manzano*/
+      /*ajustes finos marcal*/
+      #desk-marcal {
+        display: none;
+      }
+
+      #nome-marcal {
+        display: none;
+      }
+
+      #profissao-marcal {
+        display: none;
+      }
+
+      #numero-marcal {
+        display: none;
+      }
+
+      #partido-marcal {
+        display: none;
+      }
+
+      /*ajustes finos marcal*/
+      /*ajustes finos pericles*/
+      #desk-pericles {
+        display: none;
+      }
+
+      #nome-pericles {
+        display: none;
+      }
+
+      #profissao-pericles {
+        display: none;
+      }
+
+      #numero-pericles {
+        display: none;
+      }
+
+      #partido-pericles {
+        display: none;
+      }
+
+      /*ajustes finos pericles*/
+      /*ajustes finos tebet*/
+      #desk-tebet {
+        display: none;
+      }
+
+      #nome-tebet {
+        display: none;
+      }
+
+      #profissao-tebet {
+        display: none;
+      }
+
+      #numero-tebet {
+        display: none;
+      }
+
+      #partido-tebet {
+        display: none;
+      }
+
+      /*ajustes finos tebet*/
+      /*ajustes finos vera*/
+      #desk-vera {
+        display: none;
+      }
+
+      #nome-vera {
+        display: none;
+      }
+
+      #profissao-vera {
+        display: none;
+      }
+
+      #numero-vera {
+        display: none;
+      }
+
+      #partido-vera {
+        display: none;
+      }
+
+      /*ajustes finos vera*/
+
+      /*MOBILE*/
+      /*ajustes finos thronicke*/
+      #nome-thronicke-mobile {
+        transform: translate(0px, 6px);
+      }
+
+      #profissao-thronicke-mobile {
+        transform: translate(2px, -27px);
+        line-height: 12px;
+      }
+
+      #numero-thronicke-mobile {
+        transform: translate(37px, -29px);
+      }
+
+      #partido-thronicke-mobile {
+        transform: translate(2px, 5px);
+      }
+
+      /*ajustes finos thronicke*/
+      /*ajustes finos bolsonaro*/
+      #nome-bolsonaro-mobile {
+        transform: translate(0px, 6px);
+      }
+
+      #profissao-bolsonaro-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-bolsonaro-mobile {
+        transform: translate(37px, -28px);
+      }
+
+      #partido-bolsonaro-mobile {
+        transform: translate(2px, 10px);
+      }
+
+      /*ajustes finos bolsonaro*/
+      /*ajustes finos ciro*/
+
+      #nome-ciro-mobile {
+        transform: translate(2px, 6px);
+      }
+
+      #profissao-ciro-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-ciro-mobile {
+        transform: translate(36px, -37px);
+      }
+
+      #partido-ciro-mobile {
+        line-height: 12px;
+        transform: translate(4px, 3px);
+      }
+
+      /*ajustes finos ciro*/
+      /*ajustes finos davila*/
+      #nome-davila-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-davila-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-davila-mobile {
+        transform: translate(36px, -27px);
+      }
+
+      #partido-davila-mobile {
+        transform: translate(3px, 4px);
+      }
+
+      /*ajustes finos davila*/
+      /*ajustes finos eymael*/
+      #nome-eymael-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-eymael-mobile {
+        transform: translate(3px, -30px);
+      }
+
+      #numero-eymael-mobile {
+        transform: translate(36px, -29px);
+      }
+
+      #partido-eymael-mobile {
+        transform: translate(3px, 7px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos eymael*/
+      /*ajustes finos jefferson*/
+      #nome-jefferson-mobile {
+        transform: translate(-3px, 7px);
+      }
+
+      #profissao-jefferson-mobile {
+        transform: translate(-1px, -31px);
+      }
+
+      #numero-jefferson-mobile {
+        transform: translate(37px, -27px);
+      }
+
+      #partido-jefferson-mobile {
+        transform: translate(-1px, 4px);
+      }
+
+      /*ajustes finos jefferson*/
+      /*ajustes finos leite*/
+      #nome-leite-mobile {
+        transform: translate(1px, 6px);
+      }
+
+      #profissao-leite-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-leite-mobile {
+        transform: translate(37px, -43px);
+      }
+
+      #partido-leite-mobile {
+        transform: translate(2px, -5px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos leite*/
+      /*ajustes finos lula*/
+      #nome-lula-mobile {
+        transform: translate(1px, 5px);
+      }
+
+      #profissao-lula-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-lula-mobile {
+        transform: translate(37px, -31px);
+      }
+
+      #partido-lula-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos lula*/
+      /*ajustes finos manzano*/
+      #nome-manzano-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-manzano-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-manzano-mobile {
+        transform: translate(37px, -36px);
+      }
+
+      #partido-manzano-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos manzano*/
+      /*ajustes finos marcal*/
+      #nome-marcal-mobile {
+        transform: translate(1px, 7px);
+      }
+
+      #profissao-marcal-mobile {
+        transform: translate(2px, -32px);
+      }
+
+      #numero-marcal-mobile {
+        transform: translate(37px, -36px);
+      }
+
+      #partido-marcal-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos marcal*/
+      /*ajustes finos pericles*/
+      #nome-pericles-mobile {
+        transform: translate(1px, 6px);
+      }
+
+      #profissao-pericles-mobile {
+        transform: translate(2px, -28px);
+        line-height: 12px;
+      }
+
+      #numero-pericles-mobile {
+        transform: translate(36px, -30px);
+      }
+
+      #partido-pericles-mobile {
+        transform: translate(2px, 8px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos pericles*/
+      /*ajustes finos tebet*/
+      #nome-tebet-mobile {
+        transform: translate(2px, 6px);
+      }
+
+      #profissao-tebet-mobile {
+        transform: translate(3px, -33px);
+      }
+
+      #numero-tebet-mobile {
+        transform: translate(37px, -37px);
+      }
+
+      #partido-tebet-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos tebet*/
+      /*ajustes finos vera*/
+      #nome-vera-mobile {
+        transform: translate(-1px, 6px);
+      }
+
+      #profissao-vera-mobile {
+        transform: translate(2px, -33px);
+      }
+
+      #numero-vera-mobile {
+        transform: translate(38px, -43px);
+      }
+
+      #partido-vera-mobile {
+        transform: translate(2px, -2px);
+        line-height: 12px;
+      }
+
+      /*ajustes finos vera*/
+      .texto-observacao {
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+          sans-serif;
+        font-weight: 200;
+        font-size: 10px;
+        line-height: 12px;
+        color: #000000;
+        width: 300px;
+      }
+
+      .ultimas-materias {
+        font-size: 18px;
+      }
+
+      .nome-div-desk-davila {
+        display: none;
+      }
+
+      .nome-informacoes-mobile-davila {
+        color: #646464;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+      }
+
+      .vice-mobile-davila {
+        font-size: 10px;
+        color: #000000;
+        font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+        font-weight: 350;
+      }
+
+      /*FIM MOBILE*/
+    }
+
+    /*final responsivo css*/
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="listagem-grupo">
+        <nav class="listagem">
+          <h2 class="perfil">O perfil dos candidatos</h2>
+          <ul>
+            <li class="item ativo" id="bolsonaro">
+              <span>Bolsonaro (PL)</span>
+            </li>
+            <li class="item" id="ciro">
+              <span>Ciro (PDT)</span>
+            </li>
+            <li class="item" id="avila">
+              <span>d’Avila (Novo)</span>
+            </li>
+            <li class="item" id="eymael">
+              <span>Eymael (DC)</span>
+            </li>
+            <li class="item" id="jefferson">
+              <span>Jefferson (PTB)</span>
+            </li>
+            <li class="item" id="lula">
+              <span>Lula (PT)</span>
+            </li>
+            <li class="item" id="manzano">
+              <span>Manzano (PCB)</span>
+            </li>
+            <li class="item" id="marcal">
+              <span>Marçal (PROS)</span>
+            </li>
+            <li class="item" id="pericles">
+              <span>Péricles (UP)</span>
+            </li>
+            <li class="item" id="tebet">
+              <span>Tebet (MDB)</span>
+            </li>
+            <li class="item" id="thronicke">
+              <span>Thronicke (União Brasil)</span>
+            </li>
+            <li class="item" id="vera">
+              <span>Vera (PSTU)</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cartoes">
+        <!-- começo Bolsonaro cartão-->
+        <div class="container-wrapper" id="cartao-bolsonaro">
+          <div class="cartao-completo aberto fundo-bolsonaro">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-bolsonaro">Bolsonaro</p>
+                  <p class="profissão" id="profissao-bolsonaro">Atual presidente</p>
+                  <div class="twitter-container-desk" id="twitter-bolsonaro-desk">
+                    <a class="twitter-desk" href="https://twitter.com/jairbolsonaro" aria-label="link para o  twitter do candidado" target="_blank">@jairbolsonaro</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-bolsonaro-mobile">Bolsonaro</p>
+                  <p class="profissão" id="profissao-bolsonaro-mobile">Atual presidente</p>
+                  <p class="nome-partido" id="partido-bolsonaro-mobile">Partido Liberal</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-bolsonaro">22</p>
+                  <p class="numero-partido" id="numero-bolsonaro-mobile">22</p>
+                  <p class="nome-partido" id="partido-bolsonaro">Partido</br> Liberal</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-bolsonaro" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-bolsonaro.png" alt="imagem do Bolsonaro">
+                <img class="imagem-candidato-mobile" id="mobile-bolsonaro" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-bolsonaro.png" alt="imagem do Bolsonaro">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Jair Messias Bolsonaro</h2>
+                  </div>
+                  <p class="vice">Vice: Braga Neto (PL)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-bolsonaro-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-bolsonaro-info">Militar</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-bolsonaro-mobile" href="https://twitter.com/jairbolsonaro" aria-label="link para o  twitter do candidado" target="_blank">@jairbolsonaro</a></p>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-bolsonaro-6.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-bolsonaro-8.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto aberto">
+            <h2 class="saiba-mais">Bolsonaro</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                O capitão despontou na vida pública liderando reivindicações salariais para colegas de Exército no fim da década de 1980. Absolvido pelo Superior Tribunal Militar da acusação de organizar um plano para explodir uma bomba em banheiros da Vila Militar da Academia das Agulhas Negras, em Resende, deixou a ativa e se elegeu vereador do Rio. Em seguida, conquistou o primeiro de uma série de mandatos como deputado federal, atuando como representante de policiais e integrantes de baixa patente das Forças Armadas. Após quase 30 anos no Congresso, lançou-se à Presidência. Na campanha, sofreu um atentado a faca. <a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2019/03/27/Os-efeitos-para-a-popula%C3%A7%C3%A3o-da-ode-de-Bolsonaro-%C3%A0-ditadura">Entusiasta da ditadura militar</a>, foi eleito em meio ao desgaste da política tradicional.
+              </p>
+              <p class="texto-candidato"> O presidente conduz o mandato apoiado por uma base conservadora e pela
+                simpatia de parte do empresariado e agentes de mercado que apostam nas promessas de reformas
+                liberalizantes. Tem ainda o suporte de setores do agronegócio interessados na <a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/04/21/Como-o-governo-Bolsonaro-age-ao-lidar-com-o-meio-ambiente">desregulação ambiental.</a> Seu governo é marcado pelo afrouxamento de regras sobre acesso a armas e munições, pelo incentivo de
+                polêmicas de cunho moral na chamada “guerra cultural”, pelo negacionismo científico na pandemia de
+                covid-19, por difusão de <a class="links" target="_blank" href="https://www.nexojornal.com.br/extra/2021/07/08/%E2%80%98Ou-fazemos-elei%C3%A7%C3%B5es-limpas-ou-n%C3%A3o-temos-elei%C3%A7%C3%B5es%E2%80%99-amea%C3%A7a-Bolsonaro">desinformação sobre o sistema eleitoral</a>, por ameaças ao Supremo Tribunal
+                Federal e pela ampliação de poderes orçamentários do Congresso, o que lhe garantiu estabilidade
+                parlamentar. Em 2022, concentra seu discurso na ideia de que é o único que pode impedir a volta do PT.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2022/03/29/Como-Bolsonaro-amarra-sua-alian%C3%A7a-para-buscar-a-reelei%C3%A7%C3%A3o">Como Bolsonaro amarra sua aliança para buscar a reeleição</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/podcast/2022/03/28/Suspeitas-e-trocas-em-s%C3%A9rie-a-gest%C3%A3o-do-MEC-no-governo-Bolsonaro">Suspeitas e trocas em série: a gestão do MEC no governo Bolsonaro
+                </a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2022/05/10/O-sil%C3%AAncio-empresarial-diante-das-amea%C3%A7as-de-Bolsonaro-em-2022">O silêncio empresarial diante das ameaças de Bolsonaro em 2022</a>
+              </li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Bolsonaro cartão-->
+
+        <!-- começo Ciro cartão-->
+        <div class="container-wrapper" id="cartao-ciro">
+          <div class="cartao-completo fundo-ciro">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-ciro">Ciro</p>
+                  <p class="profissão" id="profissao-ciro">Ex-governador</br>do Ceará</p>
+                  <div class="twitter-container-desk" id="twitter-ciro-desk">
+                    <a class="twitter-desk" href="https://twitter.com/cirogomes" aria-label="link para o  twitter do candidado" target="_blank">@cirogomes</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-ciro-mobile">Ciro</p>
+                  <p class="profissão" id="profissao-ciro-mobile">Ex-governador</br> do Ceará</p>
+                  <p class="nome-partido" id="partido-ciro-mobile">Partido</br>Democrático</br>Trabalhista</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-ciro">12</p>
+                  <p class="nome-partido" id="partido-ciro">Partido</br>Democrático</br>Trabalhista</p>
+                  <p class="numero-partido" id="numero-ciro-mobile">12</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-ciro" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-ciro.png" alt="imagem">
+                <img class="imagem-candidato-mobile" id="mobile-ciro" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-ciro.png" alt="imagem do Ciro">
+
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Ciro Gomes</h2>
+                  </div>
+                  <p class="vice">Vice: Ana Paula Matos (PDT)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-ciro-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-ciro-info">Direito</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-ciro-mobile" href="https://twitter.com/cirogomes" aria-label="link para o  twitter do candidado" target="_blank">@cirogomes</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-ciro-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-ciro-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Ciro</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                O advogado despontou na vida pública seguindo os passos da família no Ceará, primeiro no movimento
+                estudantil e depois como deputado estadual. Após comandar a prefeitura de Sobral e o governo do
+                estado, virou ministro da Fazenda de Fernando Henrique Cardoso, com quem veio a romper. Passou por um
+                período de estudos nos EUA para, em seguida, dedicar-se a duas campanhas presidenciais seguidas, em
+                1998 e 2002, das quais saiu derrotado. Foi ministro da Integração Nacional no governo Lula, elegeu-se
+                deputado federal e também atuou como secretário de Saúde do Ceará na gestão de seu irmão Cid Gomes.
+              </p>
+              <p class="texto-candidato">O ex-governador e ex-ministro voltaria a tentar chegar ao <a class="links" target="_blank" href="https://www.nexojornal.com.br/podcast/2018/03/25/Pr%C3%A9-candidatos-como-Ciro-Gomes-se-apresenta-ao-pa%C3%ADs">Palácio do Planalto
+                  em 2018</a>, também sem sucesso. Desde então, <a class="links" target="_blank" href="https://www.nexojornal.com.br/extra/2022/01/21/PDT-oficializa-pr%C3%A9-candidatura-de-Ciro-Gomes-%C3%A0-Presid%C3%AAncia1">rompeu com Lula e o PT</a>, a quem faz críticas públicas
+                especialmente relacionadas a escândalos de corrupção. Ao mesmo tempo, investe contra Bolsonaro e seu
+                governo. Em 2022, concentra seu discurso na defesa de uma política desenvolvimentista para a economia.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/05/04/Qual-o-lugar-de-Ciro-Gomes-com-Lula-na-disputa-presidencial">Qual o lugar de Ciro Gomes com Lula na disputa presidencial</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2018/08/09/A-trajet%C3%B3ria-de-Ciro-Gomes-candidato-do-PDT-%C3%A0-Presid%C3%AAncia">A trajetória de Ciro Gomes, candidato do PDT à Presidência</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/podcast/2021/10/04/PT-e-Ciro-os-apelos-de-tr%C3%A9gua-numa-rela%C3%A7%C3%A3o-conturbada">PT e Ciro: os apelos de trégua numa relação conturbada</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Ciro cartão-->
+
+        <!-- começo Davila cartão-->
+        <div class="container-wrapper" id="cartao-avila">
+          <div class="cartao-completo fundo-avila">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-davila">d’Avila</p>
+                  <p class="profissão" id="profissao-davila">Empresário</p>
+                  <div class="twitter-container-desk" id="twitter-davila-desk">
+                    <a class="twitter-desk" href="https://twitter.com/lfdavilaoficial" aria-label="link para o  twitter do candidado" target="_blank">@lfdavilaoficial</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-davila-mobile">d’Avila</p>
+                  <p class="profissão" id="profissao-davila-mobile">Empresário</p>
+                  <p class="nome-partido" id="partido-davila-mobile">Novo</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-davila">30</p>
+                  <p class="nome-partido" id="partido-davila">Novo</p>
+                  <p class="numero-partido" id="numero-davila-mobile">30</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-davila" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-davila.png" alt="imagem do d’Avila">
+                <img class="imagem-candidato-mobile" id="mobile-davila" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-davila.png" alt="imagem do d’Avila">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div-desk-davila">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes-desk-davila">Felipe d’Avila</h2>
+                  </div>
+                  <p class="vice-desk-davila">Vice: Tiago Mitraud (Novo)</p>
+                </div>
+
+                <div class="nome-div-mobile-davila">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes-mobile-davila">Felipe d’Avila</h2>
+                  </div>
+                  <p class="vice-mobile-davila">Vice: Tiago Mitraud (Novo)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-davila-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-davila-info">Relações Internacionais</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-davila-mobile" href="https://twitter.com/lfdavilaoficial" aria-label="link para o  twitter do candidado" target="_blank">@lfdavilaoficial</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-davila-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-davila-9.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">d’Avila</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                O cientista político ganhou destaque como publisher das revistas Bravo e República. É coordenador do
+                movimento “Unidos Pelo Brasil” e fundador do Centro de Liderança Pública, organização dedicada ao
+                desenvolvimento de líderes públicos. Adota uma agenda liberal na economia, com defesa das
+                privatizações, e diz combater o que chama de “populismo de esquerda e direita”. O candidato
+                perdeu as prévias do PSDB para o governo de São Paulo, em 2018, e depois foi coordenador de programa
+                da campanha presidencial de Geraldo Alckmin.
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/07/05/Sombra-da-corrup%C3%A7%C3%A3o-at%C3%A9-o-Novo-agora-%C3%A9-%E2%80%98Fora-Bolsonaro%E2%80%99">Sombra da corrupção: até o Novo agora é 'Fora Bolsonaro'</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Davila cartão-->
+
+        <!-- começo Eymael cartão-->
+        <div class="container-wrapper" id="cartao-eymael">
+          <div class="cartao-completo fundo-eymael">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-eymael">Eymael</p>
+                  <p class="profissão" id="profissao-eymael">Advogado</p>
+                  <div class="twitter-container-desk" id="twitter-eymael-desk">
+                    <a class="twitter-desk" href="https://twitter.com/Eymaeloficial" aria-label="link para o  twitter do candidado" target="_blank">@Eymaeloficial</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-eymael-mobile">Eymael</p>
+                  <p class="profissão" id="profissao-eymael-mobile">Advogado</p>
+                  <p class="nome-partido" id="partido-eymael-mobile">Democrata </br> Cristã</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-eymael">27</p>
+                  <p class="nome-partido" id="partido-eymael">Democrata </br> Cristã</p>
+                  <p class="numero-partido" id="numero-eymael-mobile">27</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-eymael" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-eymael.png" alt="imagem do Eymael">
+                <img class="imagem-candidato-mobile" id="mobile-eymael" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-eymael.png" alt="imagem do Eymael">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">José Maria Eymael</h2>
+                  </div>
+                  <p class="vice">Vice: João Barbosa Bravo (DC)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-eymael-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-eymael-info">Direito</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-eymael-mobile" href="https://twitter.com/Eymaeloficial" aria-label="link para o  twitter do candidado" target="_blank">@Eymaeloficial</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-eymael-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-eymael-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Eymael</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">O advogado despontou na vida política no movimento estudantil, ligado à Juventude Operária Católica. Disputou sua primeira eleição em 1985, quando pleiteou a prefeitura de São Paulo e perdeu, mas deixou sua marca com a estreia do jingle que dá fama a ele até hoje: “Ey Ey Eymael, um democrata cristão”. Conservador, foi deputado federal, participando inclusive da Assembleia Constituinte. Está na sua sexta tentativa de chegar ao Palácio do Planalto.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2018/08/14/A-trajet%C3%B3ria-de-Eymael-candidato-do-DC-%C3%A0-Presid%C3%AAncia">A trajetória de Eymael, candidato do DC à Presidência</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Eymael cartão-->
+
+        <!-- começo Jefferson cartão-->
+        <div class="container-wrapper" id="cartao-jefferson">
+          <div class="cartao-completo fundo-jefferson">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-jefferson">Jefferson</p>
+                  <p class="profissão" id="profissao-jefferson">Advogado</p>
+                  <!--<div class="twitter-container-desk" id="twitter-jefferson-desk">
+                    <a class="twitter-desk" href="https://twitter.com/" aria-label="link para o  twitter do candidado" target="_blank">@</a>
+                  </div>-->
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-jefferson-mobile">Jefferson</p>
+                  <p class="profissão" id="profissao-jefferson-mobile">Advogado</p>
+                  <p class="nome-partido" id="partido-jefferson-mobile">Partido Trabalhista </br> Brasileiro</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-jefferson">14</p>
+                  <p class="nome-partido" id="partido-jefferson">PTB</p>
+                  <p class="numero-partido" id="numero-jefferson-mobile">14</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-jefferson" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-janones.png" alt="imagem do Jefferson">
+                <img class="imagem-candidato-mobile" id="mobile-jefferson" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-janones.png" alt="imagem do Jefferson">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Roberto Jefferson</h2>
+                  </div>
+                  <p class="vice">Vice: Kelmon da Silva (PTB)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-jefferson-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-jefferson-info">Direito</li>
+                  </ul>
+                </div>
+
+                <!--
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-jefferson-mobile" href="https://twitter.com/" aria-label="link para o  twitter do candidado" target="_blank">@</a>
+                </div>
+                -->
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-janones-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-janones-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Jefferson</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+            <!--
+            <h2 class="ultimas-materias">Últimas matérias sobre o candidato</h2>
+            <ul>
+              <li class="link-li"><a class="links" href="">Bolsonaro cobra redução no combustível após queda do
+                  petróleo</a></li>
+              <li class="link-li"><a class="links" href="">Bolsolaro sanciona projeto que prevê ICMS único sobre
+                  combustíveis</a></li>
+              <li class="link-li"><a class="links" href="">Bolsonaro ajuda a legitimar Putin e a narrativa da
+                  Rússia</a></li>
+            </ul>
+            -->
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Jefferson cartão-->
+        <!-- começo Lula cartão-->
+        <div class="container-wrapper" id="cartao-lula">
+          <div class="cartao-completo fundo-lula">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-lula">Lula</p>
+                  <p class="profissão" id="profissao-lula">Ex-presidente</p>
+                  <div class="twitter-container-desk" id="twitter-lula-desk">
+                    <a class="twitter-desk" href="https://twitter.com/LulaOficial" aria-label="link para o  twitter do candidado" target="_blank">@LulaOficial</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-lula-mobile">Lula</p>
+                  <p class="profissão" id="profissao-lula-mobile">Ex-presidente</p>
+                  <p class="nome-partido" id="partido-lula-mobile">Partido dos</br>Trabalhadores</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-lula">13</p>
+                  <p class="nome-partido" id="partido-lula">Partido dos</br>Trabalhadores</p>
+                  <p class="numero-partido" id="numero-lula-mobile">13</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-lula" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-lula.png" alt="imagem do Lula">
+                <img class="imagem-candidato-mobile" id="mobile-lula" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-lula.png" alt="imagem do Lula">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Luiz Inácio Lula da Silva</h2>
+                  </div>
+                  <p class="vice">Vice: Geraldo Alckmin (PSB)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-lula-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-lula-info">Formação técnica</li>
+                  </ul>
+                </div>
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-lula-mobile" href="https://twitter.com/LulaOficial" aria-label="link para o  twitter do candidado" target="_blank">@LulaOficial</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-lula-8.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-lula-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Lula</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                O metalúrgico despontou na vida pública no movimento sindical, ao comandar as grandes greves
+                do ABC Paulista no fim da década de 1970, na ditadura militar. Fundador e principal líder do
+                PT, foi deputado constituinte e disputou a Presidência da República três vezes antes de
+                conquistar o comando do país. Governou o Brasil por dois mandatos, num período marcado por
+                <a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/08/26/Como-Lula-aparece-aos-olhos-do-mercado-na-disputa-de-2022">estabilidade econômica</a>, avanços sociais e também pelo escândalo do mensalão. Ajudou a eleger a
+                sucessora, <a class="links" target="_blank" href="https://www.nexojornal.com.br/podcast/2021/12/28/Qual-o-papel-de-Dilma-na-campanha-de-Lula-nas-elei%C3%A7%C3%B5es-de-2022">Dilma Rousseff</a>, do seu partido, em 2010. Dilma conquistou o segundo mandato em
+                2014, mas caiu após um processo de impeachment por manobras fiscais dois anos depois,
+                encerrando os pouco mais de 13 anos de PT no poder.
+              </p>
+              <p class="texto-candidato">O ex-presidente foi alvo central da Lava Jato, operação deflagrada
+                durante o governo Dilma que revelou esquemas de corrupção na Petrobras e outras estatais. Foi
+                condenado pelo então juiz Sergio Moro em 2017, no caso tríplex. Com a confirmação da sentença
+                em instâncias superiores, <a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2018/04/09/Quais-s%C3%A3o-os-movimentos-do-PT-depois-da-pris%C3%A3o-de-Lula">foi preso</a> e impedido de disputar novamente a Presidência em 2018,
+                quando liderava as pesquisas. Também foi condenado em duas instâncias no caso do sítio de
+                Atibaia. Após 580 dias na cadeia, foi solto por ordem do Supremo. A corte máxima do país viria
+                anular suas condenações na Lava Jato e <a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/03/08/O-que-muda-na-corrida-de-2022-com-Lula-eleg%C3%ADvel">devolver seus direitos políticos</a> em 2021,
+                por entender que os processos não deveriam ter sido julgados em Curitiba e por considerar que
+                Moro agiu de forma parcial. Em 2022, Lula concentra seu discurso no resgate das políticas
+                públicas de seu governo.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/extra/2022/03/23/Alckmin-oficializa-filia%C3%A7%C3%A3o-ao-PSB-e-faz-elogios-a-Lula">Alckmin oficializa filiação ao PSB e faz elogios a Lula</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/ensaio/2021/Polariza%C3%A7%C3%A3o-em-2022-e-a-assimetria-que-poucos-enxergam">Polarização em 2022 e a assimetria que poucos enxergam</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2022/02/06/O-hist%C3%B3rico-ambiental-de-governos-petistas-na-pauta-de-2022">O histórico ambiental de governos petistas na pauta de 2022</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Lula cartão-->
+
+        <!-- começo Manzano cartão-->
+        <div class="container-wrapper" id="cartao-manzano">
+          <div class="cartao-completo fundo-manzano">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-manzano">Manzano</p>
+                  <p class="profissão" id="profissao-manzano">Economista</p>
+                  <div class="twitter-container-desk" id="twitter-manzano-desk">
+                    <a class="twitter-desk" href="https://twitter.com/SofiaManzanoPCB" aria-label="link para o  twitter do candidado" target="_blank">@SofiaManzanoPCB</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-manzano-mobile">Manzano</p>
+                  <p class="profissão" id="profissao-manzano-mobile">Economista</p>
+                  <p class="nome-partido" id="partido-manzano-mobile">Partido</br>Comunista</br>Brasileiro</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-manzano">21</p>
+                  <p class="nome-partido" id="partido-manzano">Partido</br>Comunista</br>Brasileiro</p>
+                  <p class="numero-partido" id="numero-manzano-mobile">21</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-manzano" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-manzano.png" alt="imagem da Manzano">
+                <img class="imagem-candidato-mobile" id="mobile-manzano" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-manzano.png" alt="imagem da Manzano">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Sofia Manzano</h2>
+                  </div>
+                  <p class="vice">Vice: Antônio Alves (PCB)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-manzano-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-manzano-info">Economia</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-manzano-mobile" href="https://twitter.com/SofiaManzanoPCB" aria-label="link para o  twitter do candidado" target="_blank">@SofiaManzanoPCB</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-manzano-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-manzano-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Manzano</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                A economista é militante do PCB desde o fim dos anos 1980. Foi presidente da União da Juventude Comunista. Professora universitária, atuou no movimento sindical de docentes. Foi candidata a vice-presidente do país nas eleições de 2014, numa chapa encabeçada pelo também integrante do PCB Mauro Iasi. A dupla obteve apenas 0,05% dos votos válidos. Uma de suas bandeiras é o fim da Lei de Responsabilidade Fiscal, para que seja substituída por uma Lei de Responsabilidade Social.
+              </p>
+            </div>
+            <!--
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" href="">Bolsonaro cobra redução no combustível após
+                  queda do petróleo</a></li>
+              <li class="link-li"><a class="links" href="">Bolsolaro sanciona projeto que prevê ICMS único
+                  sobre combustíveis</a></li>
+              <li class="link-li"><a class="links" href="">Bolsonaro ajuda a legitimar Putin e a narrativa
+                  da Rússia</a></li>
+            </ul>
+            -->
+          </div>
+          <!--fim texto-->
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Manzano cartão-->
+
+        <!-- começo Marçal cartão-->
+        <div class="container-wrapper" id="cartao-marcal">
+          <div class="cartao-completo fundo-marcal">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-marcal">Marçal</p>
+                  <p class="profissão" id="profissao-marcal">Empresário</p>
+                  <div class="twitter-container-desk" id="twitter-marcal-desk">
+                    <a class="twitter-desk" href="https://twitter.com/pablomarcal" aria-label="link para o  twitter do candidado" target="_blank">@pablomarcal</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-marcal-mobile">Marçal</p>
+                  <p class="profissão" id="profissao-marcal-mobile">Empresário</p>
+                  <p class="nome-partido" id="partido-marcal-mobile">Partido</br>Republicano da</br>Ordem Social</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-marcal">90</p>
+                  <p class="nome-partido" id="partido-marcal">Partido</br>Republicano</br>da Ordem</br>Social</p>
+                  <p class="numero-partido" id="numero-marcal-mobile">90</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-marcal" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/desk-marcal.png" alt="imagem do Marçal">
+                <img class="imagem-candidato-mobile" id="mobile-marcal" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/mobile-marcal.png" alt="imagem do Marçal">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Pablo Marçal</h2>
+                  </div>
+                  <p class="vice">Vice: Fátima Pérola Neggra (Pros)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-marcal-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-marcal-info">Direito</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-marcal-mobile" href="https://twitter.com/pablomarcal" aria-label="link para o  twitter do candidado" target="_blank">@pablomarcal</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-marcal.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-marcal.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Marçal</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">O empresário e autor de livros de autoajuda se aventura na política pela primeira vez em 2022. Tem 3,6 milhões de seguidores no Instagram e no YouTube e ficou nacionalmente conhecido como “coach messiânico”, ao levar 66 pessoas para uma caminhada no Pico dos Marins, na divisa de São Paulo e Minas Gerais, sob condições climáticas ruins, mesmo sob alertas para não fazer isso. O grupo precisou ser resgatado pelos bombeiros. Adota o clima antipolítica que caracterizou a onda de extrema direita de 2018. <a class="links" target="_blank" href="https://www.metropoles.com/brasil/coach-messianico-integrou-quadrilha-que-desviou-dinheiro-de-bancos">Foi condenado em 2010</a> ao integrar uma quadrilha que desviou dinheiro de bancos. A pena foi extinta por prescrição, já que o caso não foi esgotado em todas as instâncias judiciais.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" href="https://www.nexojornal.com.br/entrevista/2022/02/10/%E2%80%98Novas-seitas-v%C3%A3o-de-QAnon-a-coaches-messi%C3%A2nicos%E2%80%99">Novas seitas vão de QAnon a coaches messiânicos</a></li>
+            </ul>
+          </div>
+          <!--fim texto-->
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Marçal cartão-->
+
+        <!-- começo Pericles cartão-->
+        <div class="container-wrapper" id="cartao-pericles">
+          <div class="cartao-completo fundo-pericles">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-pericles">Péricles</p>
+                  <p class="profissão" id="profissao-pericles">Liderança de </br> movimentos sociais</p>
+                  <div class="twitter-container-desk" id="twitter-pericles-desk">
+                    <a class="twitter-desk" href="https://twitter.com/LeoPericlesUP" aria-label="link para o  twitter do candidado" target="_blank">@LeoPericlesUPs</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-pericles-mobile">Péricles</p>
+                  <p class="profissão" id="profissao-pericles-mobile">Liderança de </br> movimentos sociais</p>
+                  <p class="nome-partido" id="partido-pericles-mobile">Unidade</br>Popular</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-pericles">80</p>
+                  <p class="nome-partido" id="partido-pericles">Unidade</br>Popular</p>
+                  <p class="numero-partido" id="numero-pericles-mobile">80</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-pericles" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-pericles.png" alt="imagem do Péricles">
+                <img class="imagem-candidato-mobile" id="mobile-pericles" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-pericles.png" alt="imagem do Péricles">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Leonardo Péricles</h2>
+                  </div>
+                  <p class="vice">Vice: Samara Martins (UP)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-pericles-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-pericles-info">Formação técnica</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-pericles-mobile" href="https://twitter.com/LeoPericlesUP" aria-label="link para o  twitter do candidado" target="_blank">@LeoPericlesUPs</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-pericles-8.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-pericles-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Péricles</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">O líder de movimentos sociais despontou na vida pública no
+                movimento estudantil secundarista e hoje atua no movimento moradia popular. Foi
+                candidato a vice-prefeito de Belo Horizonte em 2020, sem sucesso. Antes disso, havia
+                sido candidato a vereador pelo PDT em 2008.
+              </p>
+              <p class="texto-candidato">Ajudou a fundar a UP e é presidente do partido. Seu discurso
+                se concentra no combate ao racismo estrutural, em pautas anticapitalistas e na
+                promessa de convocação de uma nova Assembleia Constituinte para o país.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2019/12/11/O-que-prop%C3%B5e-a-Unidade-Popular-mais-novo-partido-brasileiro">O que propõe a Unidade Popular, mais novo partido brasileiro</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Pericles cartão-->
+
+        <!-- começo Tebet cartão-->
+        <div class="container-wrapper" id="cartao-tebet">
+          <div class="cartao-completo fundo-tebet">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-tebet">Tebet</p>
+                  <p class="profissão" id="profissao-tebet">Senadora</p>
+                  <div class="twitter-container-desk" id="twitter-tebet-desk">
+                    <a class="twitter-desk" href="https://twitter.com/simonetebetbr" aria-label="link para o  twitter do candidado" target="_blank">@simonetebetbr</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-tebet-mobile">Tebet</p>
+                  <p class="profissão" id="profissao-tebet-mobile">Senadora</p>
+                  <p class="nome-partido" id="partido-tebet-mobile">Movimento</br>Democrático</br>Brasileiro</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-tebet">15</p>
+                  <p class="nome-partido" id="partido-tebet">Movimento</br>Democrático</br>Brasileiro</p>
+                  <p class="numero-partido" id="numero-tebet-mobile">15</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-tebet" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-tebet.png" alt="imagem da Tebet">
+                <img class="imagem-candidato-mobile" id="mobile-tebet" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-tebet.png" alt="imagem da Tebet">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Simone Tebet</h2>
+                  </div>
+                  <p class="vice">Vice: Mara Gabrilli (PSDB)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-tebet-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-tebet-info">Direito</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-tebet-mobile" href="https://twitter.com/simonetebetbr" aria-label="link para o  twitter do candidado" target="_blank">@simonetebetbr</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-tebet-7.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-tebet-7.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Tebet</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">A advogada despontou na vida pública seguindo os passos do
+                pai, Ramez Tebet, em Mato Grosso do Sul, primeiro como deputada estadual, depois
+                como prefeita de Três Lagoas, como secretária de Governo do estado e como
+                vice-governadora. Ao conquistar uma vaga no Senado, foi a favor do impeachment de
+                Dilma e deu suporte às políticas liberalizantes do governo Michel Temer. Entusiasta
+                da Lava Jato, foi contra o afastamento do senador Aécio Neves em meio ao escândalo
+                da JBS.
+              </p>
+              <p class="texto-candidato">A senadora ganhou destaque ao comandar a Comissão de
+                Constituição e Justiça, uma das mais importantes da Casa. Teve destaque na
+                <a class="links" target="_blank" href="https://www.nexojornal.com.br/entrevista/2021/05/16/%E2%80%98CPI-pode-ajudar-a-mostrar-por-que-a-evid%C3%AAncia-%C3%A9-importante-na-medicina%E2%80%99">CPI da
+                  Covid</a>, sobre ações e omissões do governo Bolsonaro na pandemia. Sem posto de titular
+                na comissão, teve espaço nos trabalhos do colegiado em nome da bancada feminina.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2021/01/14/Quem-%C3%A9-Simone-Tebet-candidata-do-MDB-ao-comando-do-Senado">Quem é Simone Tebet, candidata do MDB ao comando do Senado</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/entrevista/2021/05/16/%E2%80%98CPI-pode-ajudar-a-mostrar-por-que-a-evid%C3%AAncia-%C3%A9-importante-na-medicina%E2%80%99">‘CPI pode ajudar a mostrar por que a evidência é importante na medicina’</a></li>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/extra/2022/04/18/Simone-Tebet-diz-que-n%C3%A3o-ser%C3%A1-candidata-a-vice-presidente">Simone Tebet diz que não será candidata a vice-presidente</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Tebet cartão-->
+
+        <!-- começo Thronicke cartão-->
+        <div class="container-wrapper" id="cartao-thronicke">
+          <div class="cartao-completo fundo-thronicke">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-thronicke">Thronicke</p>
+                  <p class="profissão" id="profissao-thronicke">Senadora</p>
+                  <div class="twitter-container-desk" id="twitter-thronicke-desk">
+                    <a class="twitter-desk" href="https://twitter.com/SorayaThronicke" aria-label="link para o  twitter da candidada" target="_blank">@SorayaThronicke</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-thronicke-mobile">Thronicke</p>
+                  <p class="profissão" id="profissao-thronicke-mobile">Senadora</p>
+                  <p class="nome-partido" id="partido-thronicke-mobile">União Brasil</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-thronicke">44</p>
+                  <p class="nome-partido" id="partido-thronicke">União Brasil</p>
+                  <p class="numero-partido" id="numero-thronicke-mobile">44</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-thronicke" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-vera-lucia.png" alt="imagem da Thronicke">
+                <img class="imagem-candidato-mobile" id="mobile-thronicke" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-vera-lucia.png" alt="imagem da Thronicke">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Soraya Thronicke</h2>
+                  </div>
+                  <p class="vice">Vice: Marcos Cintra (União)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-thronicke-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-thronicke-info">Direito</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-thronicke-mobile" href="https://twitter.com/SorayaThronicke" aria-label="link para o  twitter do candidado" target="_blank">@SorayaThronicke</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-vera-8.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-vera-8.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Thronicke</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+            <!--
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2018/08/15/A-trajet%C3%B3ria-de-Vera-L%C3%BAcia-candidata-do-PSTU-%C3%A0-Presid%C3%AAncia">A trajetória de Vera Lúcia, candidata do PSTU à Presidência</a></li>
+            </ul>
+            -->
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Thronicke cartão-->
+
+
+        <!-- começo Vera cartão-->
+        <div class="container-wrapper" id="cartao-vera">
+          <div class="cartao-completo fundo-vera">
+            <div class="cartao-topo">
+              <div class="detalhes">
+                <!--parte de cima do card-->
+                <div class="coluna-esquerda">
+                  <p class="nome" id="nome-vera">Vera</p>
+                  <p class="profissão" id="profissao-vera">Operária</p>
+                  <div class="twitter-container-desk" id="twitter-vera-desk">
+                    <a class="twitter-desk" href="https://twitter.com/verapstu" aria-label="link para o  twitter do candidado" target="_blank">@verapstu</a>
+                  </div>
+                </div>
+                <div class="coluna-esquerda-mobile">
+                  <p class="nome" id="nome-vera-mobile">Vera</p>
+                  <p class="profissão" id="profissao-vera-mobile">Operária</p>
+                  <p class="nome-partido" id="partido-vera-mobile">Partido</br>Socialista dos </br> Trabalhadores</br>Unificado</p>
+                </div>
+                <div class="coluna-direita">
+                  <p class="numero-partido" id="numero-vera">16</p>
+                  <p class="nome-partido" id="partido-vera">Partido</br>Socialista dos </br> Trabalhadores</br>Unificado</p>
+                  <p class="numero-partido" id="numero-vera-mobile">16</p>
+                </div>
+              </div>
+
+              <div class="cartao-imagem">
+                <!--imagem do cartão-->
+                <img class="imagem-candidato-desk" id="desk-vera" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/desk-vera-lucia.png" alt="imagem da Vera">
+                <img class="imagem-candidato-mobile" id="mobile-vera" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/imagens-candidatos/mobile-vera-lucia.png" alt="imagem da Vera">
+              </div>
+            </div>
+
+            <div class="cartao-informacoes">
+              <div class="texto-informacoes">
+                <div class="nome-div">
+                  <div class="nome-twitter">
+                    <h2 class="nome-informacoes">Vera Lúcia</h2>
+                  </div>
+                  <p class="vice">Vice: Raquel Tremembé (PSTU)</p>
+                </div>
+
+                <div class="formacao-div">
+                  <h3 class="formacao-titulo" id="formacao-vera-info">Formação</h3>
+                  <ul>
+                    <li class="profissao" id="profissao-vera-info">Operária</li>
+                  </ul>
+                </div>
+
+                <div class="twitter-mobile-div">
+                  <a class="twitter-mobile" id="twitter-vera-mobile" href="https://twitter.com/verapstu" aria-label="link para o  twitter do candidado" target="_blank">@verapstu</a>
+                </div>
+              </div>
+
+              <div class="img-complemento">
+                <img class="informacoes-desk" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-desk-vera-8.svg" alt="">
+                <img class="informacoes-mobile" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/info-mobile-vera-8.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <!--início texto-->
+          <div class="container-texto">
+            <h2 class="saiba-mais">Vera</h2>
+            <div class="paragrafo texto-completo">
+              <p class="texto-candidato">A operária despontou na vida pública como sindicalista e como uma das fundadoras do PSTU. Disputou várias eleições para a prefeitura de Aracaju, sem sucesso. Concentra seu discurso em críticas a bancos e na defesa da expropriação de grandes empresas no Brasil. Em 2018, lançou-se candidata à Presidência, obtendo apenas 0,05% dos votos válidos.
+              </p>
+            </div>
+            <h2 class="ultimas-materias">Veja mais</h2>
+            <ul>
+              <li class="link-li"><a class="links" target="_blank" href="https://www.nexojornal.com.br/expresso/2018/08/15/A-trajet%C3%B3ria-de-Vera-L%C3%BAcia-candidata-do-PSTU-%C3%A0-Presid%C3%AAncia">A trajetória de Vera Lúcia, candidata do PSTU à Presidência</a></li>
+            </ul>
+            <!--fim texto-->
+          </div>
+          <div class="observacao">
+            <p class="texto-observacao">
+              Observações: Algumas datas de filiação aos partidos foram arredondadas, pois não foi possível averiguar o dia exato em que o candidato se filiou ao partido. O arroba na imagem dos candidatos se refere ao usuário deles no Twitter.
+            </p>
+          </div>
+        </div>
+        <!-- fim Vera cartão-->
+      </div>
+    </div>
+  </main>
+</body>
+
+<script>
+  (function () {
+    const listaSelecao = document.querySelectorAll('.item')
+    const cards = document.querySelectorAll('.container-wrapper')
+    let visibleId = 'cartao-bolsonaro'
+
+    const toggleVisibility = cardId => {
+      cardId = 'cartao-' + cardId
+      if (visibleId !== cardId) {
+        visibleId = cardId
+      }
+      hideNonVisibleCards()
+    }
+
+    const hideNonVisibleCards = () => {
+      let i, cardId
+      for (i = 0; i < cards.length; i++) {
+        cardId = cards[i].id
+        if (cardId === visibleId) {
+          document.getElementById(cardId).style.display = 'block'
+        } else {
+          document.getElementById(cardId).style.display = 'none'
+        }
+      }
+    }
+
+    listaSelecao.forEach(card => {
+      card.addEventListener('click', () => {
+        //remover o cartao aberto
+        toggleVisibility(card.id)
+      })
+    })
+  })()
+</script>
+
+</html>
