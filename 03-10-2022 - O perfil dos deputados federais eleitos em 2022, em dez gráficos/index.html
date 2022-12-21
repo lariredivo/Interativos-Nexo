@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados eleição - deputados federais</title>
+</head>
+<style>
+  /*c3.js*/
+  /*-- Chart --*/
+  .c3 svg {
+    font: 10px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 path {
+    fill: none;
+    stroke: #EEEEEE;
+  }
+
+  .c3 line {
+    fill: none;
+    stroke: #EEEEEE;
+  }
+
+  .c3-axis-x path {
+    stroke: #000
+  }
+
+  .c3-axis-x line {
+    stroke: #EEEEEE;
+    stroke-width: 0px;
+  }
+
+  .c3-legend-item {
+    font: 14px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  /*tooltip*/
+  .c3-tooltip th {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+  }
+
+  .c3-tooltip td {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+  }
+
+  .c3-tooltip tr {
+    border: 1px solid *#CCC;
+  }
+
+  /*tooltip*/
+  tspan {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3 .c3-axis-x line {
+    stroke: transparent;
+    fill: none;
+  }
+
+  g .tick {
+    opacity: 0;
+  }
+
+  .c3 text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    font: 12px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-legend-item-tile,
+  .c3-xgrid-focus,
+  .c3-ygrid,
+  .c3-event-rect,
+  .c3-bars path {
+    shape-rendering: crispEdges;
+  }
+
+  .c3-chart-arc path {
+    stroke: #fff;
+  }
+
+  .c3-chart-arc rect {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  .c3-chart-arc text {
+    fill: #fff;
+    font-size: 13px;
+  }
+
+  /*-- Axis --*/
+  /*-- Grid --*/
+  .c3-grid line {
+    stroke: #484848;
+  }
+
+  .c3-grid text {
+    fill: #484848;
+  }
+
+  .c3-xgrid,
+  .c3-ygrid {
+    stroke-dasharray: 3 3;
+  }
+
+  /*-- Text on Chart --*/
+  .c3-text.c3-empty {
+    fill: #808080;
+    font-size: 2em;
+  }
+
+  /*-- Line --*/
+  .c3-line {
+    stroke-width: 1px;
+  }
+
+  /*-- Point --*/
+  .c3-circle {
+    fill: transparent;
+  }
+
+  .c3-circle._expanded_ {
+    stroke-width: 3px;
+    stroke: white;
+  }
+
+  .c3-selected-circle {
+    fill: white;
+    stroke-width: 2px;
+  }
+
+  /*-- Bar --*/
+  .c3-bar {
+    stroke-width: 0;
+  }
+
+  .c3-bar._expanded_ {
+    fill-opacity: 1;
+    fill-opacity: 0.75;
+  }
+
+  /*-- Focus --*/
+  .c3-target.c3-focused {
+    opacity: 1;
+  }
+
+  .c3-target.c3-focused path.c3-line,
+  .c3-target.c3-focused path.c3-step {
+    stroke-width: 2px;
+  }
+
+  .c3-target.c3-defocused {
+    opacity: 0.3 !important;
+  }
+
+  /*-- Region --*/
+  .c3-region {
+    fill: steelblue;
+    fill-opacity: 0.1;
+  }
+
+  .c3-region text {
+    fill-opacity: 1;
+  }
+
+  /*-- Brush --*/
+  .c3-brush .extent {
+    fill-opacity: 0.1;
+  }
+
+  /*-- Select - Drag --*/
+  /*-- Legend --*/
+  .c3-legend-item {
+    font: 14px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  tspan {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-legend-item-hidden {
+    opacity: 0.15;
+  }
+
+  .c3-legend-background {
+    opacity: 0.75;
+    fill: #fff;
+    stroke: lightgray;
+    stroke-width: 1;
+  }
+
+  /*-- Title --*/
+  .c3-title {
+    font: 14px sans-serif;
+  }
+
+  /*-- Tooltip --*/
+  .c3-tooltip-container {
+    z-index: 10;
+  }
+
+  .c3-tooltip {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    empty-cells: show;
+    -webkit-box-shadow: 7px 7px 12px -9px #777777;
+    -moz-box-shadow: 7px 7px 12px -9px #777777;
+    box-shadow: 7px 7px 12px -9px #777777;
+    opacity: 0.9;
+  }
+
+  .c3-tooltip td {
+    font-size: 13px;
+    padding: 3px 6px;
+    background-color: #fff;
+    border-left: 1px dotted #999;
+  }
+
+  .c3-tooltip td>span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+  }
+
+  .c3-tooltip .value {
+    text-align: right;
+  }
+
+  /*-- Area --*/
+  .c3-area {
+    stroke-width: 0;
+    opacity: 0.2;
+  }
+
+  /*-- Arc --*/
+  .c3-chart-arcs text {
+    fill: black;
+    font-weight: bold;
+    font-size: 1.3em;
+    dominant-baseline: middle;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-background {
+    fill: #e0e0e0;
+    stroke: #FFF;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-unit {
+    fill: #000;
+    font-size: 16px;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-max {
+    fill: #777;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-min {
+    fill: #777;
+  }
+
+  .c3-chart-arc .c3-gauge-value {
+    fill: #000;
+    /*  font-size: 28px !important;*/
+  }
+
+  .c3-chart-arc.c3-target g path {
+    opacity: 1;
+  }
+
+  .c3-chart-arc.c3-target.c3-focused g path {
+    opacity: 1;
+  }
+
+  /*-- Zoom --*/
+  .c3-drag-zoom.enabled {
+    pointer-events: all !important;
+    visibility: visible;
+  }
+
+  .c3-drag-zoom.disabled {
+    pointer-events: none !important;
+    visibility: hidden;
+  }
+
+  .c3-drag-zoom .extent {
+    fill-opacity: 0.1;
+  }
+
+  body {
+    background-color: #EEEEEE;
+  }
+
+  .miolo {
+    display: grid;
+    justify-content: center;
+  }
+
+  .containerBody {
+    width: 745px;
+    margin: auto;
+    height: auto;
+    padding-bottom: 100px;
+  }
+
+  .container {
+    box-sizing: border-box;
+    width: 85%;
+  }
+
+  .div-container {
+    display: grid;
+    justify-content: center;
+  }
+
+  .img-graphic-desk {
+    width: 100%;
+  }
+
+  .img-graphic-mobile {
+    display: none;
+  }
+
+  .title-chart {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    font-size: 22px;
+    line-height: 12px;
+    font-weight: 700;
+    font-style: normal;
+    color: #111111;
+    margin: 40px 18px 9px 20px;
+    line-height: 1.2;
+  }
+
+  .lf-chart-uppercase {
+    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+    font-size: 14px;
+    font-weight: medium;
+    color: #111111;
+    margin: 10px 18px 40px 20px;
+    text-transform: uppercase;
+  }
+
+  .subtitle-chart {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    font-size: 20px;
+    font-weight: medium;
+    color: #111111;
+    margin: 10px 18px 10px 20px;
+  }
+
+  .subtitle-chart-gothan {
+    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+    font-size: 20px;
+    font-weight: medium;
+    color: #111111;
+    margin: 10px 18px 10px 20px;
+  }
+
+  .div-container-graphic-3 {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  #graphic-10 {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    font-size: 16px;
+    font-weight: medium;
+    color: #111111;
+    margin: 50px 18px 40px 20px;
+  }
+
+  #chart-graphic1 {
+    display: block;
+  }
+
+  #chart-graphic1Mobile {
+    display: none;
+  }
+
+  #chart-graphic2 {
+    display: block;
+  }
+
+  #chart-graphic2Mobile {
+    display: none;
+  }
+
+  #chart-graphic3 {
+    display: block;
+  }
+
+  #chart-graphic3Mobile {
+    display: none;
+  }
+
+  #chart-graphic4 {
+    display: block;
+  }
+
+  #chart-graphic4Mobile {
+    display: none;
+  }
+
+  #chart-graphic5 {
+    display: block;
+  }
+
+  #chart-graphic5Mobile {
+    display: none;
+  }
+
+  #chart-graphic6 {
+    display: block;
+  }
+
+  #chart-graphic6Mobile {
+    display: none;
+  }
+
+  #chart-graphic7 {
+    display: block;
+  }
+
+  #chart-graphic7Mobile {
+    display: none;
+  }
+
+  #chart-graphic8 {
+    display: block;
+  }
+
+  #chart-graphic8Mobile {
+    display: none;
+  }
+
+  #chart-graphic9 {
+    display: block;
+  }
+
+  #chart-graphic9Mobile {
+    display: none;
+  }
+
+  #chart-graphic10 {
+    display: block;
+  }
+
+  #chart-graphic10Mobile {
+    display: none;
+  }
+
+  .container-donut {
+    display: grid;
+    justify-content: start;
+  }
+
+  .div-planilha,
+  .div-obs {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .text-eleito {
+    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+    font-size: 14px;
+    font-weight: 350;
+    line-height: 20px;
+    color: #8E8E8E;
+    margin: 50px 18px 40px 20px;
+    width: 70%;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .text-obs {
+    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+    font-size: 11px;
+    font-weight: 350;
+    color: #484848;
+    margin: 30px 18px 10px 20px;
+    width: 57%;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .div-intro {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .div-errata {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .text-errata {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 350;
+    color: #000000;
+    margin: 30px 18px 20px 20px;
+    width: 57%;
+  }
+
+  .text-intro {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 350;
+    color: #000000;
+    margin: 30px 18px 20px 20px;
+    width: 75%;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .text-planilha {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 350;
+    color: #000000;
+    margin: 30px 18px 20px 20px;
+    width: 56%;
+  }
+
+  .link-tabela {
+    color: #000;
+    text-decoration: underline 2px;
+    text-decoration-color: #E2855D !important;
+  }
+
+  article main a {
+    box-shadow: inset 0 -4px 0 #e2855d;
+  }
+
+  .div-container {
+    margin-bottom: 80px;
+  }
+
+  .img-interactive-info {
+    width: 40px
+  }
+
+  .interactive-info {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin: 30px 18px 20px 20px;
+    gap: 20px;
+  }
+
+  .text-interactive-info {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+    line-height: 20px;
+    font-size: 12px;
+    color: #484848;
+    text-transform: uppercase;
+    margin: 30px 18px 10px 20px;
+  }
+
+  .img-interactive-info {
+    margin: 0px 0px 0px 20px;
+  }
+
+  .img-graphic-mobile {
+    display: none;
+  }
+
+  .img-graphic-desk {
+    object-fit: cover;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-interactive {
+    display: flex;
+  }
+
+  @media screen and (max-width: 600px) {
+    tspan {
+      font-size: 12px;
+      font-weight: bold;
+      font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    }
+
+    .container {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .img-graphic-mobile {
+      display: block;
+      margin-top: 80px;
+      width: 100%;
+    }
+
+    .img-graphic-desk {
+      display: none;
+    }
+
+    .text-interactive-info {
+      font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+      line-height: 20px;
+      font-size: 12px;
+      color: #484848;
+      text-transform: uppercase;
+      margin: 70px 18px 10px 20px;
+    }
+
+    #chart {
+      width: 470;
+      height: 515;
+    }
+
+    #chart-graphic1 {
+      display: none;
+    }
+
+    #chart-graphic1Mobile {
+      display: block;
+    }
+
+    #chart-graphic2 {
+      display: none;
+    }
+
+    #chart-graphic2Mobile {
+      display: block;
+    }
+
+    #chart-graphic3 {
+      display: none;
+    }
+
+    #chart-graphic3Mobile {
+      display: block;
+    }
+
+    #chart-graphic4 {
+      display: none;
+    }
+
+    #chart-graphic4Mobile {
+      display: block;
+    }
+
+    #chart-graphic5 {
+      display: none;
+    }
+
+    #chart-graphic5Mobile {
+      display: block;
+    }
+
+    #chart-graphic6 {
+      display: none;
+    }
+
+    #chart-graphic6Mobile {
+      display: block;
+    }
+
+    #chart-graphic7 {
+      display: none;
+    }
+
+    #chart-graphic7Mobile {
+      display: block;
+    }
+
+    #chart-graphic8 {
+      display: none;
+    }
+
+    #chart-graphic8Mobile {
+      display: block;
+    }
+
+    #chart-graphic9 {
+      display: none;
+    }
+
+    #chart-graphic9Mobile {
+      display: block;
+    }
+
+    #chart-graphic10 {
+      display: none;
+    }
+
+    #chart-graphic10Mobile {
+      display: block;
+    }
+
+    .container-donut {
+      display: grid;
+      justify-content: start;
+    }
+
+    #chart-graphic7Mobile {
+      display: grid;
+      justify-content: start;
+      width: 300px !important;
+    }
+
+    .title-chart {
+      width: 240px !important;
+    }
+
+    .subtitle-chart,
+    .lf-chart-uppercase {
+      width: 277px !important;
+    }
+
+    .subtitle-chart {
+      margin: 30px 18px 10px 20px;
+    }
+
+
+    .text-planilha {
+      width: 90% !important;
+    }
+
+    .text-obs {
+      width: 90%;
+    }
+
+    .text-errata {
+      width: 90% !important;
+    }
+
+    .container-interactive {
+      display: flex;
+      width: 80%;
+      margin-left: 30px;
+    }
+  }
+</style>
+
+<body>
+  <div class="miolo">
+    <div class="div-intro">
+      <p class="text-intro">O
+        <span class="bold">Nexo</span> preparou dez gráficos interativos com o perfil dos 513 deputados e deputadas federais eleitos em 2022. Os vencedores tomarão posse em fevereiro do ano que vem.
+      </p>
+      <p class="text-intro">A nova Câmara dos Deputados ainda tem maioria masculina e de homens brancos. No entanto, o percentual de mulheres (17,7%) e pessoas pretas, pardas e indígenas (27,3%) será recorde.</p>
+      <p class="text-intro">Em termos de bancada partidária, o PL de Bolsonaro e o PT de Lula elegeram o maior número, com 99 e 68 deputados, respectivamente. Somando PCdoB e PV, que fazem parte da federação partidária do PT, o número chega a 80 deputados.</p>
+    </div>
+
+    <div class="container">
+
+      <!--grafico 1-->
+      <div class="div-container">
+        <div class="container-interactive">
+          <p class="text-interactive-info">Esses gráficos são interativos</p>
+          <img class="img-interactive-info" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/09/28/icone-interatividade.svg" alt="ícone cursor pointer" class="img-interactive-info">
+        </div>
+        <p class="title-chart">Número de deputados federais eleitos em 2022</p>
+        <p class="lf-chart-uppercase">Por partido</p>
+        <div id="chart-graphic1"></div>
+        <div id="chart-graphic1Mobile"></div>
+      </div>
+
+      <!--grafico 2-->
+      <div class="div-container">
+        <p class="lf-chart-uppercase">Por coligação</p>
+        <div id="chart-graphic2"></div>
+        <div id="chart-graphic2Mobile"></div>
+      </div>
+
+      <!--grafico 3-->
+      <div class="div-container-graphic-3">
+        <p class="title-chart">Número de deputados que foram reeleitos em 2022</p>
+        <div id="chart-graphic3"></div>
+        <div id="chart-graphic3Mobile"></div>
+        <p class="text-eleito">*Eleitos se referem aos que se elegeram pela 1ª vez agora ou aos que já foram deputados, mas não ocupavam o posto atualmente.</p>
+      </div>
+
+      <!--grafico 4-->
+      <div class="div-container">
+        <p class="subtitle-chart">Por partido, entre os eleitos agora</p>
+        <div id="chart-graphic4"></div>
+        <div id="chart-graphic4Mobile"></div>
+      </div>
+
+      <!--grafico 5-->
+      <div class="div-container">
+        <p class="title-chart">Número de deputados federais eleitos em 2022</p>
+        <p class="subtitle-chart">Por gênero</p>
+        <div class="container-donut">
+          <div id="chart-graphic5"></div>
+          <div id="chart-graphic5Mobile"></div>
+        </div>
+      </div>
+
+      <!--grafico 6-->
+      <div class="div-container">
+        <p class="subtitle-chart">Por partido</p>
+        <div id="chart-graphic6"></div>
+        <div id="chart-graphic6Mobile"></div>
+      </div>
+
+      <!--grafico 7-->
+      <div class="div-container">
+        <p class="title-chart">Número de deputados federais eleitos em 2022</p>
+        <p class="subtitle-chart-gothan">Por autodeclaração de cor</p>
+        <div class="container-donut">
+          <div id="chart-graphic7"></div>
+          <div id="chart-graphic7Mobile"></div>
+        </div>
+      </div>
+
+      <!--grafico 8-->
+      <div class="div-container">
+        <p class="subtitle-chart">Por partido</p>
+        <div id="chart-graphic8"></div>
+        <div id="chart-graphic8Mobile"></div>
+      </div>
+
+      <!--grafico 9-->
+      <div class="div-container">
+        <p class="title-chart"> Número de deputados federais eleitos em 2022</p>
+        <p class="subtitle-chart">Por faixa etária</p>
+        <div id="chart-graphic9"></div>
+        <div id="chart-graphic9Mobile"></div>
+      </div>
+
+      <!--grafico 10-->
+      <div class="div-container">
+        <p class="subtitle-chart">Por patrimônio</p>
+        <div id="chart-graphic10"></div>
+        <div id="chart-graphic10Mobile"></div>
+      </div>
+
+      <div class="div-planilha">
+        <p class="text-planilha">
+          A lista dos deputados federais eleitos está disponível nesta <a class="link-tabela" href="https://docs.google.com/spreadsheets/d/1m9gegRrCZGzv7C8e6VQu6cAa1yM8rkRHCgT4_i_5r2E/edit?usp=sharing" target="_blank">planilha</a>.
+        </p>
+        <p class="text-obs">
+          Observações: quando não havia patrimônio declarado, foi considerado como zero reais. Faixa etária se refere à idade na posse, em 2023. Fonte: TSE (Tribunal Superior Eleitoral), dados consultados em 03/10/2022, às 14h00.
+        </p>
+        <div class="div-errata">
+          <p class="text-errata">
+            <span class="bold">ESTAVA ERRADO:</span><i> O gráfico de patrimônio tinha um erro na totalização. Os valores na planilha disponibilziada, no entanto, estavam corretos. A informação foi corrigida em 5 de outubro de 2022, às 12h.</i>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Load d3.js and c3.js -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.nexojornal.com.br/content/escenic/assets/css/c3.min.js"></script>
+  <script>
+    var corReeleito = [
+      '#F9AF73',
+      '#AC7950'
+    ]
+
+    var corGenero = [
+      '#F9AF73',
+      '#9D72AC'
+    ]
+
+    /*graphic 1 - qnt eleita por partido*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic1',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', ' PL', 'PT', 'UNIÃO', 'PP', 'MDB', 'PSD', 'REP', 'PDT', 'PSB', 'PSDB', 'PODE', 'PSOL', 'AVANTE', 'PC do B', 'PSC', 'PV', 'CID', 'PATRIOTA', 'SOLID', 'NOVO', 'PROS', 'REDE', 'PTB'],
+          ['Deputados', 99, 68, 59, 47, 42, 42, 41, 17, 14, 13, 12, 12, 7, 6, 6, 6, 5, 4, 4, 3, 3, 2, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 1 - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic1Mobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', ' PL', 'PT', 'UNIÃO', 'PP', 'MDB', 'PSD', 'REP', 'PDT', 'PSB', 'PSDB', 'PODE', 'PSOL', 'AVANTE', 'PC do B', 'PSC', 'PV', 'CID', 'PATRIOTA', 'SOLID', 'NOVO', 'PROS', 'REDE', 'PTB'],
+          ['Deputados', 99, 68, 59, 47, 42, 42, 41, 17, 14, 13, 12, 12, 7, 6, 6, 6, 5, 4, 4, 3, 3, 2, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 20, 40, 60, 80, 100]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 2 - qnt eleita por coligação*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic2',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'Coligação de Bolsonaro', 'Outros partidos', 'Coligação de Lula', 'Coligação de Tebet'],
+          ['Deputados', 187, 132, 122, 72]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 20, 40, 60, 80, 100, 120, 140, 160, 180]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 2 - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic2Mobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'Coligação de Bolsonaro', 'Outros partidos', 'Coligação de Lula', 'Coligação de Tebet'],
+          ['Deputados', 187, 132, 122, 72]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 40, 80, 120, 160, 200]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 3 - reeleição*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic3',
+      size: {
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'Reeleitos', "*Eleitos"],
+          ["Deputados", 283, 230]
+        ],
+        type: 'bar',
+        color: function (color, d) {
+          return corReeleito[d.index];
+        }
+      },
+      bar: {
+        width: {
+          radio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          tick: {
+            values: [0, 40, 80, 120, 160, 200, 240, 280]
+          }
+        }
+      },
+      tooltip: {
+        grouped: false
+      },
+      legend: {
+        show: false
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 3 - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic3Mobile',
+      size: {
+        width: 310,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'Reeleitos', "*Eleitos"],
+          ["Deputados", 283, 230]
+        ],
+        type: 'bar',
+        color: function (color, d) {
+          return corReeleito[d.index];
+        }
+      },
+      bar: {
+        radio: 0.8
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          tick: {
+            values: [0, 40, 80, 120, 160, 200, 240, 280]
+          }
+        }
+      },
+      tooltip: {
+        grouped: false
+      },
+      legend: {
+        show: false
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 4 - eleito por partido */
+    var chart = c3.generate({
+      bindto: '#chart-graphic4',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "NOVO", 'PSC', 'PC do B', 'PATRIOTA', 'PSDB', 'PROS', 'PSD', 'PT', 'CID', 'PDT', 'PL', 'AVANTE', 'PP', 'REP', 'SOLID', 'REDE', 'PSB', 'UNIÃO', 'MDB', 'PV', 'PSOL', 'PODE', 'PTB'],
+        ["Reeleito", 100, 83.3, 83.3, 75, 69.2, 66.7, 64.3, 61.8, 60, 58.8, 57.6, 57.1, 55.3, 51.2, 50, 50, 50, 47.5, 45.2, 33.3, 33.3, 25, 0],
+        ["Eleito", 0, 16.7, 16.7, 25, 30.8, 33.3, 35.7, 38.2, 40, 41.2, 42.4, 42.9, 44.7, 48.8, 50, 50, 50, 52.5, 54.8, 66.7, 66.7, 75, 100]],
+        type: 'bar',
+        groups: [
+          ['Reeleito', 'Eleito']
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#F9AF73', '#AC7950'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 4 - Mobile */
+    var chart = c3.generate({
+      bindto: '#chart-graphic4Mobile',
+      size: {
+        height: 350,
+        width: 330,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "NOVO", 'PSC', 'PC do B', 'PATRIOTA', 'PSDB', 'PROS', 'PSD', 'PT', 'CID', 'PDT', 'PL', 'AVANTE', 'PP', 'REP', 'SOLID', 'REDE', 'PSB', 'UNIÃO', 'MDB', 'PV', 'PSOL', 'PODE', 'PTB'],
+        ["Eleito", 26.5, 28.6, 33.3, 33.3, 34.5, 36.4, 37.5, 37.5, 37.8, 41.2, 44.8, 50, 50, 53.8, 56.2, 63.3, 75, 83.3, 85.7, 90, 90.4, 100],
+        ["Reeleito", 73.5, 71.4, 66.7, 66.7, 65.5, 63.6, 62.5, 62.5, 62.2, 58.8, 55.2, 50, 50, 46.2, 43.8, 36.7, 25, 16.7, 14.3, 10, 9.6, 0]],
+        type: 'bar',
+        groups: [
+          ['Eleito', 'Reeleito']
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#F9AF73', '#AC7950'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 5 - gênero*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic5',
+      size: {
+        width: 600,
+      },
+      data: {
+        columns: [
+          ['Masculino', 422],
+          ['Feminino', 91]
+        ],
+        type: 'donut',
+      },
+      color: {
+        pattern: ['#F9AF73', '#9D72AC']
+      }
+    });
+
+    /*graphic 5 - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic5Mobile',
+      size: {
+        width: 300,
+      },
+      data: {
+        columns: [
+          ['Masculino', 422],
+          ['Feminino', 91]
+        ],
+        type: 'donut',
+      },
+      color: {
+        pattern: ['#F9AF73', '#9D72AC']
+      }
+    });
+
+    /*graphic 6 - gênero por partido */
+    var chart = c3.generate({
+      bindto: '#chart-graphic6',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "PSOL", 'REDE', "PC do B", 'CID', 'NOVO', 'AVANTE', 'PT', 'SOLID', 'MDB', 'PDT', 'PL', 'PODE', 'UNIÃO', 'PSB', 'REP', 'PSD', 'PP', 'PSDB', 'PV', 'PTB', 'PSC', 'PROS', 'PATRIOTA'],
+        ["Masculino", 41.7, 50, 50, 60, 66.7, 71.4, 73.5, 75, 78.6, 82.4, 82.8, 83.3, 84.7, 85.7, 87.8, 90.5, 91.5, 92.3, 100, 100, 100, 100, 100],
+        ["Feminino", 58.3, 50, 50, 40, 33.3, 28.6, 26.5, 25, 21.4, 17.6, 17.2, 16.7, 15.3, 14.3, 12.2, 9.5, 8.5, 7.7, 0, 0, 0, 0, 0]],
+        type: 'bar',
+        groups: [
+          ['Masculino', 'Feminino']
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#F9AF73', '#9D72AC'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 6 - Mobile */
+    var chart = c3.generate({
+      bindto: '#chart-graphic6Mobile',
+      size: {
+        height: 350,
+        width: 330,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "PSOL", 'REDE', "PC do B", 'CID', 'NOVO', 'AVANTE', 'PT', 'SOLID', 'MDB', 'PDT', 'PL', 'PODE', 'UNIÃO', 'PSB', 'REP', 'PSD', 'PP', 'PSDB', 'PV', 'PTB', 'PSC', 'PROS', 'PATRIOTA'],
+        ["Masculino", 41.7, 50, 50, 60, 66.7, 71.4, 73.5, 75, 78.6, 82.4, 82.8, 83.3, 84.7, 85.7, 87.8, 90.5, 91.5, 92.3, 100, 100, 100, 100, 100],
+        ["Feminino", 58.3, 50, 50, 40, 33.3, 28.6, 26.5, 25, 21.4, 17.6, 17.2, 16.7, 15.3, 14.3, 12.2, 9.5, 8.5, 7.7, 0, 0, 0, 0, 0]],
+        type: 'bar',
+        groups: [
+          ['Masculino', 'Feminino']
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#F9AF73', '#9D72AC'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 7 - cor da pele*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic7',
+      size: {
+        width: 600,
+      },
+      data: {
+        columns: [
+          ["Branca", 369],
+          ["Parda", 108],
+          ["Preta", 27],
+          ["Amarela", 3],
+          ["Indígena", 5],
+          ["Não informado", 1]
+        ],
+        type: 'donut',
+      },
+      color: {
+        pattern: ['#F9AF73', '#C19CD0', '#9D72AC', '#FC7F68', '#AC7950', '#FFFFFF'],
+      }
+    });
+
+    /*graphic 7 - Mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic7Mobile',
+      data: {
+        columns: [
+          ["Branca", 369],
+          ["Parda", 108],
+          ["Preta", 27],
+          ["Amarela", 3],
+          ["Indígena", 5],
+          ["Não informado", 1]
+        ],
+        type: 'donut',
+      },
+      color: {
+        pattern: ['#F9AF73', '#C19CD0', '#9D72AC', '#FC7F68', '#AC7950', '#FFFFFF'],
+      }
+    });
+
+    /*graphic 8 - cor da pele por partido */
+    var chart = c3.generate({
+      bindto: '#chart-graphic8',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "CID", "NOVO", "PSC", "PSDB", "PSB", "PSD", "MDB", 'PATRIOTA', "SOLID", "PL", "PT", "AVANTE", "UNIÃO", "PP", "PV", "PDT", "PODE", "PSOL", "REP", "REDE", "PC do B", "PROS", "PTB"],
+        ["Branca", 100, 100, 100, 100, 85.7, 83.3, 81, 75, 75, 73.7, 73.5, 71.4, 69.5, 68.1, 66.7, 64.7, 58.3, 58.3, 51.2, 50, 33.3, 33.3, 0],
+        ["Amarela", 0, 0, 0, 0, 0, 2.4, 0, 25, 0, 0, 0, 0, 1.7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ["Parda", 0, 0, 0, 0, 14.3, 9.5, 16.7, 0, 25, 22.2, 10.3, 14.3, 23.7, 29.8, 33.3, 35.3, 41.7, 0, 43.9, 0, 50, 66.7, 0],
+        ["Preta", 0, 0, 0, 0, 0, 4.8, 2, 0, 0, 3, 13, 14.3, 5.1, 2.1, 0, 0, 0, 25, 4.9, 50, 16.7, 0, 0],
+        ["Indígena", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2.9, 0, 0, 0, 0, 0, 0, 16.7, 0, 0, 0, 0, 0],
+        ["Não informado", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100]
+        ],
+        type: 'bar',
+        groups: [
+          ['Branca', 'Amarela', "Parda", "Preta", "Indígena", "Não informado"]
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: true
+      },
+      color: {
+        pattern: ['#F9AF73', '#AC7950', '#C19CD0', '#9D72AC', '#FC7F68', '#FFFFFF'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 8 - Mobile */
+    var chart = c3.generate({
+      bindto: '#chart-graphic8Mobile',
+      size: {
+        height: 350,
+        width: 330,
+      },
+      data: {
+        x: "x",
+        columns: [["x", "CID", "NOVO", "PSC", "PSDB", "PSB", "PSD", "MDB", 'PATRIOTA', "SOLID", "PL", "PT", "AVANTE", "UNIÃO", "PP", "PV", "PDT", "PODE", "PSOL", "REP", "REDE", "PC do B", "PROS", "PTB"],
+        ["Branca", 100, 100, 100, 100, 85.7, 83.3, 81, 75, 75, 73.7, 73.5, 71.4, 69.5, 68.1, 66.7, 64.7, 58.3, 58.3, 51.2, 50, 33.3, 33.3, 0],
+        ["Amarela", 0, 0, 0, 0, 0, 2.4, 0, 25, 0, 0, 0, 0, 1.7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ["Parda", 0, 0, 0, 0, 14.3, 9.5, 16.7, 0, 25, 22.2, 10.3, 14.3, 23.7, 29.8, 33.3, 35.3, 41.7, 0, 43.9, 0, 50, 66.7, 0],
+        ["Preta", 0, 0, 0, 0, 0, 4.8, 2, 0, 0, 3, 13, 14.3, 5.1, 2.1, 0, 0, 0, 25, 4.9, 50, 16.7, 0, 0],
+        ["Indígena", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2.9, 0, 0, 0, 0, 0, 0, 16.7, 0, 0, 0, 0, 0],
+        ["Não informado", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100]
+        ],
+        type: 'bar',
+        groups: [
+          ['Branca', 'Amarela', "Parda", "Preta", "Indígena", "Não informado"]
+        ],
+        order: null
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          max: 100,
+          min: 0,
+          tick: {
+            values: [0, 25, 50, 75, 100],
+            format: function (x) { return parseInt(x, 10) + "%"; },
+          }
+        }
+      },
+      legend: {
+        show: true
+      },
+      color: {
+        pattern: ['#F9AF73', '#AC7950', '#C19CD0', '#9D72AC', '#FC7F68', '#FFFFFF'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 9 - faixa etária*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic9',
+      size: {
+        width: 700,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', '30 anos', '30 a 39', '40 a 49', '50 a 59', '60 a 69', '70 a 79', '80 anos'],
+          ['Deputados', 18, 95, 151, 124, 97, 28]
+        ],
+        type: 'bar',
+      },
+      bar: {
+        radio: 0.8
+      },
+      axis: {
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 50, 100, 150]
+          }
+        }
+      },
+      tooltip: {
+        grouped: false
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#E2855D']
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 9 - Mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic9Mobile',
+      size: {
+        width: 300,
+        height: 330
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', '30 anos', '30 a 39 anos', '40 a 49 anos', '50 a 59 anos', '60 a 69 anos', '70 a 79 anos', '80 anos'],
+          ['Deputados', 18, 95, 151, 124, 97, 28]
+        ],
+        type: 'bar',
+      },
+      bar: {
+        radio: 0.8
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 50, 100, 150]
+          }
+        }
+      },
+      tooltip: {
+        grouped: false
+      },
+      legend: {
+        show: false
+      },
+      color: {
+        pattern: ['#E2855D']
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 10 - rendimento*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic10',
+      size: {
+        width: 700,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ["x", "Mais de R$5 milhões", "R$1 milhão a R$5 milhões", "R$500 mil a R$1 milhão", " Até R$500 mil"],
+          ["Deputados", 49, 209, 98, 157],
+        ],
+        type: 'bar',
+      },
+      bar: {
+        width: {
+          ratio: 0.9
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          tick: {
+            values: [0, 50, 100, 150, 200]
+          }
+        },
+      },
+      legend: {
+        show: false
+      },
+      tooltrip: {
+        grouped: false
+      },
+      color: {
+        pattern: ['#F9AF73']
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 10 - Mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphic10Mobile',
+      size: {
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ["x", "Mais de R$5 milhões", "R$1 milhão a R$5 milhões", "R$500 mil a R$1 milhão", "Até R$500 mil"],
+          ["Deputados", 49, 209, 98, 157],
+        ],
+        type: 'bar',
+      },
+      bar: {
+        width: {
+          ratio: 0.9
+        }
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category'
+        },
+        y: {
+          tick: {
+            values: [0, 50, 100, 150, 200]
+          }
+        },
+      },
+      legend: {
+        show: false
+      },
+      tooltrip: {
+        grouped: false
+      },
+      color: {
+        pattern: ['#F9AF73']
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>
