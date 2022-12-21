@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expediente - presidentes - mobile</title>
+  <style>
+    @media (min-width:751px) {
+      .box-expediente {
+        display: none;
+      }
+    }
+
+    @media (max-width: 750px) and (min-width: 401px) {
+      ._common__container-blank___LSHR2 {
+        padding: 0;
+        margin: 0;
+      }
+
+      ._common__footer-blank___1HA70 {
+        width: 100%;
+        padding: 0 15%;
+      }
+
+      .Header__container___19YrK {
+        z-index: 10 !important;
+      }
+
+      b {
+        font-weight: bold;
+      }
+
+      .box-expediente {
+        display: block;
+        padding-left: 2%;
+        width: 377px;
+      }
+
+      .expediente {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .expediente p {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 100;
+        margin: 0.125rem;
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        color: #000;
+      }
+    }
+
+    @media (max-width: 400px) and (min-width: 321px) {
+      ._common__container-blank___LSHR2 {
+        padding: 0;
+        margin: 0;
+      }
+
+      ._common__footer-blank___1HA70 {
+        width: 100%;
+        padding: 0 15%;
+      }
+
+      .Header__container___19YrK {
+        z-index: 10 !important;
+      }
+
+      b {
+        font-weight: bold;
+      }
+
+      .box-expediente {
+        display: block;
+        padding-left: 2%;
+        width: 334px;
+      }
+
+      .expediente {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .expediente p {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 100;
+        margin: 0.125rem;
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        color: #000;
+      }
+    }
+
+    @media (max-width: 320px) and (min-width: 200px) {
+      ._common__container-blank___LSHR2 {
+        padding: 0;
+        margin: 0;
+      }
+
+      ._common__footer-blank___1HA70 {
+        width: 100%;
+        padding: 0 15%;
+      }
+
+      .Header__container___19YrK {
+        z-index: 10 !important;
+      }
+
+      b {
+        font-weight: bold;
+      }
+
+      .box-expediente {
+        display: block;
+        padding-left: 2%;
+        width: 300px;
+      }
+
+      .expediente {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .expediente p {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 100;
+        margin: 0.125rem;
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        color: #000;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box-expediente">
+    <div class='expediente'>
+      <p class='g-aiPstyle0'>Produção por <b>Gabriel Zanlorenssi</b> e <b>Lucas Gomes</b></p>
+      <p class='g-aiPstyle0'>Dados por <b>Gabriel Zanlorenssi</b></p>
+      <p class='g-aiPstyle0'>Design por <b>Lucas Gomes</b> e <b>Caroline Souza</b> </p>
+      <p class='g-aiPstyle0'>Texto por <b>Conrado Corsalette </b></p>
+      <p class='g-aiPstyle0'>Desenvolvimento por <b>Larissa Redivo</b> e <b>Victor Góis</b></p>
+      <p class='g-aiPstyle0'>Colaborou <b>Gabriel Maia</b></p>
+      <p class='g-aiPstyle0'>Edição por <b>Gabriel Zanlorenssi</b> </p>
+      <p class='g-aiPstyle0'><b>&copy;2022 Nexo Jornal</b></p>
+    </div>
+  </div>
+</body>
+
+</html>
