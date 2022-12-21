@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abertura presidentes</title>
+</head>
+<style>
+  ._common__container___3zJGK,
+  ._common__container-blank___LSHR2 {
+    padding: 0;
+  }
+
+  ._common__footer-blank___1HA70 {
+    width: 100%;
+    padding: 0 15%;
+  }
+
+  .Header__container___19YrK {
+    z-index: 10 !important;
+  }
+
+  progress {
+    z-index: 12 !important;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .abre .chapeu {
+    font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    color: 333333;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 200;
+
+  }
+
+  .h1 {
+    line-height: 50px;
+    font-size: 40px;
+    color: #000000;
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    font-weight: 900;
+    /*width: 58%;*/
+  }
+
+  .abre .chapeu {
+    font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  .abre .creditos {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #000000;
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+  }
+
+  .linha-fina p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+  }
+
+  .intro b {
+    font-weight: bold;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 2560px) {
+    .semiespecial {
+      height: 720px;
+      background: #CECECE;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .abre {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .abre-imagem-mobile {
+      display: none;
+    }
+
+    .abre-imagem-desk {
+      display: block;
+      position: relative;
+    }
+
+    .abre-imagem-desk .img-1-desk {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: -10px;
+      height: 77px;
+      z-index: 3;
+    }
+
+    .abre-imagem-desk .img-2-desk {
+      display: block;
+      position: relative;
+      top: 93px;
+      left: 188px;
+      height: 77px;
+      z-index: 1;
+    }
+
+    .abre .chapeu {
+      font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 600;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .abre-container {
+      height: 440px;
+      display: grid;
+      grid-template-columns: 560px 540px;
+      grid-template-rows: 363px;
+    }
+
+    p {
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      color: 333333;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 200;
+      text-rendering: optimizeLegibility;
+      margin: 1rem 0;
+    }
+
+    .h1 {
+      line-height: 50px;
+      font-size: 40px;
+      color: #000000;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-weight: 900;
+      width: 85%;
+    }
+
+    .linha-fina {
+      font-size: 18px;
+      line-height: 24px;
+      color: #000000;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 582px;
+      margin-top: 20px;
+    }
+
+    .intro p {
+      max-width: 94%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    }
+  }
+
+  /*mobile*/
+  @media only screen and (max-width: 767px) and (min-width: 375px) {
+    .semiespecial {
+      background: #CECECE;
+      padding: 20px;
+    }
+
+    .abre-imagem-desk .img-1-desk {
+      display: none;
+    }
+
+    .abre-imagem-desk .img-2-desk {
+      display: none;
+    }
+
+    .abre-imagem-mobile {
+      display: block;
+      position: relative;
+      max-height: 77px;
+    }
+
+    .abre-imagem-mobile .img-1-mobile {
+      display: block;
+      position: relative;
+      top: 5px;
+      left: -8px;
+      height: 77px;
+    }
+
+    .abre-imagem-mobile .img-2-mobile {
+      display: block;
+      position: absolute;
+      top: 42px;
+      left: 106px;
+      height: 77px;
+    }
+
+    .abre-texto-container {
+      margin-top: 152px;
+    }
+
+    .h1 {
+      line-height: 40px;
+      font-size: 32px;
+      margin-top: 1rem;
+      width: 92%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    }
+
+    .creditos {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      width: 215px;
+    }
+
+    .linha-fina {
+      margin: 40px 0px 0px 0px;
+      max-width: 100%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      width: 360px;
+    }
+
+    .intro {
+      margin-top: 90px;
+    }
+
+    .intro p {
+      max-width: 100%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      padding-bottom: 20px;
+      width: 357px;
+    }
+  }
+
+  @media only screen and (max-width: 374px) and (min-width: 200px) {
+    ._common__container-blank___LSHR2 {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .semiespecial {
+      background: #CECECE;
+      padding: 20px;
+    }
+
+    .abre-imagem-desk .img-1-desk {
+      display: none;
+    }
+
+    .abre-imagem-desk .img-2-desk {
+      display: none;
+    }
+
+    .abre-imagem-mobile {
+      display: block;
+      position: relative;
+      max-height: 77px;
+    }
+
+    .abre-imagem-mobile .img-1-mobile {
+      display: block;
+      position: relative;
+      top: 5px;
+      left: -8px;
+      height: 77px;
+    }
+
+    .abre-imagem-mobile .img-2-mobile {
+      display: block;
+      position: absolute;
+      top: 42px;
+      left: 106px;
+      height: 77px;
+    }
+
+    .abre-texto-container {
+      margin-top: 152px;
+    }
+
+    .h1 {
+      line-height: 40px;
+      font-size: 32px;
+      margin-top: 1rem;
+      width: 92%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    }
+
+    .creditos {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      width: 215px;
+    }
+
+    .linha-fina {
+      margin: 40px 0px 0px 0px;
+      max-width: 100%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      width: 315px;
+    }
+
+    .intro {
+      margin-top: 90px;
+    }
+
+    .intro p {
+      max-width: 100%;
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      padding-bottom: 20px;
+      width: 314px;
+    }
+  }
+</style>
+
+<body>
+  <div class="semiespecial">
+    <div class="abre">
+      <div class="abre-container">
+
+        <div class="abre-imagem-mobile">
+          <div class="img-1-mobile">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/abertura-azul-mobile-2.svg" alt="">
+          </div>
+          <div class="img-2-mobile">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/abertura-roxo-mobile-2.svg" alt="">
+          </div>
+        </div>
+
+        <div class="abre-texto-container">
+          <p class="chapeu">Especial</p>
+          <p class="h1">Conheça os pré-candidatos à Presidência em 2022</p>
+          <p class="creditos"><b>Caroline Souza, Gabriel Zanlorenssi, Larissa Redivo e Lucas Gomes</b><br />11 de maio de 2022</p>
+
+          <p class="linha-fina">Treze pré-candidatos estão na corrida presidencial, número que pode mudar até a oficialização das candidaturas em agosto. Eleição ocorre em outubro </p>
+        </div>
+
+        <div class="abre-imagem-desk">
+          <div class="img-1-desk">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/abertura-roxo-desk-2.svg" alt="">
+          </div>
+          <div class="img-2-desk">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/04/04/abertura-azul-desk-2.svg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="intro">
+        <p>Em 2022, o Brasil vai às urnas para escolher deputados, senadores, governadores e presidente. Atualmente, são treze pré-candidatos à Presidência, cuja trajetória e perfil podem ser consultados nesta ferramenta interativa do <b>Nexo</b>.</p>
+        <p>Por enquanto, os pré-candidatos não podem fazer campanha abertamente, mas já se movimentam em atividades políticas. As candidaturas devem ser oficializadas entre 22 de julho e 5 de agosto.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
