@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto pobreza menstrual</title>
+</head>
+<style>
+  html :focus {
+    outline: none;
+  }
+
+  ._common__container-blank___LSHR2 {
+    padding: 0;
+    margin: 0;
+  }
+
+  ._common__footer-blank___1HA70 {
+    width: 100%;
+    padding: 0 15%;
+  }
+
+  .Header__container___19YrK {
+    z-index: 10 !important;
+  }
+
+  .miolo-desk {
+    display: grid;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  /*beginning accordion*/
+  .accordion {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: grid;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  summary {
+    width: 400px;
+    height: 73px;
+    font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+    font-size: 17px;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    line-height: 1.5;
+    vertical-align: bottom;
+    background: #E8DBE0;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    list-style: none;
+  }
+
+  .imagem-summary {
+    transform: translate(-2px, -2px);
+  }
+
+  .texto-summary {
+    width: 70% !important;
+    margin-top: 11px
+  }
+
+  b {
+    font-weight: 900;
+  }
+
+  summary::marker {
+    display: none;
+  }
+
+  .details {
+    width: 400px;
+    padding: 10px;
+    vertical-align: bottom;
+    padding-top: 10px;
+    border: 1px black solid;
+  }
+
+  summary {
+    display: flex;
+  }
+
+  summary:after {
+    content: url("https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-para-baixo.png");
+    position: relative;
+    transform: translate(0px, 35%);
+    line-height: 1.2rem;
+    float: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    width: 20px;
+  }
+
+  summary:focus {
+    outline: none;
+  }
+
+  summary::selection {
+    background-color: none;
+  }
+
+  details[open] summary:after {
+    content: url("https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-para-cima.png");
+    position: relative;
+  }
+
+  .fonte-link {
+    font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+      sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    text-decoration: none;
+    color: black;
+    border-bottom: #670E2F 3px solid;
+    line-height: 20px;
+  }
+
+  /*end accordion*/
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    height: 276px;
+    width: 290px;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+
+  .mySlides img {
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: -34px;
+  }
+
+  .next {
+    right: -33px;
+  }
+
+  article main a {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  article main ::selection {
+    background: transparent;
+    color: none;
+
+  }
+
+  @media only screen and (min-width: 1400px) {
+    .texto-wrap {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 16px;
+      font-weight: 350;
+      width: 92%;
+      margin-left: 46px;
+      display: block;
+    }
+
+    .texto-summary {
+      width: 67% !important;
+      margin-top: 11px;
+    }
+
+    .legenda {
+      padding-top: 20px;
+    }
+
+    .miolo-desk {
+      display: grid;
+      grid-template-columns: 300px 500px;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .accordion-wrap {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .summary-mobile {
+      display: none;
+    }
+
+    .slideshow-container-mobile {
+      display: none;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 578px;
+      margin: 0 auto;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mySlides {
+      margin-left: 62px;
+    }
+
+    .prev {
+      left: 38px;
+    }
+
+    .next {
+      right: 194px;
+    }
+
+    .fonte-wrap {
+      display: grid;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      width: 678px;
+      margin-left: 44px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: block;
+      line-height: 15px;
+    }
+  }
+
+  @media only screen and (min-width:1144px) and (max-width: 1399px) {
+    .texto-wrap {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 16px;
+      font-weight: 350;
+      width: 92%;
+      margin-left: 46px;
+      display: block;
+    }
+
+    .texto-summary {
+      width: 67% !important;
+      margin-top: 11px;
+    }
+
+
+    .legenda {
+      padding-top: 20px;
+    }
+
+    .miolo-desk {
+      display: grid;
+      grid-template-columns: 300px 500px;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .accordion-wrap {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .summary {
+      width: 459px;
+      height: 73px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 17px;
+      font-weight: 400;
+      cursor: pointer;
+      outline: none;
+      line-height: 1.5;
+      vertical-align: bottom;
+      background: #E8DBE0;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      list-style: none;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 578px;
+      margin: 0 auto;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mySlides {
+      margin-left: 76px;
+    }
+
+    .prev {
+      left: 39px;
+    }
+
+    .next {
+      right: 183px;
+    }
+
+    .fonte-wrap {
+      display: grid;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      width: 722px;
+      margin-left: 44px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: block;
+      line-height: 15px;
+    }
+  }
+
+  @media only screen and (min-width:1024px) and (max-width: 1143px) {
+    .texto-wrap {
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 16px;
+      font-weight: 350;
+      width: 92%;
+      margin-left: 46px;
+      display: block;
+    }
+
+    .legenda {
+      padding-top: 20px;
+    }
+
+    .miolo-desk {
+      display: grid;
+      grid-template-columns: 300px 500px;
+      justify-content: center;
+      align-content: center;
+    }
+
+    .summary-mobile {
+      display: none;
+    }
+
+    .slideshow-container-mobile {
+      display: none;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 400px;
+      margin: 0 auto;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mySlides {
+      margin-left: 8px;
+    }
+
+    .prev {
+      left: -17px;
+    }
+
+    .next {
+      right: 67px;
+    }
+
+    .texto-summary {
+      width: 67% !important;
+      margin-top: 11px;
+    }
+
+
+    .fonte-wrap {
+      display: grid;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      width: 754px;
+      margin-left: 42px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: block;
+      line-height: 15px;
+    }
+  }
+
+  @media only screen and (min-width:501px) and (max-width:1023px) {
+    .texto-wrap {
+      display: none;
+    }
+
+    .legenda {
+      padding-top: 20px;
+    }
+
+    .miolo-desk {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      margin-left: 27%;
+    }
+
+    .summary-desk {
+      width: 400px;
+      height: 63px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 17px;
+      font-weight: 400;
+      cursor: pointer;
+      outline: none;
+      line-height: 1.5;
+      vertical-align: bottom;
+      background: #E8DBE0;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      list-style: none;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 400px;
+      margin: 0 auto;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mySlides {
+      margin-left: -38px;
+    }
+
+    .prev {
+      left: -62px;
+    }
+
+    .next {
+      right: 105px;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      width: 50%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: block;
+      line-height: 15px;
+    }
+
+    .texto-summary {
+      width: 67% !important;
+      margin-top: 11px;
+    }
+
+    .imagem-summary {
+      transform: translate(-4px, -4px);
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
+  }
+
+  /*mobile*/
+  @media only screen and (min-width: 375px) and (max-width: 500px) {
+    .miolo-desk {
+      display: grid;
+      justify-content: center;
+      padding-top: 20px;
+      padding-left: 14px;
+    }
+
+    .texto-wrap {
+      display: none;
+    }
+
+    summary {
+      width: 350px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      outline: none;
+      line-height: 1.5;
+      vertical-align: bottom;
+      background: #E8DBE0;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      list-style: none;
+    }
+
+    summary:after {
+      transform: translate(-8px, 35%);
+    }
+
+    .details-mobile {
+      width: 350px;
+    }
+
+    .prev {
+      left: -3px;
+    }
+
+    .next {
+      right: 34px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 350px;
+      margin: 0 auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .texto-summary {
+      width: 69% !important;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .texto-wrap {
+      width: 330px;
+    }
+
+    .img-grafico {
+      padding-left: 14px;
+    }
+
+    .legenda {
+      margin-top: 20px;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      margin-left: 10px;
+      margin-bottom: 40px;
+      margin-top: 20px;
+      width: 90%;
+      line-height: 15px;
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 321px) and (max-width: 374px) {
+    .texto-wrap {
+      display: none;
+    }
+
+    .miolo-desk {
+      display: grid;
+      justify-content: center;
+      padding-top: 20px;
+      margin-left: 10px;
+    }
+
+    summary {
+      width: 315px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      outline: none;
+      line-height: 1.5;
+      vertical-align: bottom;
+      background: #E8DBE0;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      list-style: none;
+    }
+
+    .details--inner {
+      width: 300px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 300px;
+      margin: 0 auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .texto-summary {
+      margin-top: 7px;
+      width: 61%;
+    }
+
+    .prev {
+      left: -20px;
+    }
+
+    .next {
+      right: 4px;
+    }
+
+    .img-grafico {
+      margin-left: -18px;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      margin-left: 10px;
+      margin-bottom: 40px;
+      line-height: 15px;
+      width: 80%;
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
+  }
+
+  /*mobile small */
+  @media screen and (max-width: 320px) {
+    .texto-wrap {
+      display: none;
+    }
+
+    .miolo {
+      margin-left: 9px;
+      margin-right: 9px;
+    }
+
+    summary {
+      width: 347px;
+      font-family: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel SSm', serif;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      outline: none;
+      line-height: 1.5;
+      vertical-align: bottom;
+      background: #E8DBE0;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      list-style: none;
+    }
+
+    summary:after {
+      transform: translate(-9px, 35%);
+    }
+
+    .slideshow-container {
+      position: relative;
+      height: 276px;
+      width: 320px;
+      margin: 0 auto;
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .texto-summary {
+      width: 75% !important;
+      margin-top: 10px;
+    }
+
+    .prev {
+      left: 1px;
+    }
+
+    .next {
+      right: 8px;
+    }
+
+    .prev,
+    .next {
+      top: 40%;
+    }
+
+    .img-grafico {
+      padding-left: 8px;
+    }
+
+    .fonte-texto {
+      font-family: 'Gotham Rnd SSm', 'Gotham Rounded SSm A', 'Gotham Rounded SSm B',
+        sans-serif;
+      font-size: 12px;
+      font-weight: 100;
+      margin-left: 10px;
+      margin-bottom: 40px;
+      line-height: 15px;
+      width: 80%;
+    }
+
+    summary {
+      list-style: none;
+    }
+
+    summary::marker {
+      display: none;
+    }
+  }
+</style>
+
+<body>
+  <div class="miolo-desk">
+    <div class="texto-wrap">
+      <p class="texto">
+        Para analisar a presença de condições mínimas para o cuidado menstrual nas escolas, são considerados os seguintes elementos: banheiros em condições de uso, presença de pias ou lavatórios, disponibilidade de papel higiênico e de sabão.
+      </p>
+      <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/legenda-desk.png" alt="" class="legenda">
+    </div>
+    <!-- accordion 1 -->
+    <div class="accordions-wrap">
+      <details>
+        <summary class="summary-desk">
+          <span><img class="imagem-summary" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/banheiro-icone.png" alt=""></span>
+          <p class="texto-summary">Disponibilidade de <b>banheiros</b> em condições de uso</p>
+        </summary>
+        <!--  carousel 1-->
+        <div class="slideshow-container">
+          <div class="mySlides slide">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/banheiros-1.png">
+          </div>
+
+          <div class="mySlides slide">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/banheiros-2.png">
+          </div>
+
+          <div class="mySlides slide">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/banheiros-3.png">
+          </div>
+
+          <div class="mySlides slide">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/banheiros-4.png">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1, 0)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-anterior.png" alt="seta preta apontando para esquerda"></a>
+          <a class="next" onclick="plusSlides(1, 0)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-proximo.png" alt="seta preta apontando para direita"></a>
+        </div>
+      </details>
+      <!-- end accordion 1-->
+      </br>
+      </br>
+      <!-- accordion 2 -->
+      <details>
+        <summary class="summary-desk">
+          <span><img class="imagem-summary" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/papel-icone.png" alt=""></span>
+          <p class="texto-summary">Disponibilidade de <b>papel higiênico</b> nos banheiros</p>
+        </summary>
+        <!--  carousel 2-->
+        <div class="slideshow-container">
+          <div class="mySlides slide2">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pap-1.png">
+          </div>
+
+          <div class="mySlides slide2">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pap-2.png">
+          </div>
+
+          <div class="mySlides slide2">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pap-3.png">
+          </div>
+
+          <div class="mySlides slide2">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pap-4.png">
+          </div>
+          <a class="prev" onclick="plusSlides(-1, 1)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-anterior.png" alt="seta preta apontando para esquerda"></a>
+          <a class="next" onclick="plusSlides(1, 1)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-proximo.png" alt="seta preta apontando para direita"></a>
+        </div>
+      </details>
+      <!-- end accordion 2-->
+      </br>
+      </br>
+      <!-- accordion 3 -->
+      <details>
+        <summary class="summary-desk">
+          <span><img class="imagem-summary" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/pia-icone.png" alt=""></span>
+          <p class="texto-summary">Disponibilidade de <b>pias ou lavatórios</b> utilizáveis</p>
+        </summary>
+        <!--  carousel 3-->
+        <div class="slideshow-container">
+          <div class="mySlides slide3">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pias-1.png">
+          </div>
+
+          <div class="mySlides slide3">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pias-2.png">
+          </div>
+
+          <div class="mySlides slide3">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pias-3.png">
+          </div>
+
+          <div class="mySlides slide3">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/pias-4.png">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1, 2)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-anterior.png" alt="seta preta apontando para esquerda"></a>
+          <a class="next" onclick="plusSlides(1, 2)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-proximo.png" alt="seta preta apontando para direita"></a>
+        </div>
+      </details>
+      <!-- end accordion 3-->
+      </br>
+      </br>
+      <!-- accordion 4 -->
+      <details>
+        <summary class="summary-desk">
+          <span><img class="imagem-summary" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/sabao-icone.png" alt=""></span>
+          <p class="texto-summary">Disponibilidade de <b>sabão</b></br> para lavar as mãos</p>
+        </summary>
+        <!--  carousel 4-->
+        <div class="slideshow-container">
+          <div class="mySlides slide4">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/sabao--1.png">
+          </div>
+
+          <div class="mySlides slide4">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/sabao--2.png">
+          </div>
+
+          <div class="mySlides slide4">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/sabao--3.png">
+          </div>
+
+          <div class="mySlides slide4">
+            <img class="img-grafico" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/sabao--4.png">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1, 3)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-anterior.png" alt="seta preta apontando para esquerda"></a>
+          <a class="next" onclick="plusSlides(1, 3)"><img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/05/12/final/seta-proximo.png" alt="seta preta apontando para direita"></a>
+        </div>
+      </details>
+      </br>
+      </br>
+      <!-- end accordion 4-->
+    </div>
+    <div class="fonte-wrap">
+      <p class="fonte-texto">
+        Fonte: <a class="fonte-link" href="https://washdata.org/sites/default/files/2021-07/jmp-2021-wash-households.pdf" target="_blank">"Progress on household drinking water, sanitation and hygiene 2000-2020: five years into the SDGs"</a>, OMS (Organização Mundial da Saúde) e Unicef (Fundo das Nações Unidas para a Infância); e <a class="fonte-link" href="https://www.unicef.org/brazil/media/14456/file/dignidade-menstrual_relatorio-unicef-unfpa_maio2021.pdf" target="_blank">"Pobreza menstrual no Brasil: desigualdades e violações de direitos"</a>, Fundo de População das Nações Unidas e Unicef (Fundo das Nações Unidas para a Infância).
+      </p>
+    </div>
+  </div>
+
+</body>
+<script>
+  var slideIndex = [1, 1, 1, 1];
+  var slideId = ["slide", "slide2", "slide3", "slide4"]
+  showSlides(1, 0);
+  showSlides(1, 1);
+  showSlides(1, 2);
+  showSlides(1, 3);
+
+  function plusSlides(n, no) {
+    showSlides(slideIndex[no] += n, no);
+  }
+
+  function showSlides(n, no) {
+    var i;
+    var x = document.getElementsByClassName(slideId[no]);
+    if (n > x.length) { slideIndex[no] = 1 }
+    if (n < 1) { slideIndex[no] = x.length }
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    x[slideIndex[no] - 1].style.display = "block";
+  }
+</script>
+
+</html>
