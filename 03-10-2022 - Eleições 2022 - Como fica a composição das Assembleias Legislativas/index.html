@@ -1,0 +1,3406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados eleição deputado estadual</title>
+</head>
+<style>
+  /*c3.js*/
+  /*-- Chart --*/
+  .c3 svg {
+    font: 10px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c3 path {
+    fill: none;
+    stroke: #EEEEEE;
+  }
+
+  .c3 line {
+    fill: none;
+    stroke: #EEEEEE;
+  }
+
+  .c3-axis-x path {
+    stroke: #000
+  }
+
+  .c3-axis-x line {
+    stroke: #EEEEEE;
+    stroke-width: 0px;
+  }
+
+  .c3-legend-item {
+    font: 14px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  /*tooltip*/
+  .c3-tooltip th {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+  }
+
+  .c3-tooltip td {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000;
+  }
+
+  .c3-tooltip tr {
+    border: 1px solid *#CCC;
+  }
+
+  /*tooltip*/
+  tspan {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3 .c3-axis-x line {
+    stroke: transparent;
+    fill: none;
+  }
+
+  g .tick {
+    opacity: 0;
+  }
+
+  .c3 text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    font: 12px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-legend-item-tile,
+  .c3-xgrid-focus,
+  .c3-ygrid,
+  .c3-event-rect,
+  .c3-bars path {
+    shape-rendering: crispEdges;
+  }
+
+  .c3-chart-arc path {
+    stroke: #fff;
+  }
+
+  .c3-chart-arc rect {
+    stroke: white;
+    stroke-width: 1;
+  }
+
+  .c3-chart-arc text {
+    fill: #fff;
+    font-size: 13px;
+  }
+
+  /*-- Axis --*/
+  /*-- Grid --*/
+  .c3-grid line {
+    stroke: #484848;
+  }
+
+  .c3-grid text {
+    fill: #484848;
+  }
+
+  .c3-xgrid,
+  .c3-ygrid {
+    stroke-dasharray: 3 3;
+  }
+
+  /*-- Text on Chart --*/
+  .c3-text.c3-empty {
+    fill: #808080;
+    font-size: 2em;
+  }
+
+  /*-- Line --*/
+  .c3-line {
+    stroke-width: 1px;
+  }
+
+  /*-- Point --*/
+  .c3-circle {
+    fill: transparent;
+  }
+
+  .c3-circle._expanded_ {
+    stroke-width: 3px;
+    stroke: white;
+  }
+
+  .c3-selected-circle {
+    fill: white;
+    stroke-width: 2px;
+  }
+
+  /*-- Bar --*/
+  .c3-bar {
+    stroke-width: 0;
+  }
+
+  .c3-bar._expanded_ {
+    fill-opacity: 1;
+    fill-opacity: 0.75;
+  }
+
+  /*-- Focus --*/
+  .c3-target.c3-focused {
+    opacity: 1;
+  }
+
+  .c3-target.c3-focused path.c3-line,
+  .c3-target.c3-focused path.c3-step {
+    stroke-width: 2px;
+  }
+
+  .c3-target.c3-defocused {
+    opacity: 0.3 !important;
+  }
+
+  /*-- Region --*/
+  .c3-region {
+    fill: steelblue;
+    fill-opacity: 0.1;
+  }
+
+  .c3-region text {
+    fill-opacity: 1;
+  }
+
+  /*-- Brush --*/
+  .c3-brush .extent {
+    fill-opacity: 0.1;
+  }
+
+  /*-- Select - Drag --*/
+  /*-- Legend --*/
+  .c3-legend-item {
+    font: 14px "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  tspan {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-legend-item-hidden {
+    opacity: 0.15;
+  }
+
+  .c3-legend-background {
+    opacity: 0.75;
+    fill: #fff;
+    stroke: lightgray;
+    stroke-width: 1;
+  }
+
+  /*-- Title --*/
+  .c3-title {
+    font: 14px sans-serif;
+  }
+
+  /*-- Tooltip --*/
+  .c3-tooltip-container {
+    z-index: 10;
+  }
+
+  .c3-tooltip {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    empty-cells: show;
+    -webkit-box-shadow: 7px 7px 12px -9px #777777;
+    -moz-box-shadow: 7px 7px 12px -9px #777777;
+    box-shadow: 7px 7px 12px -9px #777777;
+    opacity: 0.9;
+  }
+
+  .c3-tooltip td {
+    font-size: 13px;
+    padding: 3px 6px;
+    background-color: #fff;
+    border-left: 1px dotted #999;
+  }
+
+  .c3-tooltip td>span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+  }
+
+  .c3-tooltip .value {
+    text-align: right;
+  }
+
+  /*-- Area --*/
+  .c3-area {
+    stroke-width: 0;
+    opacity: 0.2;
+  }
+
+  /*-- Arc --*/
+  .c3-chart-arcs text {
+    fill: black;
+    font-weight: bold;
+    font-size: 1.3em;
+    dominant-baseline: middle;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-background {
+    fill: #e0e0e0;
+    stroke: #FFF;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-unit {
+    fill: #000;
+    font-size: 16px;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-max {
+    fill: #777;
+  }
+
+  .c3-chart-arcs .c3-chart-arcs-gauge-min {
+    fill: #777;
+  }
+
+  .c3-chart-arc .c3-gauge-value {
+    fill: #000;
+    /*  font-size: 28px !important;*/
+  }
+
+  .c3-chart-arc.c3-target g path {
+    opacity: 1;
+  }
+
+  .c3-chart-arc.c3-target.c3-focused g path {
+    opacity: 1;
+  }
+
+  /*-- Zoom --*/
+  .c3-drag-zoom.enabled {
+    pointer-events: all !important;
+    visibility: visible;
+  }
+
+  .c3-drag-zoom.disabled {
+    pointer-events: none !important;
+    visibility: hidden;
+  }
+
+  .c3-drag-zoom .extent {
+    fill-opacity: 0.1;
+  }
+
+  /*end c3.js*/
+
+  #chart-graphicAC,
+  #chart-graphicAL,
+  #chart-graphicAP,
+  #chart-graphicAM,
+  #chart-graphicBA,
+  #chart-graphicCE,
+  #chart-graphicDF,
+  #chart-graphicES,
+  #chart-graphicGO,
+  #chart-graphicMA,
+  #chart-graphicMT,
+  #chart-graphicMS,
+  #chart-graphicMG,
+  #chart-graphicPA,
+  #chart-graphicPB,
+  #chart-graphicPR,
+  #chart-graphicPE,
+  #chart-graphicPI,
+  #chart-graphicRJ,
+  #chart-graphicRN,
+  #chart-graphicRS,
+  #chart-graphicRO,
+  #chart-graphicRR,
+  #chart-graphicSC,
+  #chart-graphicSP,
+  #chart-graphicSE,
+  #chart-graphicTO,
+  #chart-graphicACMobile,
+  #chart-graphicALMobile,
+  #chart-graphicAPMobile,
+  #chart-graphicAMMobile,
+  #chart-graphicBAMobile,
+  #chart-graphicCEMobile,
+  #chart-graphicDFMobile,
+  #chart-graphicESMobile,
+  #chart-graphicGOMobile,
+  #chart-graphicMAMobile,
+  #chart-graphicMTMobile,
+  #chart-graphicMSMobile,
+  #chart-graphicMGMobile,
+  #chart-graphicPAMobile,
+  #chart-graphicPBMobile,
+  #chart-graphicPRMobile,
+  #chart-graphicPEMobile,
+  #chart-graphicPIMobile,
+  #chart-graphicRJMobile,
+  #chart-graphicRNMobile,
+  #chart-graphicRSMobile,
+  #chart-graphicROMobile,
+  #chart-graphicRRMobile,
+  #chart-graphicSCMobile,
+  #chart-graphicSPMobile,
+  #chart-graphicSEMobile,
+  #chart-graphicTOMobile {
+    display: none;
+    margin-top: 10px;
+  }
+
+  body {
+    background-color: #EEEEEE;
+  }
+
+  .div-intro,
+  .wrap-chart {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .text-intro {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 350;
+    color: #000000;
+    margin: 30px 18px 20px 20px;
+    width: 75%;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  select {
+    border: 3px solid #F9AF73 !important;
+    border-radius: 21px;
+    width: 300px;
+    height: 41px;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+    color: #000000 !important;
+    text-align: center;
+    /*padding-left: 7%;*/
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: #fff !important;
+    -webkit-appearance: none;
+    background: url('https://assets.shared.cloud.nexojornal.com.br/graficos/2022/09/28/seletor.svg')no-repeat 1px;
+    background-repeat: no-repeat;
+    background-position-x: 94%;
+    background-position-y: 14px;
+    background-size: 20px;
+  }
+
+  select:focus {
+    border: 2px solid #F9AF73 !important;
+    border-radius: 21px;
+    width: 300px;
+    height: 41px;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+    color: #000000 !important;
+    text-align: center;
+    /*padding-left: 7%;*/
+    font-weight: 300;
+    text-transform: uppercase;
+    outline: #F9AF73 !important;
+    background-color: #fff !important;
+    -webkit-appearance: none;
+    background: url('https://assets.shared.cloud.nexojornal.com.br/graficos/2022/09/28/seletor-oposto.svg')no-repeat 1px;
+    background-repeat: no-repeat;
+    background-position-x: 94%;
+    background-position-y: 14px;
+    background-size: 20px;
+  }
+
+  .infographicTitle {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 40px;
+  }
+
+  .miolo {
+    display: grid;
+    justify-content: center;
+  }
+
+  .wrap-chart {
+    width: 745px;
+    margin: auto;
+    height: auto;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    width: 85%;
+  }
+
+  .wrap-chart-mobile {
+    display: none;
+  }
+
+  .text-interactive-info {
+    font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+    line-height: 20px;
+    font-size: 12px;
+    color: #484848;
+    text-transform: uppercase;
+    margin: 30px 18px 10px 20px;
+  }
+
+  .div-obs {
+    display: grid;
+    justify-content: center;
+  }
+
+  .text-obs {
+    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+    font-size: 11px;
+    font-weight: 350;
+    line-height: 20px;
+    color: #8E8E8E;
+    margin: 50px 18px 40px 60px;
+    width: 90%;
+    display: grid;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    .wrap-chart {
+      display: none;
+    }
+
+    .wrap-chart-mobile {
+      display: block;
+    }
+
+    select {
+      border: 2px solid #F9AF73 !important;
+      border-radius: 21px;
+      width: 100%;
+      height: 41px;
+      font-size: 18px;
+      line-height: 28px;
+      font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+      color: #000000 !important;
+      text-align: center;
+      font-weight: 300;
+      text-transform: uppercase;
+      background-color: #fff !important;
+      -webkit-appearance: none;
+      background: url('https://assets.shared.cloud.nexojornal.com.br/graficos/2022/09/28/seletor.svg')no-repeat 1px;
+      background-repeat: no-repeat;
+      background-position-x: 94%;
+      background-position-y: 14px;
+      background-size: 20px;
+      padding-left: 7%;
+    }
+
+    select:focus {
+      border: 2px solid #F9AF73 !important;
+      border-radius: 21px;
+      width: 100%;
+      height: 41px;
+      font-size: 18px;
+      line-height: 28px;
+      font-family: "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif !important;
+      color: #000000 !important;
+      text-align: center;
+      font-weight: 300;
+      text-transform: uppercase;
+      outline: #F9AF73 !important;
+      background-color: #fff;
+      -webkit-appearance: none;
+      background: url('https://assets.shared.cloud.nexojornal.com.br/graficos/2022/09/28/seletor-oposto.svg')no-repeat 1px;
+      background-repeat: no-repeat;
+      background-position-x: 94%;
+      background-position-y: 14px;
+      background-size: 20px;
+      padding-left: 7%;
+    }
+
+    .text-obs {
+      font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', sans-serif;
+      font-size: 11px;
+      font-weight: 350;
+      color: #8E8E8E;
+      margin: 50px 18px 40px 20px;
+      width: 90%;
+      display: grid;
+      justify-content: center;
+    }
+
+    .infographicTitle {
+      font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 40px;
+      margin: 50px 18px 40px 20px;
+    }
+  }
+</style>
+
+<body>
+  <div class="miolo">
+    <div class="div-intro">
+      <p class="text-intro"> Em 2022, foram eleitos 1.035 deputados estaduais, nos 26 estados brasileiros, e 24 deputados distritais no Distrito Federal.</p>
+      <p class="text-intro">Os eleitos vão tomar posse nas assembleias legislativas em 2023, com a função de propor leis e fiscalizar o trabalho dos governadores.</p>
+      <p class="text-intro">PT e PL elegeram o maior número de deputados nos estados, com 126 e 117, respectivamente. PL terá a maior bancada em São Paulo, Rio de Janeiro, Espírito Santo, Santa Catarina e Distrito Federal. PT em Minas Gerais, Rio Grande do Sul e Piauí.</p>
+      <p class="text-intro">Selecione um estado e veja a composição das assembleias estaduais por partido.
+      </p>
+      <p class="infographicTitle">Número de deputados estaduais eleitos na unidade federativa, por partido</p>
+    </div>
+    <div class="wrap-chart">
+      <select onchange="showOnChange()" id="sel" class="estados" name="estados">
+        <option selected="selected">ESCOLHA O ESTADO</option>
+        <option value="card1">AC (24 deputados)</option>
+        <option value="card2">AL (27 deputados)</option>
+        <option value="card3">AP (24 deputados)</option>
+        <option value="card4">AM (24 deputados)</option>
+        <option value="card5">BA (63 deputados)</option>
+        <option value="card6">CE (46 deputados)</option>
+        <option value="card7">DF (24 deputados)</option>
+        <option value="card8">ES (30 deputados)</option>
+        <option value="card9">GO (41 deputados)</option>
+        <option value="card10">MA (42 deputados)</option>
+        <option value="card11">MT (24 deputados)</option>
+        <option value="card12">MS (24 deputados)</option>
+        <option value="card13">MG (77 deputados)</option>
+        <option value="card14">PA (41 deputados)</option>
+        <option value="card15">PB (36 deputados)</option>
+        <option value="card16">PR (54 deputados)</option>
+        <option value="card17">PE (49 deputados)</option>
+        <option value="card18">PI (30 deputados)</option>
+        <option value="card19">RJ (70 deputados)</option>
+        <option value="card20">RN (24 deputados)</option>
+        <option value="card21">RS (55 deputados)</option>
+        <option value="card22">RO (24 deputados)</option>
+        <option value="card23">RR (24 deputados)</option>
+        <option value="card24">SC (40 deputados)</option>
+        <option value="card25">SP (94 deputados)</option>
+        <option value="card26">SE (24 deputados)</option>
+        <option value="card27">TO (24 deputados)</option>
+      </select>
+
+      <div id="chart-graphicAC" class="card"></div>
+      <div id="chart-graphicAL" class="card"></div>
+      <div id="chart-graphicAP" class="card"></div>
+      <div id="chart-graphicAM" class="card"></div>
+      <div id="chart-graphicBA" class="card"></div>
+      <div id="chart-graphicCE" class="card"></div>
+      <div id="chart-graphicDF" class="card"></div>
+      <div id="chart-graphicES" class="card"></div>
+      <div id="chart-graphicGO" class="card"></div>
+      <div id="chart-graphicMA" class="card"></div>
+      <div id="chart-graphicMT" class="card"></div>
+      <div id="chart-graphicMS" class="card"></div>
+      <div id="chart-graphicMG" class="card"></div>
+      <div id="chart-graphicPA" class="card"></div>
+      <div id="chart-graphicPB" class="card"></div>
+      <div id="chart-graphicPR" class="card"></div>
+      <div id="chart-graphicPE" class="card"></div>
+      <div id="chart-graphicPI" class="card"></div>
+      <div id="chart-graphicRJ" class="card"></div>
+      <div id="chart-graphicRN" class="card"></div>
+      <div id="chart-graphicRS" class="card"></div>
+      <div id="chart-graphicRO" class="card"></div>
+      <div id="chart-graphicRR" class="card"></div>
+      <div id="chart-graphicSC" class="card"></div>
+      <div id="chart-graphicSP" class="card"></div>
+      <div id="chart-graphicSE" class="card"></div>
+      <div id="chart-graphicTO" class="card"></div>
+
+      <div class="div-obs">
+        <p class="text-obs">
+          Observações: Número de deputados no seletor se refere ao total de vagas na unidade federativa. Fonte: TSE (Tribunal Superior Eleitoral), dados consultados em 03/10/2022, às 08h50.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap-chart-mobile">
+      <select onchange="showOnChangeMobile()" id="selMobile" class="estados" name="estados">
+        <option selected="selected">ESCOLHA O ESTADO</option>
+        <option value="cardMobile1">AC (24 deputados)</option>
+        <option value="cardMobile2">AL (27 deputados)</option>
+        <option value="cardMobile3">AP (24 deputados)</option>
+        <option value="cardMobile4">AM (24 deputados)</option>
+        <option value="cardMobile5">BA (63 deputados)</option>
+        <option value="cardMobile6">CE (46 deputados)</option>
+        <option value="cardMobile7">DF (24 deputados)</option>
+        <option value="cardMobile8">ES (30 deputados)</option>
+        <option value="cardMobile9">GO (41 deputados)</option>
+        <option value="cardMobile10">MA (42 deputados)</option>
+        <option value="cardMobile11">MT (24 deputados)</option>
+        <option value="cardMobile12">MS (24 deputados)</option>
+        <option value="cardMobile13">MG (77 deputados)</option>
+        <option value="cardMobile14">PA (41 deputados)</option>
+        <option value="cardMobile15">PB (36 deputados)</option>
+        <option value="cardMobile16">PR (54 deputados)</option>
+        <option value="cardMobile17">PE (49 deputados)</option>
+        <option value="cardMobile18">PI (30 deputados)</option>
+        <option value="cardMobile19">RJ (70 deputados)</option>
+        <option value="cardMobile20">RN (24 deputados)</option>
+        <option value="cardMobile21">RS (55 deputados)</option>
+        <option value="cardMobile22">RO (24 deputados)</option>
+        <option value="cardMobile23">RR (24 deputados)</option>
+        <option value="cardMobile24">SC (40 deputados)</option>
+        <option value="cardMobile25">SP (94 deputados)</option>
+        <option value="cardMobile26">SE (24 deputados)</option>
+        <option value="cardMobile27">TO (24 deputados)</option>
+      </select>
+
+      <div id="chart-graphicACMobile" class="cardMobile"></div>
+      <div id="chart-graphicALMobile" class="cardMobile"></div>
+      <div id="chart-graphicAPMobile" class="cardMobile"></div>
+      <div id="chart-graphicAMMobile" class="cardMobile"></div>
+      <div id="chart-graphicBAMobile" class="cardMobile"></div>
+      <div id="chart-graphicCEMobile" class="cardMobile"></div>
+      <div id="chart-graphicDFMobile" class="cardMobile"></div>
+      <div id="chart-graphicESMobile" class="cardMobile"></div>
+      <div id="chart-graphicGOMobile" class="cardMobile"></div>
+      <div id="chart-graphicMAMobile" class="cardMobile"></div>
+      <div id="chart-graphicMTMobile" class="cardMobile"></div>
+      <div id="chart-graphicMSMobile" class="cardMobile"></div>
+      <div id="chart-graphicMGMobile" class="cardMobile"></div>
+      <div id="chart-graphicPAMobile" class="cardMobile"></div>
+      <div id="chart-graphicPBMobile" class="cardMobile"></div>
+      <div id="chart-graphicPRMobile" class="cardMobile"></div>
+      <div id="chart-graphicPEMobile" class="cardMobile"></div>
+      <div id="chart-graphicPIMobile" class="cardMobile"></div>
+      <div id="chart-graphicRJMobile" class="cardMobile"></div>
+      <div id="chart-graphicRNMobile" class="cardMobile"></div>
+      <div id="chart-graphicRSMobile" class="cardMobile"></div>
+      <div id="chart-graphicROMobile" class="cardMobile"></div>
+      <div id="chart-graphicRRMobile" class="cardMobile"></div>
+      <div id="chart-graphicSCMobile" class="cardMobile"></div>
+      <div id="chart-graphicSPMobile" class="cardMobile"></div>
+      <div id="chart-graphicSEMobile" class="cardMobile"></div>
+      <div id="chart-graphicTOMobile" class="cardMobile"></div>
+      <div class="div-obs">
+        <p class="text-obs">
+          Observações: Número de deputados no seletor se refere ao total de vagas na unidade federativa. Fonte: TSE (Tribunal Superior Eleitoral), dados consultados em 03/10/2022, às 08h50.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.nexojornal.com.br/content/escenic/assets/css/c3.min.js"></script>
+  <script>
+    function showOnChange() {
+      var whichOp = document.getElementById("sel").selectedIndex - 1;
+      var c = document.getElementsByClassName("card");
+      for (len = 0; len < c.length; len++)
+        c[len].style.display = "none";
+      c[whichOp].style.display = "block"
+    }
+
+    function showOnChangeMobile() {
+      var whichOp = document.getElementById("selMobile").selectedIndex - 1;
+      var c = document.getElementsByClassName("cardMobile");
+      for (len = 0; len < c.length; len++)
+        c[len].style.display = "none";
+      c[whichOp].style.display = "block"
+    }
+    var corReeleito = [
+      '#F9AF73',
+      '#AC7950'
+    ]
+
+    var corGenero = [
+      '#F9AF73',
+      '#9D72AC'
+    ]
+
+    /*graphic 1 - AC*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAC',
+      size: {
+        height: 500,
+        width: 650,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'MDB', 'PP', 'REPUBLICANOS', 'PL', 'PODE', 'PSD', 'UNIÃO', 'PC do B', 'PSB', 'PSDB'],
+          ['Eleitos', 4, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 1 - AC - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicACMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'MDB', 'PP', 'REPUBLICANOS', 'PL', 'PODE', 'PSD', 'UNIÃO', 'PC do B', 'PSB', 'PSDB'],
+          ['Eleitos', 4, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 2 - AL*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAL',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'PP', 'UNIÃO', 'REPUBLICANOS', 'AVANTE', 'PL', 'PT', 'PV'],
+          ['Eleitos', 14, 4, 3, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 2 - AL - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicALMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'PP', 'UNIÃO', 'REPUBLICANOS', 'AVANTE', 'PL', 'PT', 'PV'],
+          ['Eleitos', 14, 4, 3, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 3 - AM*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAM',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'AVANTE', 'PL', 'REPUBLICANOS', 'PSC', 'PT', 'PV', 'PATRIOTA', 'MDB', 'CIDADANIA', 'PMB'],
+          ['Eleitos', 7, 4, 3, 2, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 3 - AM - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAMMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'AVANTE', 'PL', 'REPUBLICANOS', 'PSC', 'PT', 'PV', 'PATRIOTA', 'MDB', 'CIDADANIA', 'PMB'],
+          ['Eleitos', 7, 4, 3, 2, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 4 - AP*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAP',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'UNIÃO', 'MDB', 'PL', 'PSD', 'REDE', 'SOLIDARIEDADE', 'CIDADANIA', 'PODE', 'PP', 'PROS', 'PT', 'PTB', 'PV', 'REPUBLICANOS'],
+          ['Eleitos', 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 4 - AP - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicAPMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'UNIÃO', 'MDB', 'PL', 'PSD', 'REDE', 'SOLIDARIEDADE', 'CIDADANIA', 'PODE', 'PP', 'PROS', 'PT', 'PTB', 'PV', 'REPUBLICANOS'],
+          ['Eleitos', 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 5 - BA*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicBA',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'PSD', 'PT', 'PP', 'PC do B', 'PL', 'PV', 'PSDB', 'REPUBLICANOS', 'MDB', 'PSB', 'SOLIDARIEDADE', 'AVANTE', 'PATRIOTA', 'PDT', 'PSC', 'PSOL'],
+          ['Eleitos', 10, 9, 9, 6, 4, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 5 - BA - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicBAMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'PSD', 'PT', 'PP', 'PC do B', 'PL', 'PV', 'PSDB', 'REPUBLICANOS', 'MDB', 'PSB', 'SOLIDARIEDADE', 'AVANTE', 'PATRIOTA', 'PDT', 'PSC', 'PSOL'],
+          ['Eleitos', 10, 9, 9, 6, 4, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 6 - CE*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicCE',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'PT', 'PL', 'UNIÃO', 'MDB', 'PP', 'PSD', 'REPUBLICANOS', 'AVANTE', 'CIDADANIA', 'PC do B', 'PMN', 'PSDB', 'PSOL'],
+          ['Eleitos', 13, 8, 4, 4, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 6 - CE - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicCEMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PDT', 'PT', 'PL', 'UNIÃO', 'MDB', 'PP', 'PSD', 'REPUBLICANOS', 'AVANTE', 'CIDADANIA', 'PC do B', 'PMN', 'PSDB', 'PSOL'],
+          ['Eleitos', 13, 8, 4, 4, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 7 - DF*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicDF',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'MDB', 'PT', 'AGIR', 'PP', 'PSD', 'PSOL', 'AVANTE', 'CIDADANIA', 'PMN', 'PSB', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 4, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 7 - DF - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicDFMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'MDB', 'PT', 'AGIR', 'PP', 'PSD', 'PSOL', 'AVANTE', 'CIDADANIA', 'PMN', 'PSB', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 4, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 8 - ES*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicES',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'REPUBLICANOS', 'PODE', 'PSB', 'PDT', 'PP', 'PSDB', 'PT', 'UNIÃO', 'CIDADANIA', 'PATRIOTA', 'PSC', 'PSOL', 'PTB'],
+          ['Eleitos', 5, 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 8 - ES - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicESMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'REPUBLICANOS', 'PODE', 'PSB', 'PDT', 'PP', 'PSDB', 'PT', 'UNIÃO', 'CIDADANIA', 'PATRIOTA', 'PSC', 'PSOL', 'PTB'],
+          ['Eleitos', 5, 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 9 - GO*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicGO',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'UNIÃO', 'PRTB', 'PL', 'PP', 'PT', 'AGIR', 'AVANTE', 'PATRIOTA', 'PSD', 'PSDB', 'REPUBLICANOS', 'PSB', 'PSC', 'SOLIDARIEDADE'],
+          ['Eleitos', 7, 6, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 9 - GO - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicGOMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'UNIÃO', 'PRTB', 'PL', 'PP', 'PT', 'AGIR', 'AVANTE', 'PATRIOTA', 'PSD', 'PSDB', 'REPUBLICANOS', 'PSB', 'PSC', 'SOLIDARIEDADE'],
+          ['Eleitos', 7, 6, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 10 - MA*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMA',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSB', 'PC do B', 'PL', 'PDT', 'PP', 'PATRIOTA', 'MDB', 'PODE', 'PSC', 'PSD', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 11, 5, 5, 4, 4, 3, 2, 2, 2, 2, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 10 - MA - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMAMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSB', 'PC do B', 'PL', 'PDT', 'PP', 'PATRIOTA', 'MDB', 'PODE', 'PSC', 'PSD', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 11, 5, 5, 4, 4, 3, 2, 2, 2, 2, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 11 - MG*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMG',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'PL', 'PSD', 'PP', 'PV', 'AVANTE', "CIDADANIA", "PATRIOTA", "PMN", "PSC", "REPUBLICANOS", "UNIÃO", "MDB", "NOVO", "PDT", "REDE", "DC", "PC do B", "PODE", "PROS", "PSB", "PSDB", "PSOL", "SOLIDARIEDADE"],
+          ['Eleitos', 12, 9, 9, 6, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 11 - MG - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMGMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'PL', 'PSD', 'PP', 'PV', 'AVANTE', "CIDADANIA", "PATRIOTA", "PMN", "PSC", "REPUBLICANOS", "UNIÃO", "MDB", "NOVO", "PDT", "REDE", "DC", "PC do B", "PODE", "PROS", "PSB", "PSDB", "PSOL", "SOLIDARIEDADE"],
+          ['Eleitos', 12, 9, 9, 6, 4, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 12 - MS*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMS',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSDB', 'MDB', 'PL', 'PT', 'PP', 'PATRIOTA', 'PDT', 'PODE', 'PRTB', 'PSD', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 6, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 12 - MS - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMSMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSDB', 'MDB', 'PL', 'PT', 'PP', 'PATRIOTA', 'PDT', 'PODE', 'PRTB', 'PSD', 'REPUBLICANOS', 'UNIÃO'],
+          ['Eleitos', 6, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 13 - MT*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMT',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', "MDB", "PSB", "UNIÃO", "PL", "PSD", "PT", "REPUBLICANOS", "CIDADANIA", "PP", "PSDB", "PTB"],
+          ['Eleitos', 4, 4, 4, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 13 - MT - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicMTMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', "MDB", "PSB", "UNIÃO", "PL", "PSD", "PT", "REPUBLICANOS", "CIDADANIA", "PP", "PSDB", "PTB"],
+          ['Eleitos', 4, 4, 4, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 14 - PA*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPA',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'PSDB', 'DEM', 'PR', 'PSD', 'PT', 'PDT', 'PRB', 'PSC', 'PTB', 'DC', 'PATRI', 'PHS', 'PMN', 'PP', 'PPS', 'PSB', 'PSL', 'PSOL', 'SD'],
+          ['Eleitos', 6, 5, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 14 - PA - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPAMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'PT', 'PL', 'PP', 'PSDB', 'PDT', 'PODEE', 'PSC', 'PSD', 'REPUBLICANOS', 'CIDADANIA', 'PSB', 'PSOL', 'PTB', 'UNIÃO'],
+          ['Eleitos', 13, 4, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 15 - PB*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPB',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'MDB', 'PT', 'PL', 'PP', 'PSDB', 'PDT', 'PODEE', 'PSC', 'PSD', 'REPUBLICANOS', 'CIDADANIA', 'PSB', 'PSOL', 'PTB', 'UNIÃO'],
+          ['Eleitos', 13, 4, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 15 - PB - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPBMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'REPUBLICANOS', 'PSB', 'PP', 'PL', 'PSDB', 'UNIÃO', 'MDB', 'PT', 'SOLIDARIEDADE', 'PC do B', 'PSD', 'REDE'],
+          ['Eleitos', 8, 6, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 16 - PE*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPE',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSB', 'PP', 'PL', 'UNIÃO', 'PSDB', 'PT', 'PV', 'SOLIDARIEDADE', 'REPUBLICANOS', 'PATRIOTA', 'PC do B', 'PSOL'],
+          ['Eleitos', 14, 8, 5, 5, 3, 3, 3, 3, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 16 - PE - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPEMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSB', 'PP', 'PL', 'UNIÃO', 'PSDB', 'PT', 'PV', 'SOLIDARIEDADE', 'REPUBLICANOS', 'PATRIOTA', 'PC do B', 'PSOL'],
+          ['Eleitos', 14, 8, 5, 5, 3, 3, 3, 3, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 17 - PI*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPI',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'MDB', 'PP', 'REPUBLICANOS', 'SOLIDARIEDADE'],
+          ['Eleitos', 12, 9, 7, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 17 - PI - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPIMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'MDB', 'PP', 'REPUBLICANOS', 'SOLIDARIEDADE'],
+          ['Eleitos', 12, 9, 7, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 18 - PR*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPR',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSD', 'PT', 'UNIÃO', 'PL', 'PP', 'REPUBLICANOS', 'MDB', 'PODE', 'PROS', 'PSDB', 'CIDADANIA', 'PDT', 'PSB', 'SOLIDARIEDADE'],
+          ['Eleitos', 15, 7, 7, 5, 5, 3, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 18 - PR - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicPRMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSD', 'PT', 'UNIÃO', 'PL', 'PP', 'REPUBLICANOS', 'MDB', 'PODE', 'PROS', 'PSDB', 'CIDADANIA', 'PDT', 'PSB', 'SOLIDARIEDADE'],
+          ['Eleitos', 15, 7, 7, 5, 5, 3, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 19 - RJ*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRJ',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'UNIÃO', 'PT', 'PSD', 'PSOL', 'PP', 'REPUBLICANOS', 'SOLIDARIEDADE', 'MDB', 'PDT', 'PODE', 'PROS', 'PSB', 'AGIR', 'AVANTE', 'PATRIOTA', 'PC do B', 'PMN', 'PSC', 'PTB'],
+          ['Eleitos', 17, 8, 7, 6, 5, 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 4, 8, 12, 16]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 19 - RJ - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRJMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'UNIÃO', 'PT', 'PSD', 'PSOL', 'PP', 'REPUBLICANOS', 'SOLIDARIEDADE', 'MDB', 'PDT', 'PODE', 'PROS', 'PSB', 'AGIR', 'AVANTE', 'PATRIOTA', 'PC do B', 'PMN', 'PSC', 'PTB'],
+          ['Eleitos', 17, 8, 7, 6, 5, 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12, 14, 16]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 20 - RN*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRN',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSDB', 'PL', 'PT', 'PV', 'SOLIDARIEDADE', 'UNIÃO', 'MDB'],
+          ['Eleitos', 9, 4, 3, 3, 2, 2, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 20 - RN - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRNMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSDB', 'PL', 'PT', 'PV', 'SOLIDARIEDADE', 'UNIÃO', 'MDB'],
+          ['Eleitos', 9, 4, 3, 3, 2, 2, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 21 - RO*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRO',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'PATRIOTA', 'PSD', 'MDB', 'PL', 'PSC', 'REPUBLICANOS', 'PODE', 'PP', 'PSB', 'PT', 'PTB'],
+          ['Eleitos', 5, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 21 - RO - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicROMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'UNIÃO', 'PATRIOTA', 'PSD', 'MDB', 'PL', 'PSC', 'REPUBLICANOS', 'PODE', 'PP', 'PSB', 'PT', 'PTB'],
+          ['Eleitos', 5, 3, 3, 2, 2, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 22 - RR*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRR',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'REPUBLICANOS', 'PP', 'UNIÃO', 'MDB', 'PMB', 'PODE', 'PROS', 'PRTB', 'CIDADANIA', 'PL', 'PSC', 'PSD'],
+          ['Eleitos', 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 22 - RR - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRRMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'REPUBLICANOS', 'PP', 'UNIÃO', 'MDB', 'PMB', 'PODE', 'PROS', 'PRTB', 'CIDADANIA', 'PL', 'PSC', 'PSD'],
+          ['Eleitos', 4, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 23 - RS*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRS',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'PP', 'MDB', 'PL', 'PSDB', 'REPUBLICANOS', 'PDT', 'UNIÃO', 'PODE', 'PSOL', 'NOVO', 'PC do B', 'PSB', 'PTB'],
+          ['Eleitos', 11, 7, 6, 5, 5, 5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 23 - RS - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicRSMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PT', 'PP', 'MDB', 'PL', 'PSDB', 'REPUBLICANOS', 'PDT', 'UNIÃO', 'PODE', 'PSOL', 'NOVO', 'PC do B', 'PSB', 'PTB'],
+          ['Eleitos', 11, 7, 6, 5, 5, 5, 4, 3, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 24 - SC*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSC',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'MDB', 'PT', 'PODE', 'PP', 'PSD', 'UNIÃO', 'PSDB', 'NOVO', 'PDT', 'PSOL', 'PTB', 'REPUBLICANOS'],
+          ['Eleitos', 11, 6, 4, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 24 - SC - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSCMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'MDB', 'PT', 'PODE', 'PP', 'PSD', 'UNIÃO', 'PSDB', 'NOVO', 'PDT', 'PSOL', 'PTB', 'REPUBLICANOS'],
+          ['Eleitos', 11, 6, 4, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6, 8, 10, 12]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 25 - SE*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSE',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSD', 'UNIÃO', 'PL', 'REPUBLICANOS', 'CIDADANIA', 'PP', 'PV', 'PDT', 'PSOL', 'PT'],
+          ['Eleitos', 5, 4, 3, 3, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 25 - SE - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSEMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PSD', 'UNIÃO', 'PL', 'REPUBLICANOS', 'CIDADANIA', 'PP', 'PV', 'PDT', 'PSOL', 'PT'],
+          ['Eleitos', 5, 4, 3, 3, 2, 2, 2, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 2, 4, 6]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 26 - SP*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSP',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'PT', 'PSDB', 'REPUBLICANOS', 'UNIÃO', 'PSOL', 'MDB', 'PODE', 'PSD', 'PP', 'PSB', 'CIDADANIA', 'PSC', 'NOVO', 'PC do B', 'PDT', 'REDE', 'SOLIDARIEDADE'],
+          ['Eleitos', 19, 18, 9, 8, 8, 5, 4, 4, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 4, 8, 12, 16, 20]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 26 - SP - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicSPMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'PL', 'PT', 'PSDB', 'REPUBLICANOS', 'UNIÃO', 'PSOL', 'MDB', 'PODE', 'PSD', 'PP', 'PSB', 'CIDADANIA', 'PSC', 'NOVO', 'PC do B', 'PDT', 'REDE', 'SOLIDARIEDADE'],
+          ['Eleitos', 19, 18, 9, 8, 8, 5, 4, 4, 4, 3, 3, 2, 2, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 4, 8, 12, 16, 20]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+    /*graphic 27 - TO*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicTO',
+      size: {
+        height: 500,
+        width: 600,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'REPUBLICANOS', 'PL', 'PSD', 'UNIÃO', 'CIDADANIA', 'PC do B', 'PDT', 'PSB', 'PSC', 'PSDB', 'PV', 'SOLIDARIEDADE'],
+          ['Eleitos', 7, 4, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5, 6, 7]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+
+
+    /*graphic 27 - TO - mobile*/
+    var chart = c3.generate({
+      bindto: '#chart-graphicTOMobile',
+      padding: {
+        top: 0,
+        right: 0
+      },
+      size: {
+        height: 500,
+        width: 300,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', 'REPUBLICANOS', 'PL', 'PSD', 'UNIÃO', 'CIDADANIA', 'PC do B', 'PDT', 'PSB', 'PSC', 'PSDB', 'PV', 'SOLIDARIEDADE'],
+          ['Eleitos', 7, 4, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+        ],
+        type: 'bar',
+      },
+      axis: {
+        rotated: true,
+        x: {
+          type: 'category',
+        },
+        y: {
+          tick: {
+            values: [0, 1, 2, 3, 4, 5, 6, 7]
+          }
+        }
+      },
+      bar: {
+        width: {
+          ratio: 0.8
+        }
+      },
+      legend: {
+        show: false
+      },
+      padding: {
+        top: 10
+      },
+      color: {
+        pattern: ['#F9AF73'],
+      },
+      grid: {
+        y: {
+          show: true
+        }
+      }
+    });
+  </script>
+</body>
