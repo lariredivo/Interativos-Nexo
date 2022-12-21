@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Abertura - Irmãos Timotheo</title>
+</head>
+
+<style>
+    ._common__container-blank___LSHR2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    ._common__footer-blank___1HA70 {
+        width: 100%;
+        padding: 0 15%;
+    }
+
+    .TopicsNavigation__container___OlLoq {}
+
+    .Header__container___19YrK {
+        z-index: 10 !important;
+    }
+
+    progress {
+        z-index: 12 !important;
+    }
+
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .semiespecial {
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+
+    p {
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        color: #000;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
+        margin: 1rem 0;
+    }
+
+    p a {
+        text-decoration: none;
+        color: inherit;
+        box-shadow: inset 0 -2px 0 #F0D95B;
+    }
+
+    p a:hover {
+        box-shadow: inset 0 -4px 0 #F0D95B !important;
+        transition: box-shadow 0.2s ease-in;
+    }
+
+    p a:visited {
+        box-shadow: inset 0 -2px 0 #666666;
+    }
+
+    .h1 {
+        font-size: 3rem;
+        line-height: 1.125;
+        font-weight: 800;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .abre {
+        width: 100vw;
+        height: calc(100vh - 55px);
+    }
+
+    .abre-texto {
+        background-color: #B64924;
+        position: relative;
+        text-align: center;
+    }
+
+    .abre-texto-container {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translate(-18%, -50%);
+    }
+
+    .abre-container {
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        grid-template-rows: calc(100vh - 55px);
+    }
+
+    .abre-imagem img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .abre .chapeu {
+        font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+        font-size: 0.875rem;
+        line-height: 1;
+        font-weight: 600;
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: left;
+    }
+
+    .abre .creditos {
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .grid-container {
+        margin: 0 auto;
+        max-width: 1088px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        column-gap: 1rem;
+    }
+
+    .corpo {
+        grid-column: 3 / 8;
+    }
+
+    .linha-fina {
+        margin: 4rem 0 2rem;
+    }
+
+    .linha-fina p {
+        font-size: 1.375rem;
+        line-height: 1.25;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .abre {
+            height: calc(100vh - 50px - 55px);
+        }
+
+        .abre-container {
+            display: grid;
+            grid-template-columns: 100vw;
+            grid-template-rows: calc(50vh - 52.5px) calc(50vh - 52.5px);
+        }
+
+        .abre-texto {
+            grid-row: 2;
+        }
+
+        .abre-imagem {
+            grid-row: 1;
+        }
+
+        .h1 {
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        .abre .creditos {
+            font-size: 0.75rem;
+        }
+
+        .grid-container {
+            margin: 0 1rem;
+            max-width: none;
+        }
+
+        .corpo {
+            grid-column: 1 / 10 !important;
+        }
+    }
+</style>
+
+<body>
+    <div class="semiespecial">
+        <div class="abre">
+            <div class="abre-container">
+                <div class="abre-texto">
+                    <div class="abre-texto-container">
+                        <p class="chapeu">gráfico</p>
+                        <p class="h1">A trajetória dos irmãos Timotheo, precursores do modernismo</p>
+                        <p class="creditos">Por <b>Gabriella Sales</b>,<b> Larissa Redivo</b> e <b> Lucas Gomes</b><br />em 16 de fevereiro de 2022</p>
+                    </div>
+                </div>
+                <div class="abre-imagem"> <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/02/16/irmaos-timotheo-move.gif" alt="" /> </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
