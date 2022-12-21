@@ -1,1 +1,0 @@
-Projeto especial para celebrrar os 110 anos de nascimento do Luiz Gonzaga. Esse material contou com um recurso de interação com música e uma animação feita com CSS. O resultado final pode ser visto [aqui](https://www.nexojornal.com.br/grafico/2022/12/13/Rei-do-bai%C3%A3o-os-110-anos-do-nascimento-de-Luiz-Gonzaga).
