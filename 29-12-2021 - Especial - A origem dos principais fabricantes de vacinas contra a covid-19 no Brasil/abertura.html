@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abertura</title>
+</head>
+<style>
+  _common__container-blank___LSHR2 {
+    padding: 0;
+    margin: 0;
+  }
+
+  ._common__footer-blank___1HA70 {
+    width: 100%;
+    padding: 0 15%;
+  }
+
+  .TopicsNavigation__container___OlLoq {}
+
+  .Header__container___19YrK {
+    z-index: 10 !important;
+  }
+
+  progress {
+    z-index: 12 !important;
+  }
+
+  html {
+    font-size: 16px;
+    max-width: 100vw;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .semiespecial {
+    margin: 0 auto;
+  }
+
+  .abre {
+    width: 100vw;
+    height: calc(100vh - 338px);
+    background-color: #E85B22;
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .abre .chapeu {
+    font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  .abre-container {
+    width: 700px;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .abre-imagem-inicial {
+    vertical-align: middle;
+    display: block;
+    width: 28rem;
+  }
+
+  .abre-texto-container {
+    vertical-align: middle;
+    display: block;
+    margin-left: 20px;
+    margin-top: 23px;
+  }
+
+  .abre-imagem-final {
+    vertical-align: middle;
+    display: block;
+    width: 28rem;
+  }
+
+  .abre-imagem-mobile {
+    display: none;
+  }
+
+  p {
+    font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+    color: 333333;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 200;
+    text-rendering: optimizeLegibility;
+    margin: 1rem 0;
+  }
+
+  .h1 {
+    line-height: 32px;
+    font-size: 30px;
+    color: #EDEDED;
+    font-weight: 100;
+    /*width: 58%;*/
+  }
+
+  .h1-book {
+    line-height: 32px;
+    font-size: 30px;
+    color: #EDEDED;
+    font-weight: 800;
+    /*width: 58%;*/
+  }
+
+  .h1-bold {
+    line-height: 32px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 800;
+    /*width: 58%;*/
+  }
+
+  .h2 {
+    font-size: 48px;
+    line-height: 57px;
+    font-weight: 200;
+    margin: 4rem 0 2rem;
+    position: relative;
+    color: #4FB16F;
+  }
+
+  .h3 {
+    font-size: 36px !important;
+    line-height: 42px;
+    color: 333333;
+  }
+
+  .abre {
+    width: 100vw;
+    height: calc(100vh - 338px);
+    background-color: #E85B22;
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .abre-container {
+    display: flex;
+    height: calc(100vh - 338px);
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+  .abre .chapeu {
+    font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  .abre .creditos {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #EDEDED;
+  }
+
+  /*Início linha fina*/
+  .box-linha-fina {
+    display: grid;
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: #C4E5CF;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .linha-fina {
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 2%;
+  }
+
+  .linha-fina p {
+    font-size: 24px;
+    line-height: 36px;
+    color: #333333;
+    margin-left: 38%;
+    width: 26%;
+  }
+
+  @media only screen and (min-width: 1024px) and (max-width: 2560px) {
+
+    .img1,
+    .img2 {
+      display: none;
+    }
+
+    .abre-imagem-inicial {
+      width: 272.5px;
+      height: 209.32px;
+    }
+
+    .abre-imagem-final {
+      width: 277.5px;
+      height: 209.32px;
+    }
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 1023px) {
+    .abre {
+      width: 136vw;
+    }
+
+    .linha-fina p {
+      font-size: 24px;
+      line-height: 36px;
+      color: #333333;
+      margin-left: 38%;
+      width: 51%;
+    }
+  }
+
+  /*mobile*/
+  @media only screen and (max-width: 599px) and (min-width: 321px) {
+    .abre {
+      height: calc(100vh - 100px);
+    }
+
+    .abre-container {
+      display: grid;
+
+    }
+
+    .abre-imagem-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+      width: 120px;
+      height: 235.3px;
+      margin-left: 18px;
+      margin-right: 66.68px;
+      margin-top: -57px;
+      grid-gap: 1rem;
+    }
+
+    .img1,
+    .img2 {
+      gap: 500px;
+    }
+
+    .img1 {
+      flex: 1;
+      width: 118px;
+      height: 17px;
+    }
+
+    .img2 {
+      flex: 1;
+      height: 62px;
+      width: 118px;
+    }
+
+    .abre-texto {
+      grid-row: 0;
+    }
+
+    .abre-texto-container {
+      height: 100vh;
+      top: 56%;
+      left: 24%;
+      margin-top: -176px;
+      grid-row: 0;
+      max-height: 100%;
+      /* transform: translate(-18%, -50%); */
+    }
+
+    .abre-imagem-inicial {
+      display: none;
+    }
+
+    .abre-imagem-final {
+      display: none;
+    }
+
+    .h1 {
+      line-height: 36px;
+      font-size: 25px;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .h1-book {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    .h1-bold {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+
+    .linha-fina p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      color: #333333;
+      margin-left: 8%;
+      width: 88%;
+    }
+
+
+    .linha-fina {
+      margin: 0;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+
+    .creditos {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .box-linha-fina {
+      margin: 0 auto;
+      max-width: 100%;
+      background-color: #C3E4CE;
+    }
+  }
+
+  @media only screen and (max-width: 320px) and (min-width: 281px) {
+    .abre {
+      height: calc(100vh - 100px);
+    }
+
+    .abre-container {
+      display: grid;
+
+    }
+
+    .abre-imagem-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+      width: 120px;
+      height: 235.3px;
+      margin-left: 18px;
+      margin-right: 66.68px;
+      margin-top: -63px;
+      grid-gap: 1rem;
+    }
+
+    .img1,
+    .img2 {
+      gap: 500px;
+    }
+
+    .img1 {
+      flex: 1;
+      width: 112px;
+      height: 12px;
+    }
+
+    .img2 {
+      flex: 1;
+      height: 12px;
+      width: 112px;
+    }
+
+    .abre-texto {
+      grid-row: 0;
+    }
+
+    .abre-texto-container {
+      height: 100vh;
+      top: 56%;
+      left: 24%;
+      margin-top: -187px;
+      grid-row: 0;
+      max-height: 100%;
+      /* transform: translate(-18%, -50%); */
+    }
+
+    .abre-imagem-inicial {
+      display: none;
+    }
+
+    .abre-imagem-final {
+      display: none;
+    }
+
+    .h1 {
+      line-height: 36px;
+      font-size: 25px;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .h1-book {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    .h1-bold {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+
+    .linha-fina p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      color: #333333;
+      margin-left: 8%;
+      width: 76%;
+    }
+
+
+    .linha-fina {
+      margin: 0;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+
+    .creditos {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .box-linha-fina {
+      margin: 0 auto;
+      max-width: 100%;
+      background-color: #C3E4CE;
+    }
+
+  }
+
+
+  @media only screen and (max-width: 280px) {
+    .abre {
+      height: calc(100vh - 100px);
+    }
+
+    .abre-container {
+      display: grid;
+
+    }
+
+    .abre-imagem-mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+      width: 120px;
+      height: 235.3px;
+      margin-left: 18px;
+      margin-right: 66.68px;
+      margin-top: -67px;
+      grid-gap: 1rem;
+    }
+
+    .img1,
+    .img2 {
+      gap: 500px;
+    }
+
+    .img1 {
+      flex: 1;
+      width: 81px;
+      height: 17px;
+    }
+
+    .img2 {
+      flex: 1;
+      height: 30px;
+      width: 81px;
+    }
+
+    .abre-texto {
+      grid-row: 0;
+    }
+
+    .abre-texto-container {
+      height: 100vh;
+      top: 56%;
+      left: 24%;
+      margin-top: -278px;
+      grid-row: 0;
+      max-height: 100%;
+      /* transform: translate(-18%, -50%); */
+    }
+
+    .abre-imagem-inicial {
+      display: none;
+    }
+
+    .abre-imagem-final {
+      display: none;
+    }
+
+    .h1 {
+      line-height: 36px;
+      font-size: 25px;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .h1-book {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    .h1-bold {
+      line-height: 36px;
+      font-size: 30px;
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+
+    .linha-fina p {
+      margin: 0;
+      font-size: 20px;
+      line-height: 28px;
+      color: #333333;
+      margin-left: 8%;
+      width: 89%;
+    }
+
+
+    .linha-fina {
+      margin: 0;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+
+    .creditos {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .box-linha-fina {
+      margin: 0 auto;
+      max-width: 100%;
+      background-color: #C3E4CE;
+    }
+
+  }
+</style>
+
+<body>
+  <div class="semiespecial">
+    <div class="abre">
+      <div class="abre-container">
+
+        <div class="abre-imagem-mobile">
+          <div class="img1">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/especiais/2021/11/26/fiocruz.png">
+          </div>
+          <div class="img2">
+            <img src="https://assets.shared.cloud.nexojornal.com.br/especiais/2021/11/26/butantan.png">
+          </div>
+        </div>
+
+        <div class="abre-imagem-inicial">
+          <img src="https://assets.shared.cloud.nexojornal.com.br/especiais/2021/11/26/fiocruz.png" alt="Ilustração de parte da sede da Fiocruz" />
+        </div>
+
+        <div class="abre-texto-container">
+          <p class="chapeu">Especial</p>
+          <p class="h1">A origem dos principais</p>
+          <p class="h1-book">fabricantes de vacina contra a covid-19 no Brasil</p>
+          <p class="creditos"><b>Lucas Gomes e Caroline Souza</b><br /><i>em 29 de dezembro de 2021</i></p>
+        </div>
+
+        <div class="abre-imagem-final">
+          <img src="https://assets.shared.cloud.nexojornal.com.br/especiais/2021/11/26/butantan.png" alt="Ilustração de parte da sede do Butantan" />
+        </div>
+      </div>
+    </div>
+    <div class="box-linha-fina">
+      <div class="linha-fina">
+        <p>O ‘Nexo’ apresenta a história das instituições científicas centenárias que produzem duas das vacinas que combatem o novo coronavírus no país </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
