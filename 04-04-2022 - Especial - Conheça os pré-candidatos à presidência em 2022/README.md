@@ -13,4 +13,4 @@
 
 <p> Os elementos da parte de cima do card (contidos em "cartão-topo") foram alinhados um a um por meio da função "translate()". Isso tornou o código mais extenso e poderá ser uma melhoria numa nova versão do projeto.
   
- <p>O resultado final do projeto pode ser visualizado na seguinte página:</p>
+ O resultado final do projeto pode ser visualizado na [seguinte página](https://www.nexojornal.com.br/especial/2022/05/11/Conhe%C3%A7a-os-candidatos-%C3%A0-Presid%C3%AAncia-nas-elei%C3%A7%C3%B5es-de-2022)
