@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abertura</title>
+</head>
+
+<style>
+    /* Mantenha o código abaixo dessa linha para alinhar com o estilo da página do nexo */
+    ._common__container-blank___LSHR2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    ._common__footer-blank___1HA70 {
+        width: 100%;
+        padding: 0 15%;
+    }
+
+    .Header__container___19YrK {
+        z-index: 10 !important;
+    }
+
+    /*Mantenha o código acima dessa linha para alinhar com o estilo da página do nexo */
+    progress {
+        z-index: 12 !important;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .containerBackground {
+        background-color: #151517;
+    }
+
+    .container {
+        display: flex;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 100px;
+    }
+
+    .containerImg {
+        width: 50%;
+    }
+
+    .containerText {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 100px;
+        padding-right: 60px;
+    }
+
+    .title {
+        font-family: "Gotham Rnd SSm", "Gotham Rounded SSm A", "Gotham Rounded SSm B", sans-serif;
+        font-size: 0.875rem;
+        line-height: 1;
+        font-weight: 600;
+        color: #F6E3D7;
+        /*alterar a cor do texto do chapéu*/
+        text-transform: uppercase;
+        text-align: left;
+        margin-bottom: 29px;
+    }
+
+    .desc {
+        font-size: 3rem;
+        line-height: 1.125;
+        font-weight: 800;
+        color: #F6E3D7;
+        /*alterar a cor do título da matéria*/
+        text-align: left;
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        margin-bottom: 20px;
+    }
+
+    .credit {
+        font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #F6E3D7;
+        /*alterar a cor dos créditos*/
+        text-align: left;
+        padding-right: 30px;
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        margin-bottom: 30px;
+    }
+
+    .contentBackground {
+        background-color: #F2B336;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 54%);
+        min-height: 450px;
+    }
+
+    .content {
+        display: flex;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .contentText {
+        font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+        font-style: italic;
+        font-size: 22px;
+        line-height: 38px;
+        padding-left: 100px;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+
+    .concertina {
+        max-width: 450px;
+        animation: myAnim 4s cubic-bezier(0.5, 1, 0.89, 1) 0s infinite normal forwards;
+        display: flex;
+        margin-left: 277px;
+        margin-top: -277px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: 2001px) {
+        .concertina {
+            margin-left: 856px;
+        }
+
+        .contentText {
+            font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+            font-style: italic;
+            font-size: 22px;
+            line-height: 38px;
+            padding-left: 100px;
+            padding-right: 20px;
+            margin-top: 40px;
+            width: 55%;
+            margin-left: 106px;
+        }
+    }
+
+    @media(min-width: 1501px) and (max-width: 2000px) {
+        .concertina {
+            margin-left: 356px;
+        }
+
+        .contentText {
+            font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+            font-style: italic;
+            font-size: 22px;
+            line-height: 38px;
+            padding-left: 100px;
+            padding-right: 20px;
+            margin-top: 40px;
+            width: 55%;
+            margin-left: 106px;
+        }
+    }
+
+    @media (min-width: 1101px) and (max-width: 1500px) {
+        .contentText {
+            font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+            font-style: italic;
+            font-size: 22px;
+            line-height: 38px;
+            padding-left: 237px;
+            padding-right: 20px;
+            margin-top: 40px;
+            width: 60%;
+        }
+
+        .concertina {
+            max-width: 450px;
+            animation: myAnim 4s cubic-bezier(0.5, 1, 0.89, 1) 0s infinite normal forwards;
+            display: flex;
+            margin-left: 320px;
+            margin-top: -277px;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (min-width: 8000px) and (max-width: 1100px) {
+        .contentText {
+            font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+            font-style: italic;
+            font-size: 22px;
+            line-height: 38px;
+            padding-left: 161px;
+            padding-right: 20px;
+            margin-top: 40px;
+            width: 81%;
+        }
+
+        .concertina {
+            max-width: 450px;
+            animation: myAnim 4s cubic-bezier(0.5, 1, 0.89, 1) 0s infinite normal forwards;
+            display: flex;
+            margin-left: 260px;
+            margin-top: -277px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+
+        .containerImg {
+            width: 100%;
+        }
+
+        .containerText {
+            width: 80%;
+            padding-left: 30px;
+            /* margin-top: 15px;*/
+        }
+
+        .contentText {
+            padding-left: 30px;
+            padding-right: 15px;
+            width: 48%;
+            margin-left: 285px;
+        }
+
+        .concertina {
+            width: 90%;
+            animation: myAnim 4s cubic-bezier(0.5, 1, 0.89, 1) 0s infinite normal forwards;
+            display: flex;
+            margin-left: 307px;
+            margin-right: auto;
+            margin-top: -240px;
+        }
+
+        .desc {
+            font-size: 1.9rem;
+            line-height: 1.125;
+            font-weight: 800;
+            color: #F6E3D7;
+            text-align: left;
+            font-family: "Sentinel SSm A", "Sentinel SSm B", "Sentinel SSm", serif;
+            padding-bottom: 20px;
+            width: 112%;
+        }
+
+        .title {
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .credit {
+            padding-bottom: 20px;
+        }
+
+        .italic {
+            padding-top: 50px;
+        }
+    }
+
+    @media (min-width: 461px) and (max-width: 759px) {
+        .concertina {
+            margin-left: 15px;
+        }
+
+        .containerText {
+            width: 83%;
+            padding-left: 30px;
+        }
+
+        .contentText {
+            width: 77%;
+            margin-left: 21px;
+        }
+
+        .credit {
+            width: 144%;
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        .desc {
+            width: 138%;
+        }
+
+        .concertina {
+            margin-left: 15px;
+        }
+
+    }
+
+    @media (max-width: 460px) {
+        .containerText {
+            width: 83%;
+            padding-left: 30px;
+        }
+
+        .contentText {
+            width: 77%;
+            margin-left: 21px;
+        }
+
+        .credit {
+            width: 144%;
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        .desc {
+            width: 138%;
+        }
+
+        .concertina {
+            margin-left: 15px;
+        }
+    }
+
+    @keyframes myAnim {
+
+        0%,
+        100% {
+            transform: translateX(0%);
+            transform-origin: 50% 50%;
+        }
+
+        15% {
+            transform: translateX(-30px) rotate(6deg);
+        }
+
+        30% {
+            transform: translateX(15px) rotate(-6deg);
+        }
+
+        45% {
+            transform: translateX(-15px) rotate(3.6deg);
+        }
+
+        60% {
+            transform: translateX(9px) rotate(-2.4deg);
+        }
+
+        75% {
+            transform: translateX(-6px) rotate(1.2deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="containerBackground">
+        <div class="container">
+            <div class="containerText">
+                <p class="title">especial</p>
+                <span class="desc">Rei do baião: os 110 anos de nascimento de Luiz Gonzaga</span>
+                <p class="credit">Por <b>Caroline Souza</b>, <b>Cesar Gaglioni</b>, <b>Gabriel Zanlorenssi</b>, <b>Larissa Redivo</b>, <b>Mariana Froner</b> e <b>Nicholas Pretto</b><br /><i class="italic">em 13 de dezembro de 2022</i></p>
+            </div>
+            <img src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/12/06/especial-lg-abertura-v2.gif" alt="" class="containerImg" />
+        </div>
+    </div>
+    <div class="contentBackground">
+        <div class="content">
+            <div class="contentText">
+                <span>Conheça a história do compositor pernambucano que se tornou porta-voz da sonoridade nordestina</span>
+            </div>
+        </div>
+    </div>
+    <img class="concertina" src="https://assets.shared.cloud.nexojornal.com.br/graficos/2022/12/06/especial-lg-ilus-sanfona%20(1).png" alt="">
+</body>
+
+</html>
